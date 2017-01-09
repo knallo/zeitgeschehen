@@ -1,4 +1,4 @@
-<header>
+<header id="header">
 	<h1>Argumente gegen das Zeitgeschehen</h1>
 	<nav>
 		<ul>
