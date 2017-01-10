@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script src="js/jquery.js" type="text/javascript"></script>
 </head>
 <body>
 	<?php
