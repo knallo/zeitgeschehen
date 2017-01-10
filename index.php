@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<!-- <link rel="stylesheet" href="/css/style.css" type="text/css" />  Datei muss noch erstellt werden -->
-
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
 	<?php
