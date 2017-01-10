@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php
-		//include("header.inc");
+		include("includes/header.inc");
 	?>
 
 	<main>
@@ -23,7 +23,7 @@
 					$p == "programm" ||
 					$p == "haus" ||
 					$p == "kosten" ||
-					$p == "abfahrt" ||
+					$p == "anfahrt" ||
 					$p == "anmeldung") {
 					include("content/".$p.".inc");
 				} else {
@@ -33,9 +33,12 @@
 		</content>
 		<sidebar>
 			<?php
-				//include("includes/sidebar.inc");
+				include("includes/side.inc");
 			?>
 		</sidebar>
 	</main>
+	<?php
+		include("includes/footer.inc");
+	?>
 </body>
 </html>
