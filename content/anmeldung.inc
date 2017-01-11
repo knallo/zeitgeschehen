@@ -50,7 +50,7 @@
 <input type="text" name="name" placeholder="Pseudonym" required>
 <br />
 <p><strong>Aus welchem Ort kommst du (ungefähr)?</strong></p>
-<input type="text" name="ort" placeholder="Bremen">
+<input type="text" name="ort" placeholder="Bremen" onclick="test()">
 <br />
 <p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>
 <label><input type="radio" name="gruppe" value="1"> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
@@ -72,11 +72,11 @@
 <input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!"><br />
 <br />
 <p><strong>Wir brauchen vor Ort wahrscheinlich wieder das eine oder andere Auto samt Fahrer, um zwischendurch Einkäufe u.ä. zu erledigen.</strong></p>
-<label><input type="radio" name="autoBesitzen" value="2" checked>Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
-<label><input type="radio" name="autoBesitzen" value="1">Ich kann ein Auto zur Verfügung stellen</label><br />
+<label><input type="radio" name="autoBesitzen" value="2" id="besitztKeinAuto" onclick="autofrage()" checked>Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
+<label><input type="radio" name="autoBesitzen" value="1" id="besitztAuto" onclick="autofrage()">Ich kann ein Auto zur Verfügung stellen</label><br />
 <br />
 
-<span id="autofrage">
+<div id="autofrage">
 	<p><strong>Größe des Autos / Platz im Auto</strong></p>
 	<input type="text" name="autoGroesse" placeholder="Opel Astra"><br />
 	<br />
@@ -86,7 +86,7 @@
 	<p><strong>Deine Telefonnummer (für Absprache bzgl. Mitfahrmöglichkeiten u.ä.)</strong></p>
 	<input type="text" name="telefon" placeholder="0173 891276345">
 	<br />
-</span>
+</div>
 
 <p><strong>Würdest du bei Bedarf eine Autofahrt übernehmen und hast einen Führerschein (für einige Autos müssen die Fahrer über 25 sein wegen der Versicherung)?</strong></p>
 <label><input type="radio" name="autoFahren" value="1">Ja und ich bin über 25J</label><br />
@@ -102,3 +102,18 @@
 <input type="submit" name="absenden" value="Jetzt anmelden!">
 
 </form>
+
+<script>
+// Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
+$("#autofrage").hide();
+function autofrage() {
+	var besitztAuto = document.getElementById("besitztAuto");
+	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
+
+	if (besitztKeinAuto.checked){
+	    $("#autofrage").hide(400);
+	} else if (besitztAuto.checked) {
+	    $("#autofrage").show(400);
+	}
+}
+</script>
