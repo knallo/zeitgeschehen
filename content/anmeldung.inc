@@ -50,7 +50,7 @@
 <input type="text" name="name" placeholder="Pseudonym" required>
 <br />
 <p><strong>Aus welchem Ort kommst du (ungefähr)?</strong></p>
-<input type="text" name="ort" placeholder="Bremen" onclick="test()">
+<input type="text" name="ort" placeholder="Bremen">
 <br />
 <p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>
 <label><input type="radio" name="gruppe" value="1"> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
