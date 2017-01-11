@@ -4,3 +4,4 @@
 * Anmelde-Seite mit MySQL-DB verknüpfen
 * Metadaten einfügen (brauchts das?)
 * Für Mobilgeräte kompatibel machen
+* Ggf. Sidebar löschen und ihren Inhalt im restlichen Content unterbringen
