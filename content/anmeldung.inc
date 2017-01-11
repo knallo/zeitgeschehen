@@ -2,6 +2,49 @@
 	Anmeldung
 </h1>
 
+<?php
+
+	if (!empty($_POST['absenden'])) {
+		// An welchen Tagen bist du da?
+		if (!empty($_POST['tag1'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag2'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag3'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag4'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag5'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+
+		// Der Eintrag in die Datenbank
+			// HIER FEHLT NOCH CODE
+
+		//Diese Nachricht nur bei gespeicherten Daten anzeigen:
+		?>
+
+		<div class='alert alert-success'>Deine Anmeldung ist gespeichert. Alle notwendigen Infos (wie bspw. einen Muttibrief für den Fall, dass du noch unter 18 bist) schicken wir dir rechtzeitig zu. Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href='mailto:zeitgeschehen@riseup.net'>zeitgeschehen&#64;riseup.net</a>.</div>
+
+		<?php
+	}
+
+?>
+
 <form action="" method="post">
 <p><strong>Dein Vorname / Pseudonym</strong></p>
 <input type="text" name="name" placeholder="Pseudonym" required>
