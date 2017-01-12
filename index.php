@@ -10,27 +10,27 @@
 	?>
 
 	<main>
-		<?php
-			//Die richtige Seite öffnen
-			if (!empty($_GET['p'])) {
-				$p = $_GET['p'];
-			} else {
-				$p = "allgemeines";
-			}
+		<article>
+			<?php
+				//Die richtige Seite öffnen
+				if (!empty($_GET['p'])) {
+					$p = $_GET['p'];
+				} else {
+					$p = "allgemeines";
+				}
 				if ($p == "allgemeines" ||
 				$p == "programm" ||
 				$p == "haus" ||
 				$p == "kosten" ||
 				$p == "anfahrt" ||
-				$p == "anmeldung") {
-				include("content/".$p.".inc");
-			} else {
-				include("content/404.inc");
-			}
-		?>
+				$p == "anmeldung" ||
+				$p == "kontakt")	{
+					include("content/".$p.".inc");
+				} else {
+					include("content/404.inc");
+				}
+			?>
+		</article>
 	</main>
-	<?php
-		include("includes/side.inc");
-	?>
 </body>
 </html>

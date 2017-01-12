@@ -1,6 +1,14 @@
 <h1>
 	Programm
 </h1>
+
+<h1>Eckdaten</h1>
+<p>Das Haus ist geöffnet von <b>02.06.</b> bis <b>06.06.17</b></p>
+<ol>
+	<li>Workshopschiene: von <b>03.06., 11 Uhr</b> bis <b>04.06., 14 Uhr</b></li>
+	<li>Workshopschiene: von <b>04.06., 17 Uhr</b> bis <b>05.06., 20 Uhr</b></li>
+</ol>
+
 <p>Jedes der Themen wird neunstündig (drei mal drei Stunden) behandelt - zwei Themen werden Samstag und Sonntagvormittag behandelt, die beiden anderen Sonntagnachmittag und Pfingstmontag.</p>
 <p> </p>
 <p><strong>03.-04. Juni</strong> </p>

@@ -8,6 +8,7 @@
 			<li><a href="?p=kosten">Kosten</a></li>
 			<li><a href="?p=anfahrt">Anfahrt</a></li>
 			<li><a href="?p=anmeldung">Anmeldung</a></li>
+			<li><a href="?p=kontakt">Kontakt</a></li>
 		</ul>
 	</nav>
 </header>

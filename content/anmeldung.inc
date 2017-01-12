@@ -2,6 +2,11 @@
 	Anmeldung
 </h1>
 
+<h1>Für alle unter 18</h1>
+<p>
+	Um uns rechtlich abzusichern haben wir einen Muttifbrief geschrieben, den nach Möglichkeit alle Minderjährigen unterschrieben mitbringen sollen. Wenn es dabei Probleme gibt, schreibt uns einfach an. 
+</p>
+
 <form action="" method="post">
 <p><strong>Dein Vorname / Pseudonym</strong></p>
 <input type="text" name="name" placeholder="Pseudonym" required>
