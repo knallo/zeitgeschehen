@@ -2,7 +2,7 @@
 	<h1>Argumente gegen das Zeitgeschehen</h1>
 	<nav>
 		<ul>
-			<li onClick="loadPage('allgemeines')"><b>Allgemeines</b></li>
+			<li onClick="loadPage('allgemeines')" id="lastSelected"><b>Allgemeines</b></li>
 			<li onClick="loadPage('programm')"><b>Programm</b></li>
 			<li onClick="loadPage('haus')"><b>Das Haus</b></li>
 			<li onClick="loadPage('kosten')"><b>Kosten</b></li>
