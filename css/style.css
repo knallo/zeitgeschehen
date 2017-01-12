@@ -1,3 +1,8 @@
+/* all */
+body {
+	font-family: sans;
+}
+
 /* header */
 nav {
 	display: inline-block;
@@ -38,4 +43,5 @@ article {
 	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-bottom: 30px;
 }
