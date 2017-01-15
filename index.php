@@ -12,7 +12,29 @@
 	<main>
 		<article>
 			<?php
-				include("content/allgemeines.inc");
+				if (!empty($_GET['p'])) {
+					$p = $_GET['p'];
+				} else {
+					$p = "allgemeines";
+					echo 	'<script type="text/javascript">',
+						'history.replaceState({title: "allgemeines"}, "allgemeines", "?p=allgemeines");',
+						'</script>';
+				}
+				
+				if (	$p == "allgemeines" ||
+					$p == "programm" ||
+					$p == "haus" ||
+					$p == "kosten" ||
+					$p == "anfahrt" ||
+					$p == "anmeldung" ||
+					$p == "kontakt") {
+					include('content/'.$p.'.inc');
+					echo 	'<script type="text/javascript">',
+						'markMenu("'.$p.'");',
+						'</script>';
+				} else {
+					include('content/404.inc');
+				}
 			?>
 		</article>
 	</main>
