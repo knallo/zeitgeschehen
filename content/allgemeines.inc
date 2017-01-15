@@ -8,5 +8,5 @@
 <p>Bitte stellt euch darauf ein, dass es auch einige Aufgaben zu erledigen geben wird (putzen, Essen kochen, abwaschen usw.), von denen jeder etwas übernimmt.</p>
 <p>Für die Kostendeckung wäre es gut, wenn wir von möglichst allen einen finanziellen Eigenanteil bekommen. Ein Teil der Kosten wird über Stiftungen abgedeckt, aber Eigenbeiträge von ca. 60 € pro Teilnehmer werden nach wie vor benötigt, um Essen und Übernachtung zu finanzieren.<br />
 	Natürlich gibt es verschiedenste Gründe, warum sich Einzelne den Eigenanteil nicht leisten können. Wer weniger oder gar nichts zahlen kann, der macht halt das - die eigene finanzielle Situation soll auf keinen Fall ein Grund sein, nicht mitzukommen! Umgekehrt freuen wir uns dann aber natürlich auch, wenn Einzelne etwas mehr als den Richtwert zahlen können.<br />
-	Weiteres dazu unter <a href="?p=kosten">➙ Kosten</a></p>.
+	Weiteres dazu unter <a href="?p=kosten">➙ Kosten</a>.</p>
 <p>Wir freuen uns, wenn ihr auch noch interessierte <strong>Freunde und Bekannte</strong> mitbringt - Hauptsache, die melden sich dann auch an, damit wir unsere Essenplanung darauf abstimmen können.</p>

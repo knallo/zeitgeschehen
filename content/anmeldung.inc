@@ -2,10 +2,52 @@
 	Anmeldung
 </h1>
 
-<h1>Für alle unter 18</h1>
+<h2>Für alle unter 18</h2>
 <p>
 	Um uns rechtlich abzusichern haben wir einen Muttifbrief geschrieben, den nach Möglichkeit alle Minderjährigen unterschrieben mitbringen sollen. Wenn es dabei Probleme gibt, schreibt uns einfach an. 
 </p>
+
+<?php
+	if (!empty($_POST['absenden'])) {
+		// An welchen Tagen bist du da?
+		if (!empty($_POST['tag1'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag2'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag3'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag4'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+		if (!empty($_POST['tag5'])) {
+			$tage = "x";
+		} else {
+			$tage = "0";
+		}
+
+		// Der Eintrag in die Datenbank
+			// HIER FEHLT NOCH CODE
+
+		//Diese Nachricht nur bei gespeicherten Daten anzeigen:
+		?>
+
+		<div class='alert alert-success'>Deine Anmeldung ist gespeichert. Alle notwendigen Infos (wie bspw. einen Muttibrief für den Fall, dass du noch unter 18 bist) schicken wir dir rechtzeitig zu. Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href='mailto:zeitgeschehen@riseup.net'>zeitgeschehen&#64;riseup.net</a>.</div>
+
+		<?php
+	}
+
+?>
 
 <form action="" method="post">
 <p><strong>Dein Vorname / Pseudonym</strong></p>
@@ -34,11 +76,11 @@
 <input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!"><br />
 <br />
 <p><strong>Wir brauchen vor Ort wahrscheinlich wieder das eine oder andere Auto samt Fahrer, um zwischendurch Einkäufe u.ä. zu erledigen.</strong></p>
-<label><input type="radio" name="autoBesitzen" value="2" checked>Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
-<label><input type="radio" name="autoBesitzen" value="1">Ich kann ein Auto zur Verfügung stellen</label><br />
+<label><input type="radio" name="autoBesitzen" value="2" id="besitztKeinAuto" onclick="autofrage()" checked>Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
+<label><input type="radio" name="autoBesitzen" value="1" id="besitztAuto" onclick="autofrage()">Ich kann ein Auto zur Verfügung stellen</label><br />
 <br />
 
-<span id="autofrage">
+<div id="autofrage">
 	<p><strong>Größe des Autos / Platz im Auto</strong></p>
 	<input type="text" name="autoGroesse" placeholder="Opel Astra"><br />
 	<br />
@@ -48,7 +90,7 @@
 	<p><strong>Deine Telefonnummer (für Absprache bzgl. Mitfahrmöglichkeiten u.ä.)</strong></p>
 	<input type="text" name="telefon" placeholder="0173 891276345">
 	<br />
-</span>
+</div>
 
 <p><strong>Würdest du bei Bedarf eine Autofahrt übernehmen und hast einen Führerschein (für einige Autos müssen die Fahrer über 25 sein wegen der Versicherung)?</strong></p>
 <label><input type="radio" name="autoFahren" value="1">Ja und ich bin über 25J</label><br />
@@ -64,3 +106,18 @@
 <input type="submit" name="absenden" value="Jetzt anmelden!">
 
 </form>
+
+<script>
+// Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
+$("#autofrage").hide();
+function autofrage() {
+	var besitztAuto = document.getElementById("besitztAuto");
+	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
+
+	if (besitztKeinAuto.checked){
+	    $("#autofrage").hide(400);
+	} else if (besitztAuto.checked) {
+	    $("#autofrage").show(400);
+	}
+}
+</script>
