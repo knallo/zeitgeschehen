@@ -12,25 +12,37 @@
 			$tage = "0";
 		}
 		if (!empty($_POST['tag2'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag3'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag4'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag5'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
+
+		include("mysql/connect.inc");
+		$sql = "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein)
+		VALUES ('".$_POST['name']."', '$tage' '".$_POST['geld']."', '".$_POST['essen']."', '".$_POST['mail']."', '".$_POST['gruppe']."', '".$_POST['ort']."', '".$_POST['sonstso']."', '".$_POST['autoBesitzen']."', '".$_POST['autoGroesse']."', '".$_POST['autoFahren']."', '".$_POST['telefon']."', '".$_POST['fahrer']."')";
+
+		if ($conn->query($sql) === TRUE) {
+		    echo "Deine Anmeldung wurde gespeichert";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+
+		$conn->close();
 
 		// Der Eintrag in die Datenbank
 			// HIER FEHLT NOCH CODE
