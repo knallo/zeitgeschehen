@@ -1,6 +1,50 @@
+/* all */
 body {
-	background-color: #ddd;
+	font-family: sans-serif;
 }
 
+/* header */
+nav {
+	display: flex;
+	justify-content: center;
+}
 
+header ul {
+	display: inline-block;
+	list-style: none;
+	background-color: rgba(0, 0, 0, 0.9);
+	border-radius: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: auto;
+}
 
+header h1 {
+	text-align: center;
+}
+
+header li {
+	float: left;
+	padding: 10px 20px 10px 20px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#lastSelected {
+	background-color: red;
+	border-radius: 10px;
+}
+
+/* content */
+main {
+	width: 100%;
+}
+
+article {
+	display: block;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 30px;
+}

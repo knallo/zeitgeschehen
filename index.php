@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/logic.js" type="text/javascript"></script>
 </head>
 <body>
 	<?php
@@ -10,35 +10,33 @@
 	?>
 
 	<main>
-		<content>
+		<article>
 			<?php
-				//Die richtige Seite öffnen
 				if (!empty($_GET['p'])) {
 					$p = $_GET['p'];
 				} else {
 					$p = "allgemeines";
+					echo 	'<script type="text/javascript">',
+						'history.replaceState({title: "allgemeines"}, "allgemeines", "?p=allgemeines");',
+						'</script>';
 				}
-
-				if ($p == "allgemeines" ||
+				
+				if (	$p == "allgemeines" ||
 					$p == "programm" ||
 					$p == "haus" ||
 					$p == "kosten" ||
 					$p == "anfahrt" ||
-					$p == "anmeldung") {
-					include("content/".$p.".inc");
+					$p == "anmeldung" ||
+					$p == "kontakt") {
+					include('content/'.$p.'.inc');
+					echo 	'<script type="text/javascript">',
+						'markMenu("'.$p.'");',
+						'</script>';
 				} else {
-					include("content/404.inc");
+					include('content/404.inc');
 				}
 			?>
-		</content>
-		<sidebar>
-			<?php
-				include("includes/side.inc");
-			?>
-		</sidebar>
+		</article>
 	</main>
-	<?php
-		include("includes/footer.inc");
-	?>
 </body>
 </html>
