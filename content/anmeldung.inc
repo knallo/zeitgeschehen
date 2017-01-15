@@ -16,35 +16,57 @@
 			$tage = "0";
 		}
 		if (!empty($_POST['tag2'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag3'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag4'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 		if (!empty($_POST['tag5'])) {
-			$tage = "x";
+			$tage .= "x";
 		} else {
-			$tage = "0";
+			$tage .= "0";
 		}
 
-		// Der Eintrag in die Datenbank
-			// HIER FEHLT NOCH CODE
+		include("mysql/connect.inc");
 
-		//Diese Nachricht nur bei gespeicherten Daten anzeigen:
+		// prepare and bind
+		$stmt = $conn->prepare("INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param("sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
+
+		// set parameters and execute
+		$sql_name = $_POST['name'];
+		$sql_tage = $tage;
+		$sql_geld = $_POST['geld'];
+		$sql_essen = $_POST['essen'];
+		$sql_mail = $_POST['mail'];
+		$sql_anfahrt = $_POST['gruppe'];
+		$sql_ort = $_POST['ort'];
+		$sql_sonstiges = $_POST['sonstso'];
+		$sql_autoda = $_POST['autoBesitzen'];
+		$sql_gros = $_POST['autoGroesse'];
+		$sql_recht = $_POST['autoVersicherung'];
+		$sql_tel = $_POST['telefon'];
+		$sql_fuhrerschein = $_POST['autoFahren'];
+		$stmt->execute();
+
 		?>
 
 		<div class='alert alert-success'>Deine Anmeldung ist gespeichert. Alle notwendigen Infos (wie bspw. einen Muttibrief für den Fall, dass du noch unter 18 bist) schicken wir dir rechtzeitig zu. Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href='mailto:zeitgeschehen@riseup.net'>zeitgeschehen&#64;riseup.net</a>.</div>
 
 		<?php
+
+		$stmt->close();
+		$conn->close();
+		
 	}
 
 ?>
@@ -70,7 +92,7 @@
 <label><input type="checkbox" name="tag5" value="true" checked>Dienstag</label><br />
 <br />
 <p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a href="?p=kosten">Kosten</a>)?</strong></p>
-<input type="text" name="geld" placeholder="60" style="width: 50px; text-align: right;" required> €<br />
+<input type="text" name="geld" placeholder="65" style="width: 50px; text-align: right;" required> €<br />
 <br />
 <p><strong>Hast du besondere Essenswünsche (vegan, vegetarisch, Allergien o.ä.)?</strong></p>
 <input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!"><br />
