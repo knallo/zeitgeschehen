@@ -1,21 +1,22 @@
 /* all */
 body {
-	font-family: sans;
+	font-family: sans-serif;
 }
 
 /* header */
 nav {
-	display: inline-block;
-	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 header ul {
+	display: inline-block;
 	list-style: none;
 	background-color: rgba(0, 0, 0, 0.9);
 	border-radius: 10px;
-	float: right;
 	padding-left: 0px;
 	padding-right: 0px;
+	margin: auto;
 }
 
 header h1 {
