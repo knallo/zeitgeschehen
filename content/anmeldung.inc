@@ -66,7 +66,7 @@
 <label><input type="checkbox" name="tag5" value="true" checked>Dienstag</label><br />
 <br />
 <p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a href="?p=kosten">Kosten</a>)?</strong></p>
-<input type="text" name="geld" placeholder="60" style="width: 50px; text-align: right;" required> €<br />
+<input type="text" name="geld" placeholder="65" style="width: 50px; text-align: right;" required> €<br />
 <br />
 <p><strong>Hast du besondere Essenswünsche (vegan, vegetarisch, Allergien o.ä.)?</strong></p>
 <input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!"><br />
