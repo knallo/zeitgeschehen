@@ -33,26 +33,36 @@
 		}
 
 		include("mysql/connect.inc");
-		$sql = "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein)
-		VALUES ('".$_POST['name']."', '$tage' '".$_POST['geld']."', '".$_POST['essen']."', '".$_POST['mail']."', '".$_POST['gruppe']."', '".$_POST['ort']."', '".$_POST['sonstso']."', '".$_POST['autoBesitzen']."', '".$_POST['autoGroesse']."', '".$_POST['autoFahren']."', '".$_POST['telefon']."', '".$_POST['fahrer']."')";
 
-		if ($conn->query($sql) === TRUE) {
-		    echo "Deine Anmeldung wurde gespeichert";
-		} else {
-		    echo "Error: " . $sql . "<br>" . $conn->error;
-		}
+		// prepare and bind
+		$stmt = $conn->prepare("INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param("sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
 
-		$conn->close();
+		// set parameters and execute
+		$sql_name = $_POST['name'];
+		$sql_tage = $tage;
+		$sql_geld = $_POST['geld'];
+		$sql_essen = $_POST['essen'];
+		$sql_mail = $_POST['mail'];
+		$sql_anfahrt = $_POST['gruppe'];
+		$sql_ort = $_POST['ort'];
+		$sql_sonstiges = $_POST['sonstso'];
+		$sql_autoda = $_POST['autoBesitzen'];
+		$sql_gros = $_POST['autoGroesse'];
+		$sql_recht = $_POST['autoVersicherung'];
+		$sql_tel = $_POST['telefon'];
+		$sql_fuhrerschein = $_POST['autoFahren'];
+		$stmt->execute();
 
-		// Der Eintrag in die Datenbank
-			// HIER FEHLT NOCH CODE
-
-		//Diese Nachricht nur bei gespeicherten Daten anzeigen:
 		?>
 
 		<div class='alert alert-success'>Deine Anmeldung ist gespeichert. Alle notwendigen Infos (wie bspw. einen Muttibrief für den Fall, dass du noch unter 18 bist) schicken wir dir rechtzeitig zu. Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href='mailto:zeitgeschehen@riseup.net'>zeitgeschehen&#64;riseup.net</a>.</div>
 
 		<?php
+
+		$stmt->close();
+		$conn->close();
+		
 	}
 
 ?>
