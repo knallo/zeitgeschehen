@@ -80,7 +80,7 @@
 <label><input type="radio" name="autoBesitzen" value="1" id="besitztAuto" onclick="autofrage()">Ich kann ein Auto zur Verfügung stellen</label><br />
 <br />
 
-<div id="autofrage">
+<div id="autofrage" class="hidden">
 	<p><strong>Größe des Autos / Platz im Auto</strong></p>
 	<input type="text" name="autoGroesse" placeholder="Opel Astra"><br />
 	<br />
@@ -109,15 +109,15 @@
 
 <script>
 // Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
-$("#autofrage").hide();
+var autoform = document.getElementById("autofrage");
 function autofrage() {
 	var besitztAuto = document.getElementById("besitztAuto");
 	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
 
 	if (besitztKeinAuto.checked){
-	    $("#autofrage").hide(400);
+	    autoform.className = "hidden";
 	} else if (besitztAuto.checked) {
-	    $("#autofrage").show(400);
+	    autoform.className = "visible";
 	}
 }
 </script>

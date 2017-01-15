@@ -48,3 +48,17 @@ article {
 	margin-right: auto;
 	padding-bottom: 30px;
 }
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	transition: visibility 1s, opacity 1s, height 1s linear;
+}
+
+.visible {
+	visibility: visible;
+	opacity: 1;
+	height: auto;
+	transition: visibility 1s, opacity 1s, height 1s linear;
+}
