@@ -1,7 +1,8 @@
 #Noch ausstehend
 * "Eine Veranstaltung des Arbeitskreis Auflösen" irgendwo mit rein
 * CSS an Flyer-Layout anpassen
-* Anmelde-Seite mit MySQL-DB verknüpfen
 * Metadaten einfügen (brauchts das?)
 * Für Mobilgeräte kompatibel machen
-* Ggf. Sidebar löschen und ihren Inhalt im restlichen Content unterbringen
+* Ordentliches Style für .alert und .alert-seccess erstellen (vgl. Erfolgsmeldung bei der Anmeldung)
+* Muttibrief schreiben und ordentlich verlinken auf der Anmelden-Seite
+* Link zu den WS-Ankündigern in die Programmseite integrieren
