@@ -19,12 +19,14 @@
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
+				<a href="?workshop=wahl">➙ zum Ankündiger</a>
 			</td>
 			<td style="border: 1px dashed #333; padding: 20px;">
 				<h4>Rechte kritisieren</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
+				<a href="?workshop=rechteKritisieren">➙ zum Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>
@@ -39,12 +41,14 @@
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
+				<a href="?workshop=fluechtlingspolitik">➙ zum Ankündiger</a>
 			</td>
 			<td style="border: 1px dashed #333; padding: 20px;">
 				<h4>Armut</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
+				<a href="?workshop=armut">➙ zum Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>

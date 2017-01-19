@@ -16,6 +16,9 @@
 			<?php
 				if (!empty($_GET['p'])) {
 					$p = $_GET['p'];
+				} elseif (!empty($_GET['workshop'])) {
+					$p = "workshop";
+					$workshop = $_GET['workshop'];
 				} else {
 					$p = "allgemeines";
 					echo 	'<script type="text/javascript">',
@@ -23,7 +26,7 @@
 						'</script>';
 				}
 				
-				if (	$p == "allgemeines" ||
+				if ($p == "allgemeines" ||
 					$p == "programm" ||
 					$p == "haus" ||
 					$p == "kosten" ||
@@ -31,9 +34,22 @@
 					$p == "anmeldung" ||
 					$p == "kontakt") {
 					include('content/'.$p.'.inc');
-					echo 	'<script type="text/javascript">',
+					echo '<script type="text/javascript">',
 						'markMenu("'.$p.'");',
 						'</script>';
+				} elseif (!empty($workshop)) {
+					if ($workshop == "wahl" ||
+					$workshop == "fluechtlingspolitik" ||
+					$workshop == "armut" ||
+					$workshop == "rechte") {
+						include('content/workshop-'.$workshop.'.inc');
+					} else {
+						include('content/workshop-404.inc');
+					}
+					echo '<script type="text/javascript">',
+						'markMenu("programm");',
+						'</script>';
+					echo '<br><br><a href="?p=programm">❮ zurück zum Programm</a>';
 				} else {
 					include('content/404.inc');
 				}
