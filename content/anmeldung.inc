@@ -35,12 +35,11 @@
 		} else {
 			$tage .= "0";
 		}
-
 		include("mysql/connect.inc");
 
 		// prepare and bind
-		$stmt = $conn->prepare("INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
+		$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		mysqli_stmt_bind_param($stmt, "sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
 
 		// set parameters and execute
 		$sql_name = $_POST['name'];
@@ -56,19 +55,13 @@
 		$sql_recht = $_POST['autoVersicherung'];
 		$sql_tel = $_POST['telefon'];
 		$sql_fuhrerschein = $_POST['autoFahren'];
-		$stmt->execute();
+		mysqli_stmt_execute($stmt);
 
-		?>
-
-		<div class='alert alert-success'>Deine Anmeldung ist gespeichert. Alle notwendigen Infos (wie bspw. einen Muttibrief für den Fall, dass du noch unter 18 bist) schicken wir dir rechtzeitig zu. Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href='mailto:zeitgeschehen@riseup.net'>zeitgeschehen&#64;riseup.net</a>.</div>
-
-		<?php
-
-		$stmt->close();
-		$conn->close();
+		mysqli_stmt_close($stmt);
+		mysqli_close($conn);
 		
+		include("content/angemeldet.inc")	
 	}
-
 ?>
 
 <form action="" method="post">
