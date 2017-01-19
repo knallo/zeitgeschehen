@@ -2,7 +2,6 @@
 	Programm
 </h1>
 
-<h1>Eckdaten</h1>
 <p>Das Haus ist geöffnet von <b>02.06.</b> bis <b>06.06.17</b></p>
 <ol>
 	<li>Workshopschiene: von <b>03.06., 11 Uhr</b> bis <b>04.06., 14 Uhr</b></li>
