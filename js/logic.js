@@ -37,3 +37,16 @@ window.addEventListener("popstate", function (event) {
 	}
 	loadPage(event.state.title, true);
 });
+
+// Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
+function autofrage() {
+	var autoform = document.getElementById("autofrage");
+	var besitztAuto = document.getElementById("besitztAuto");
+	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
+
+	if (besitztKeinAuto.checked){
+	    autoform.className = "hidden";
+	} else if (besitztAuto.checked) {
+	    autoform.className = "visible";
+	}
+}

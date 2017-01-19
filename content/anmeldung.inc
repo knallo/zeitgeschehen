@@ -121,18 +121,3 @@
 <input type="submit" name="absenden" value="Jetzt anmelden!">
 
 </form>
-
-<script>
-// Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
-var autoform = document.getElementById("autofrage");
-function autofrage() {
-	var besitztAuto = document.getElementById("besitztAuto");
-	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
-
-	if (besitztKeinAuto.checked){
-	    autoform.className = "hidden";
-	} else if (besitztAuto.checked) {
-	    autoform.className = "visible";
-	}
-}
-</script>
