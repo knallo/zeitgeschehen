@@ -60,7 +60,7 @@
 		mysqli_stmt_close($stmt);
 		mysqli_close($conn);
 		
-		include("content/angemeldet.inc")	
+		include("content/angemeldet.inc");	
 	}
 ?>
 
