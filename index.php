@@ -3,6 +3,8 @@
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<script src="js/logic.js" type="text/javascript"></script>
+	<title>Argumente gegen das Zeitgeschehen</title>
+	<meta name="Description" content="Info- und Anmeldeseite für das Argumente gegen das Zeitgeschehen 2017">
 </head>
 <body>
 	<?php

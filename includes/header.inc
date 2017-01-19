@@ -1,5 +1,6 @@
 <header id="header">
 	<h1>Argumente gegen das Zeitgeschehen</h1>
+	<p><small>Eine Veranstaltung des <a href="http://arbeitskreisaufloesen.blogsport.eu/">Arbeitskreis Auflösen</a></small></p>
 	<nav>
 		<ul>
 			<li onClick="loadPage('allgemeines')" id="lastSelected"><b>Allgemeines</b></li>

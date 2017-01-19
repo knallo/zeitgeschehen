@@ -21,6 +21,11 @@ header ul {
 
 header h1 {
 	text-align: center;
+	margin-bottom: 0;
+}
+
+header p {
+	text-align: center;
 }
 
 header li {
