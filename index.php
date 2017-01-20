@@ -41,7 +41,7 @@
 					if ($workshop == "wahl" ||
 					$workshop == "fluechtlingspolitik" ||
 					$workshop == "armut" ||
-					$workshop == "rechte") {
+					$workshop == "rechteKritisieren") {
 						include('content/workshop-'.$workshop.'.inc');
 					} else {
 						include('content/workshop-404.inc');
