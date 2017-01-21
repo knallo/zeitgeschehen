@@ -3,6 +3,16 @@ body {
 	font-family: sans-serif;
 }
 
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #a61919;
+}
+
+a:hover {
+	color: #54181d;
+}
+
 /* header */
 nav {
 	display: flex;
