@@ -32,7 +32,7 @@
 					$p == "kontakt") {
 					include('content/'.$p.'.inc');
 					echo 	'<script type="text/javascript">',
-						'markMenu("'.$p.'");',
+						'markMenu("'.$p.'", true);',
 						'</script>';
 				} else {
 					include('content/404.inc');
