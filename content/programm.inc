@@ -2,7 +2,6 @@
 	Programm
 </h1>
 
-<h1>Eckdaten</h1>
 <p>Das Haus ist geöffnet von <b>02.06.</b> bis <b>06.06.17</b></p>
 <ol>
 	<li>Workshopschiene: von <b>03.06., 11 Uhr</b> bis <b>04.06., 14 Uhr</b></li>
@@ -20,12 +19,14 @@
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
+				<a href="" onclick="loadWorkshop('wahl')">➙ zum Ankündiger</a>
 			</td>
 			<td style="border: 1px dashed #333; padding: 20px;">
 				<h4>Rechte kritisieren</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
+				<a href="" onclick="loadWorkshop('rechteKritisieren')">➙ zum Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>
@@ -40,23 +41,15 @@
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
+				<a href="" onclick="loadWorkshop('fluechtlingspolitik')">➙ zum Ankündiger</a>
 			</td>
 			<td style="border: 1px dashed #333; padding: 20px;">
 				<h4>Armut</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
+				<a href="" onclick="loadWorkshop('armut')">➙ zum Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<!--
-<h4>Wie man Rassisten kritisiert und wie besser nicht</h4>
-<p style="font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal;">Samstag von 11:00 Uhr bis 14:00 Uhr<br />sowie von 17:00 Uhr bis 20:00 Uhr,<br />und Sonntag von 11:00 Uhr bis 14:00 Uhr.<br /><a href="index.php/rassismus">&gt; Hier zum Ankündiger</a></p>
-<h4>Wahrheit - gibt es nicht!?</h4>
-<p>Samstag von 11:00 Uhr bis 14:00 Uhr,<br />sowie von 17:00 Uhr bis 20:00 Uhr<br />und Sonntag von 11:00 Uhr bis 14:00 Uhr.<br /><a href="index.php/wahrheit">&gt;Hier zum Ankündiger</a></p>
-<p> </p>
-<h4>Psychologie im Alltag - in der Schule wie im Leben danach</h4>
-<p>Sonntag von 17:00 Uhr bis 20:00 Uhr<br />und Montag von 11:00 Uhr bis 14:00 Uhr,<br />sowie von 17:00 Uhr bis 20:00 Uhr.<br /><a href="index.php/psychologie">&gt; Hier zum Ankündiger</a></p>
-<h4>Demokratische Wahlen</h4>
-<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />und Montag von 11:00 Uhr bis 14:00 Uhr<br />sowie von 17:00 Uhr bis 20:00 Uhr.<br /><a href="index.php/demokratische-wahlen">&gt; Hier zum Ankündiger</a></p>-->

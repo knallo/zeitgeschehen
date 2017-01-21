@@ -22,6 +22,30 @@ function loadPage(title, isBack=false) {
 	xhttp.send();
 }
 
+function loadWorkshop(title) {
+	var legal_names = ['armut', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
+	if (!legal_names.includes(title)) {
+		loadPage('404');
+		return;
+	} else {
+		markMenu('programm');
+	}
+
+	var article = document.querySelector('article');
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			html = this.responseText;
+			html += "<br /><br /><a href='#' onclick='loadPage(\"programm\")'>❮ zurück zum Programm</a>";
+			article.innerHTML = html;
+		}
+	}
+
+	xhttp.open("GET", "../content/workshop-" + title + ".inc", true);
+	xhttp.send();
+}
+
 function markMenu(title, initial=false) {
 	var last = document.getElementById("lastSelected");
 	if (last) {

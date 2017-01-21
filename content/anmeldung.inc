@@ -2,11 +2,6 @@
 	Anmeldung
 </h1>
 
-<h2>Für alle unter 18</h2>
-<p>
-	Um uns rechtlich abzusichern haben wir einen Muttifbrief geschrieben, den nach Möglichkeit alle Minderjährigen unterschrieben mitbringen sollen. Wenn es dabei Probleme gibt, schreibt uns einfach an. 
-</p>
-
 <?php
 	if (!empty($_POST['absenden'])) {
 		// An welchen Tagen bist du da?
