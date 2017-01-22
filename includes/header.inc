@@ -10,6 +10,7 @@
 			<li onClick="loadPage('anfahrt')"><b>Anfahrt</b></li>
 			<li onClick="loadPage('anmeldung')"><b>Anmeldung</b></li>
 			<li onClick="loadPage('kontakt')"><b>Kontakt</b></li>
+			<li id="menu-button" onclick="showMenu()">O</li>
 		</ul>
 	</nav>
 </header>

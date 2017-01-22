@@ -26,7 +26,7 @@
 						'</script>';
 				}
 				
-				if ($p == "allgemeines" ||
+				if (	$p == "allgemeines" ||
 					$p == "programm" ||
 					$p == "haus" ||
 					$p == "kosten" ||
@@ -34,22 +34,19 @@
 					$p == "anmeldung" ||
 					$p == "kontakt") {
 					include('content/'.$p.'.inc');
-					echo '<script type="text/javascript">',
-						'markMenu("'.$p.'");',
+					echo 	'<script type="text/javascript">',
+						'markMenu("'.$p.'", true);',
 						'</script>';
-				} elseif (!empty($workshop)) {
-					if ($workshop == "wahl" ||
-					$workshop == "fluechtlingspolitik" ||
-					$workshop == "armut" ||
-					$workshop == "rechteKritisieren") {
-						include('content/workshop-'.$workshop.'.inc');
-					} else {
-						include('content/workshop-404.inc');
-					}
+				} elseif (	$workshop == "wahl" ||
+						$workshop == "fluechtlingspolitik" ||
+						$workshop == "armut" ||
+						$workshop == "rechteKritisieren") {
+					include('content/workshop-'.$workshop.'.inc');
+
 					echo '<script type="text/javascript">',
 						'markMenu("programm");',
 						'</script>';
-					echo '<br><br><a href="?p=programm">❮ zurück zum Programm</a>';
+					echo '<br><br><a href="" onclick="loadPage(\'programm\')">❮ zurück zum Programm</a>';
 				} else {
 					include('content/404.inc');
 				}
