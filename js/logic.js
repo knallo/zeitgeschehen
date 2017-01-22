@@ -37,7 +37,7 @@ function loadWorkshop(title, isBack=false) {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			html = this.responseText;
-			html += "<br /><br /><a onclick='loadPage(\"programm\")'>❮ zurück zum Programm</a>";
+			html += "<br /><a onclick='loadPage(\"programm\")'>❮ zurück zum Programm</a>";
 			article.innerHTML = html;
 			if (!isBack) {
 				history.pushState({title: title, isWorkshop: true}, title, "?workshop="+title);
