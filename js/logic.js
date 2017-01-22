@@ -13,7 +13,7 @@ function loadPage(title, isBack=false) {
 		if (this.readyState == 4 && this.status == 200) {
 			article.innerHTML = this.responseText;
 			if (!isBack) {
-				history.pushState({title: title}, title, "?p=" + title);
+				history.pushState({title: title, isPage: true}, title, "?p=" + title);
 			}
 		}
 	}
@@ -22,8 +22,8 @@ function loadPage(title, isBack=false) {
 	xhttp.send();
 }
 
-function loadWorkshop(title) {
-	var legal_names = ['armut', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
+function loadWorkshop(title, isBack=false) {
+	var legal_names = ['wahl', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
 	if (!legal_names.includes(title)) {
 		loadPage('404');
 		return;
@@ -37,8 +37,11 @@ function loadWorkshop(title) {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			html = this.responseText;
-			html += "<br /><br /><a href='#' onclick='loadPage(\"programm\")'>❮ zurück zum Programm</a>";
+			html += "<br /><br /><a onclick='loadPage(\"programm\")'>❮ zurück zum Programm</a>";
 			article.innerHTML = html;
+			if (!isBack) {
+				history.pushState({title: title, isWorkshop: true}, title, "?workshop="+title);
+			}
 		}
 	}
 
@@ -65,7 +68,14 @@ window.addEventListener("popstate", function (event) {
 	if (event.state == null) {
 		return;
 	}
-	loadPage(event.state.title, true);
+	console.log(event.state.title);
+	if (event.state.isPage) {
+		loadPage(event.state.title, true);
+	} else if (event.state.isWorkshop) {
+		loadWorkshop(event.state.title, true);
+	} else {
+		loadPage("404", true);
+	}
 });
 
 // Details zum Auto nur anzeigen, wenn der Mensch ein Auto hat
