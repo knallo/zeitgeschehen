@@ -1,4 +1,4 @@
-/* all */
+/**** all ****/
 body {
 	font-family: sans-serif;
 }
@@ -14,7 +14,7 @@ a:hover {
 	color: #54181d;
 }
 
-/* header */
+/**** header ****/
 nav {
 	display: flex;
 	justify-content: center;
@@ -57,7 +57,9 @@ header li {
 	border-radius: 10px;
 }
 
-/* content */
+/**** content ****/
+
+/* general content */
 main {
 	width: 100%;
 }
@@ -84,8 +86,58 @@ article {
 	transition: visibility 1s, opacity 1s, height 1s linear;
 }
 
+/* formular */
+form p {
+	margin-bottom: 5px;
+}
 
-/* menu mobile */
+input,
+textarea {
+    background-color: #eee;
+    border: none;
+    border-bottom: 1px solid #eee; /* damit nicht das ganze Dokument nach unten verschoben wird, wenn durch :focus ein Border hinzugefügt wird */
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 7px 0 20px;
+    padding: 7px;
+}
+
+input:focus,
+textarea:focus{
+	background-color: white;
+	border-radius: 0px;
+	outline: none;
+}
+
+input[type=text] {
+    width: 100%;
+
+}
+
+input[type=text]:focus {
+	border-bottom: 1px solid black;
+}
+
+textarea:focus {
+	border-left: 1px solid black
+}
+
+input[type=checkbox],
+input[type=radio] {
+    display: inline;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+    width: 100%;
+    font-family: inherit;
+}
+
+
+/**** menu mobile ****/
 @media screen and (max-width: 820px) {
 
 	header ul li:not(:first-child) {
