@@ -11,17 +11,17 @@
 <p>Jedes der Themen wird neunstündig (drei mal drei Stunden) behandelt - zwei Themen werden Samstag und Sonntagvormittag behandelt, die beiden anderen Sonntagnachmittag und Pfingstmontag.</p>
 <p> </p>
 <p><strong>03.-04. Juni</strong> </p>
-<table width="100%">
+<table>
 	<tbody>
 		<tr>
-			<td style="border: 1px dashed #333; padding: 20px;" width="50%">
+			<td>
 				<h4>Demokratische Wahlen</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('wahl')">➙ zum Ankündiger</a>
 			</td>
-			<td style="border: 1px dashed #333; padding: 20px;">
+			<td>
 				<h4>Rechte kritisieren</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
@@ -33,17 +33,17 @@
 </table>
 <p> </p>
 <p><strong>04.-05. Juni</strong> </p>
-<table width="100%">
+<table>
 	<tbody>
 		<tr>
-			<td style="border: 1px dashed #333; padding: 20px;" width="50%">
+			<td>
 				<h4>Flüchtlingspolitik (?)</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('fluechtlingspolitik')">➙ zum Ankündiger</a>
 			</td>
-			<td style="border: 1px dashed #333; padding: 20px;">
+			<td>
 				<h4>Armut</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />

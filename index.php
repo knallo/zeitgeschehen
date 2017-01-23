@@ -5,6 +5,7 @@
 	<script src="js/logic.js" type="text/javascript"></script>
 	<title>Argumente gegen das Zeitgeschehen</title>
 	<meta name="Description" content="Info- und Anmeldeseite für das Argumente gegen das Zeitgeschehen 2017">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
 	<?php
