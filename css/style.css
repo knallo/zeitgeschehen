@@ -136,6 +136,23 @@ textarea {
     font-family: inherit;
 }
 
+input[type=submit] {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	background-color: #ddd;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+
+input[type=submit]:hover {
+	background-color: #aaa;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
 
 /**** menu mobile ****/
 @media screen and (max-width: 820px) {

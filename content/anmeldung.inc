@@ -111,7 +111,7 @@
 <input type="text" name="mail" placeholder="example[at]riseup.net" required><br />
 <br />
 <p><strong>Sonstige Infos / Fragen? Sollen Fahrtkosten übernommen werden?</strong></p>
-<textarea name="sonstso" rows="2" style="width:95%;"></textarea><br />
+<textarea name="sonstso" rows="2"></textarea><br />
 <br />
 <input type="submit" name="absenden" value="Jetzt anmelden!">
 
