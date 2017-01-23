@@ -19,14 +19,14 @@
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('wahl')">➙ zum Ankündiger</a>
+				<a onclick="loadWorkshop('wahl')">Ankündiger</a>
 			</td>
 			<td>
 				<h4>Rechte kritisieren</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('rechteKritisieren')">➙ zum Ankündiger</a>
+				<a onclick="loadWorkshop('rechteKritisieren')">Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>
@@ -41,14 +41,14 @@
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('fluechtlingspolitik')">➙ zum Ankündiger</a>
+				<a onclick="loadWorkshop('fluechtlingspolitik')">Ankündiger</a>
 			</td>
 			<td>
 				<h4>Armut</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('armut')">➙ zum Ankündiger</a>
+				<a onclick="loadWorkshop('armut')">Ankündiger</a>
 			</td>
 		</tr>
 	</tbody>

@@ -18,7 +18,6 @@
 				if (!empty($_GET['p'])) {
 					$p = $_GET['p'];
 				} elseif (!empty($_GET['workshop'])) {
-					$p = "workshop";
 					$workshop = $_GET['workshop'];
 				} else {
 					$p = "allgemeines";
@@ -45,9 +44,9 @@
 					include('content/workshop-'.$workshop.'.inc');
 
 					echo '<script type="text/javascript">',
-						'markMenu("programm");',
+						'markMenu("programm", true);',
 						'</script>';
-					echo '<br><br><a href="" onclick="loadPage(\'programm\')">❮ zurück zum Programm</a>';
+					echo '<br><br><a onclick="loadPage(\'programm\')">zurück zum Programm</a>';
 				} else {
 					include('content/404.inc');
 				}
