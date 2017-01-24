@@ -1,6 +1,10 @@
+var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt'];
+var WORKSHOPS = ['wahl', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
+var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"show"};
+
+
 function loadPage(title, isBack=false) {
-	var legal_names = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt'];
-	if (!legal_names.includes(title)) {
+	if (!PAGES.includes(title)) {
 		title = "404"
 	} else {
 		markMenu(title);
@@ -23,8 +27,7 @@ function loadPage(title, isBack=false) {
 }
 
 function loadWorkshop(title, isBack=false) {
-	var legal_names = ['wahl', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
-	if (!legal_names.includes(title)) {
+	if (!WORKSHOPS.includes(title)) {
 		loadPage('404');
 		return;
 	} else {
@@ -50,13 +53,13 @@ function loadWorkshop(title, isBack=false) {
 }
 
 function markMenu(title, initial=false) {
-	var last = document.getElementById("lastSelected");
+	var last = document.querySelector("li[class=lastSelected]");
 	if (last) {
-		last.removeAttribute("id");	
+		last.removeAttribute("class");	
 	}
 
-	var item = document.querySelector("li[onclick*=" + title + "]")
-	item.id = "lastSelected";		
+	var item = document.getElementById(title);
+	item.className = "lastSelected";		
 	if (window.matchMedia("(max-width: 820px)").matches && initial) {
 		menu = item.parentNode;
 		menu.insertBefore(item, menu.firstChild);
@@ -91,17 +94,38 @@ function autofrage() {
 	}
 }
 
+function insertInOrder(element) {
+	if (ORDER[element.id]) {
+		var menu = document.querySelector('header').querySelector('ul');
+		menu.insertBefore(element, document.getElementById(ORDER[element.id]));
+	}
+}
+
 function showMenu() {
 	var menu = document.querySelector('header').querySelector('ul');
-	if (menu.className === "responsive") {
-		menu.removeAttribute('class');
-		var selected = menu.querySelector("li#lastSelected");
-		if (selected) {
-			menu.insertBefore(selected, menu.firstChild);
-		}
-	} else {
-		button = menu.querySelector("li#menu-button");
-		menu.firstChild.parentNode.insertBefore(button, menu.firstChild.nextSibling);
+	var button = menu.querySelector('li#menu-button');
+	var selected = menu.querySelector('li.lastSelected');
+
+	if (menu.className != "responsive") {
+		button.innerHTML = "⇊";
 		menu.className = "responsive";
+		menu.insertBefore(selected, menu.firstChild);
+		menu.insertBefore(button, selected.nextElementSibling);
+	} else {
+		button.innerHTML = "⇈";
+		menu.removeAttribute("class");
+		insertInOrder(selected);
+		menu.insertBefore(button, document.getElementById("programm"));
 	}
+}
+
+if (window.matchMedia) {
+	var query = window.matchMedia("(min-width: 820px)");
+	query.addListener(function changeMenu(mq) {
+		if (mq.matches) {
+			document.querySelector('header').querySelector('ul').className = "responsive";
+		}
+		showMenu();
+	});
+
 }

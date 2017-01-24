@@ -52,7 +52,7 @@ header li {
 	display: none;
 }
 
-#lastSelected {
+li.lastSelected {
 	background-color: red;
 	border-radius: 10px;
 }
@@ -94,11 +94,11 @@ table {
 
 td {
 	width: 50%;
-	border: 1px solid black;
+	border: 1px dashed black;
 	padding: 2%;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 710px) {
 	td {
 		display: block;
 		width: auto;
@@ -176,7 +176,7 @@ input[type=submit]:hover {
 /**** menu mobile ****/
 @media screen and (max-width: 820px) {
 
-	header ul li:not(:first-child) {
+	header ul.responsive li:not(:first-child) {
 		display: none;
 	}
 
@@ -191,7 +191,7 @@ input[type=submit]:hover {
 
 	/* responsive is added to ul with javascript when button is pressed */
 
-	header ul.responsive li:not(:first-child) {
+	header ul li:not(:first-child) {
 		display: block;
 		float: none;
 	}
