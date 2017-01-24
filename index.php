@@ -18,6 +18,7 @@
 				if (!empty($_GET['p'])) {
 					$p = $_GET['p'];
 				} elseif (!empty($_GET['workshop'])) {
+					$p = "workshop"; // die Variable $p muss in jedem Fall definiert sein, sonst spuckt PHP einen Error aus!
 					$workshop = $_GET['workshop'];
 				} else {
 					$p = "allgemeines";
