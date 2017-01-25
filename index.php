@@ -33,7 +33,8 @@
 					$p == "kosten" ||
 					$p == "anfahrt" ||
 					$p == "anmeldung" ||
-					$p == "kontakt") {
+					$p == "kontakt" ||
+					$p == "impressum") {
 					include('content/'.$p.'.inc');
 					echo 	'<script type="text/javascript">',
 						'markMenu("'.$p.'", true);',
