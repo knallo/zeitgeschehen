@@ -15,14 +15,14 @@
 	<tbody>
 		<tr>
 			<td>
-				<h4>Demokratische Wahlen</h4>
+				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('wahl')">Ankündiger</a>
 			</td>
 			<td>
-				<h4>Rechte kritisieren</h4>
+				<h4>Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
@@ -44,7 +44,7 @@
 				<a onclick="loadWorkshop('fluechtlingspolitik')">Ankündiger</a>
 			</td>
 			<td>
-				<h4>Armut</h4>
+				<h4>Armut, kapitalistische</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
