@@ -1,6 +1,6 @@
 var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt', 'impressum'];
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'fluechtlingspolitik', 'armut'];
-var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"show"};
+var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 
 
 function loadPage(title, isBack=false) {
@@ -57,12 +57,14 @@ function markMenu(title, initial=false) {
 	if (last) {
 		last.removeAttribute("class");	
 	}
-
+	
+	title = title !== "impressum" ? title : "kontakt";
+	console.log(title);
 	var item = document.getElementById(title);
-	item.className = "lastSelected";		
-	if (window.matchMedia("(max-width: 820px)").matches && initial) {
-		menu = item.parentNode;
-		menu.insertBefore(item, menu.firstChild);
+	item.className = "lastSelected";
+	if (window.matchMedia("(max-width: 820px)").matches) {
+		button = document.getElementById("menu-button");
+		item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling.nextElementSibling);
 	}
 
 }

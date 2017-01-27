@@ -33,4 +33,4 @@ Hamburger Straße 84<br />
 <p> </p>
 <p>Quelle: <em><a href="https://www.e-recht24.de/artikel/datenschutz/209.html">https://www.e-recht24.de</a></em></p>
 
-
+<a onclick="loadPage('kontakt')">zurück zum Kontakt</a>
