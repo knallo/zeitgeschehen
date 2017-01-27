@@ -59,7 +59,6 @@ function markMenu(title, initial=false) {
 	}
 	
 	title = title !== "impressum" ? title : "kontakt";
-	console.log(title);
 	var item = document.getElementById(title);
 	item.className = "lastSelected";
 	if (window.matchMedia("(max-width: 820px)").matches) {
