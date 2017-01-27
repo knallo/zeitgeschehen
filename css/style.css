@@ -1,6 +1,7 @@
 /**** all ****/
 body {
 	font-family: sans-serif;
+	color: #333;
 }
 
 a {
@@ -12,6 +13,10 @@ a {
 
 a:hover {
 	color: #54181d;
+}
+
+h1 {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 /**** header ****/
