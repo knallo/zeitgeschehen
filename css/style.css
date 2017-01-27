@@ -43,17 +43,27 @@ header p {
 
 header li {
 	float: left;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 15px 10px 15px;
+	margin: 0 5px 0 5px;
 	color: white;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+header li:first-child {
+	margin-left: 0;
+}
+
+header li:nth-child(7) {
+	margin-right: 0;
 }
 
 #menu-button {
 	display: none;
 }
 
-li.lastSelected {
+li.lastSelected,
+header li:hover {
 	background-color: red;
 	border-radius: 10px;
 }
@@ -194,6 +204,24 @@ input[type=submit]:hover {
 
 	header #menu-button {
 		display: inline-block;
+	}
+
+	header li {
+		margin: 2px 0 2px 0;
+	}
+
+	header li:first-child,
+	header li:nth-child(2) {
+		margin: 0;
+	}
+
+	header li:last-child {
+		margin-bottom: 0;
+	}
+
+	header li:nth-child(2):hover {
+		background-color: black;
+		margin: 0;
 	}
 
 	/* responsive is added to ul with javascript when button is pressed */
