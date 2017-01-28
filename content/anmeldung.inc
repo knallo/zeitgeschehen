@@ -60,10 +60,10 @@
 ?>
 
 <form action="" method="post">
-<p><strong>Dein Vorname / Pseudonym</strong></p>
-<input type="text" name="name" placeholder="Pseudonym" required>
+<p><strong>Dein Name</strong></p>
+<input type="text" name="name" placeholder="Name" required>
 <br />
-<p><strong>Aus welchem Ort kommst du (ungefähr)?</strong></p>
+<p><strong>Aus welchem Ort kommst du?</strong></p>
 <input type="text" name="ort" placeholder="Bremen">
 <br />
 <p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>

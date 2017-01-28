@@ -6,7 +6,7 @@
 <h4>
 	Drinnen
 </h4>
-<p>Der Gebäudekomplex umfasst viele Tagungs- und Entspannungsräume, sowie diverse querbeet verteilte Schlaf- und Badezimmer für zwischen zwei und zehn Personen. Außerdem gibt es eine Großküche, in der sich - zumindest von der Ausstattung her - problemlos Essen für sehr viele Menschen zaubern lässt.</p>
+<p>Der Gebäudekomplex umfasst viele Tagungs- und Entspannungsräume, sowie diverse querbeet verteilte Schlaf- und Badezimmer für drei bis zehn Personen. Außerdem gibt es eine Großküche, in der sich problemlos Essen für sehr viele Menschen zaubern lässt.</p>
 <p>Leider ist die WLAN-Ausstattung in dem Haus eher mangelhaft - insbesondere, was den Empfang angeht. Wer also zuhause noch einen Router rumliegen hat, den er für die paar Tage entbehren kann, kann den gerne mitbringen.</p>
 
 <h4>
