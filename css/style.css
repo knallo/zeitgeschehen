@@ -106,13 +106,6 @@ strong, b {
 	font-weight: bold;
 }
 
-p,
-h1, h2, h3, h4, h5 {
-	
-	margin-right: 7px;
-	margin-left: 7px;
-}
-
 /**** header ****/
 nav {
 	display: flex;
@@ -196,8 +189,9 @@ header li:hover {
 
 /* general content */
 main {
-	width: 100%;
 	margin-top: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 article {
@@ -254,7 +248,7 @@ textarea {
     border-radius: 3px;
     font-size: 16px;
     margin: 7px 0 20px;
-    padding: 7px;
+    padding: 7px; /* das sorgt in Kombination mit input[type=text] {width:100%;} für breiteres Fenster als 100%. Blöd bei de mobilen Ansicht. */
 }
 
 input:focus,
@@ -266,7 +260,6 @@ textarea:focus{
 
 input[type=text] {
     width: 100%;
-
 }
 
 input[type=text]:focus {
