@@ -19,6 +19,10 @@ h1 {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
+main h1 {
+	text-shadow: none;
+}
+
 /**** header ****/
 nav {
 	display: flex;
@@ -53,6 +57,7 @@ header li {
 	color: white;
 	font-weight: bold;
 	cursor: pointer;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 header li:first-child {
