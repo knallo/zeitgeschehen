@@ -52,6 +52,12 @@ function loadWorkshop(title, isBack=false) {
 	xhttp.send();
 }
 
+window.onload = function makeMenuCollapsedOnMobile() {
+	if (window.matchMedia("(max-width: 820px)").matches) {
+		document.querySelector("header").querySelector("ul").className = "responsive";
+	}
+}
+
 function markMenu(title, initial=false) {
 	var last = document.querySelector("li[class=lastSelected]");
 	if (last) {
@@ -63,7 +69,12 @@ function markMenu(title, initial=false) {
 	item.className = "lastSelected";
 	if (window.matchMedia("(max-width: 820px)").matches) {
 		button = document.getElementById("menu-button");
-		item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling.nextElementSibling);
+		if (initial) {
+			item.parentNode.insertBefore(item, item.parentNode.firstChild);
+			item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling);
+		} else {
+			item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling.nextElementSibling);
+		}
 	}
 
 }
