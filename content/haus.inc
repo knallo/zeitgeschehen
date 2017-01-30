@@ -1,7 +1,7 @@
 <h1>
 	Das Haus
 </h1>
-<p>Das Tagungshaus in der Nähe von Großgoltern (bei Hannover) eignet sich für Seminare mit bis zu 100 Menschen.</p>
+<p>Das <a href="http://www.ekomweb.de" target="blank">Tagungshaus</a> in der Nähe von Großgoltern (bei Hannover) eignet sich für Seminare mit bis zu 100 Menschen.</p>
 
 <h4>
 	Drinnen
