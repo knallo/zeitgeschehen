@@ -15,10 +15,11 @@
 	<main>
 		<article>
 			<?php
+				$p = "";
+				$workshop = "";
 				if (!empty($_GET['p'])) {
 					$p = $_GET['p'];
 				} elseif (!empty($_GET['workshop'])) {
-					$p = "workshop"; // die Variable $p muss in jedem Fall definiert sein, sonst spuckt PHP einen Error aus!
 					$workshop = $_GET['workshop'];
 				} else {
 					$p = "allgemeines";
@@ -27,7 +28,7 @@
 						'</script>';
 				}
 				
-				if (	$p == "allgemeines" ||
+				if ($p == "allgemeines" ||
 					$p == "programm" ||
 					$p == "haus" ||
 					$p == "kosten" ||
@@ -39,8 +40,8 @@
 					echo 	'<script type="text/javascript">',
 						'markMenu("'.$p.'", true);',
 						'</script>';
-				} elseif (	$workshop == "wahl" ||
-						$workshop == "fluechtlingspolitik" ||
+				} elseif ($workshop == "wahl" ||
+						$workshop == "auslaender" ||
 						$workshop == "armut" ||
 						$workshop == "rechteKritisieren") {
 					include('content/workshop-'.$workshop.'.inc');
@@ -49,6 +50,8 @@
 						'markMenu("programm", true);',
 						'</script>';
 					echo '<br><br><a onclick="loadPage(\'programm\')">zurück zum Programm</a>';
+				} elseif ($workshop != "") {
+					include('content/workshop-404.inc');
 				} else {
 					include('content/404.inc');
 				}

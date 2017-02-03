@@ -37,11 +37,11 @@
 	<tbody>
 		<tr>
 			<td>
-				<h4>Flüchtlingspolitik (?)</h4>
+				<h4>Inländer vs. Ausländer - wovon lebt diese Unterscheidung?</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('fluechtlingspolitik')">Ankündiger</a>
+				<a onclick="loadWorkshop('auslaender')">Ankündiger</a>
 			</td>
 			<td>
 				<h4>Armut, kapitalistische</h4>
