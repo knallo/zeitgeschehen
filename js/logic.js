@@ -22,7 +22,7 @@ function loadPage(title, isBack=false) {
 		}
 	}
 	
-	xhttp.open("GET", "../content/" + title + ".inc", true);
+	xhttp.open("GET", "../content/" + title + ".php", true);
 	xhttp.send();
 }
 
@@ -48,8 +48,14 @@ function loadWorkshop(title, isBack=false) {
 		}
 	}
 
-	xhttp.open("GET", "../content/workshop-" + title + ".inc", true);
+	xhttp.open("GET", "../content/workshop-" + title + ".php", true);
 	xhttp.send();
+}
+
+window.onload = function makeMenuCollapsedOnMobile() {
+	if (window.matchMedia("(max-width: 820px)").matches) {
+		document.querySelector("header").querySelector("ul").className = "responsive";
+	}
 }
 
 function markMenu(title, initial=false) {
@@ -59,12 +65,16 @@ function markMenu(title, initial=false) {
 	}
 	
 	title = title !== "impressum" ? title : "kontakt";
-	console.log(title);
 	var item = document.getElementById(title);
 	item.className = "lastSelected";
 	if (window.matchMedia("(max-width: 820px)").matches) {
 		button = document.getElementById("menu-button");
-		item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling.nextElementSibling);
+		if (initial) {
+			item.parentNode.insertBefore(item, item.parentNode.firstChild);
+			item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling);
+		} else {
+			item.parentNode.insertBefore(button, item.parentNode.firstChild.nextElementSibling.nextElementSibling);
+		}
 	}
 
 }

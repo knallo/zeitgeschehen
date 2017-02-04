@@ -9,7 +9,7 @@
 </head>
 <body>
 	<?php
-		include("includes/header.inc");
+		include("includes/header.php");
 	?>
 
 	<main>
@@ -36,7 +36,7 @@
 					$p == "anmeldung" ||
 					$p == "kontakt" ||
 					$p == "impressum") {
-					include('content/'.$p.'.inc');
+					include('content/'.$p.'.php');
 					echo 	'<script type="text/javascript">',
 						'markMenu("'.$p.'", true);',
 						'</script>';
@@ -44,7 +44,7 @@
 						$workshop == "auslaender" ||
 						$workshop == "armut" ||
 						$workshop == "rechteKritisieren") {
-					include('content/workshop-'.$workshop.'.inc');
+					include('content/workshop-'.$workshop.'.php');
 
 					echo '<script type="text/javascript">',
 						'markMenu("programm", true);',
@@ -53,7 +53,7 @@
 				} elseif ($workshop != "") {
 					include('content/workshop-404.inc');
 				} else {
-					include('content/404.inc');
+					include('content/404.php');
 				}
 			?>
 		</article>

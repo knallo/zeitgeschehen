@@ -132,7 +132,11 @@ header ul {
 	list-style: none;
 	background-color: rgba(0, 0, 0, 0.9);
 	border-radius: 10px;
+<<<<<<< HEAD
+	//border: 1px solid rgba(0, 0, 0, 0.9);
+=======
 	/*border: 1px solid rgba(0, 0, 0, 0.9);*/
+>>>>>>> cb66f3c39035b0c340e6915cf1cb07c15092e012
 	padding-left: 0px;
 	padding-right: 0px;
 	margin: auto;
