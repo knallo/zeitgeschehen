@@ -30,7 +30,7 @@
 		} else {
 			$tage .= "0";
 		}
-		include("mysql/connect.inc");
+		include("mysql/connect.php");
 
 		// prepare and bind
 		$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
