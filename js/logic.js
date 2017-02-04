@@ -22,7 +22,7 @@ function loadPage(title, isBack=false) {
 		}
 	}
 	
-	xhttp.open("GET", "../content/" + title + ".inc", true);
+	xhttp.open("GET", "../content/" + title + ".php", true);
 	xhttp.send();
 }
 
@@ -48,7 +48,7 @@ function loadWorkshop(title, isBack=false) {
 		}
 	}
 
-	xhttp.open("GET", "../content/workshop-" + title + ".inc", true);
+	xhttp.open("GET", "../content/workshop-" + title + ".php", true);
 	xhttp.send();
 }
 
