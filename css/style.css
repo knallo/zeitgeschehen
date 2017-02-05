@@ -391,4 +391,7 @@ input[type=submit]:hover {
 	border-radius: 3px;
 }
 
+.contentTagesAnsicht {
+	display: none;
+}
 

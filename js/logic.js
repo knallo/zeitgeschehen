@@ -141,3 +141,34 @@ if (window.matchMedia) {
 	});
 
 }
+
+// Anmeldungen
+
+function toggleTag(el) {
+	var nextEl = el.nextElementSibling;
+	if (nextEl.style.display == "none") {
+		nextEl.style.display = "block";
+	} else {
+		nextEl.style.display = "none";
+	}
+}
+
+    // $("#tag0").click(function(){
+    //     $("#essen0").toggle();
+    // });
+
+    // $("#tag1").click(function(){
+    //     $("#essen1").toggle();
+    // });
+
+    // $("#tag2").click(function(){
+    //     $("#essen2").toggle();
+    // });
+
+    // $("#tag3").click(function(){
+    //     $("#essen3").toggle();
+    // });
+
+    // $("#tag4").click(function(){
+    //     $("#essen4").toggle();
+    // }

@@ -205,13 +205,17 @@
 			<?php
 			$tag = array("Freitag", "Samstag", "Sonntag", "Montag", "Dienstag");
 			for ($i=0; $i<5; $i++) {
-				echo "<h5 id='tag$i' class='tagesAnsicht'>▼ $tag[$i], $anw[$i]</h5>";
-				echo "<ul id='essen$i'>"; // style="display: none;"
-				echo "<li>$vegetarisch[$i] x Vegetarisch</li>";
-				echo "<li>$vegan[$i] x Vegan</li>";
-				echo "<br>außerdem:";
-				echo $essenProTag[$i];
-				echo "</ul>";
+				echo "<h5 class='tagesAnsicht' onclick='toggleTag(this)'>▼ $tag[$i]: $anw[$i] Tn</h5>";
+				echo "<div style='display: none;'>";
+					echo "<ul>";
+						echo "<li>$vegetarisch[$i] x Vegetarisch</li>";
+						echo "<li>$vegan[$i] x Vegan</li>";
+					echo "</ul>";
+					echo "<br />außerdem:";
+					echo "<ul>";
+						echo $essenProTag[$i];
+					echo "</ul>";
+				echo "</div>";
 			}
 			?>
 
@@ -277,36 +281,11 @@
 
 			<br />
 			<br />
+
 			<hr>
 
 			*) Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
 			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.
-
-			<!-- Script für das Aus- und Einklappen der Essenswünsche pro Tag -->
-			<script>
-			$(document).ready(function(){
-			    $("#tag0").click(function(){
-			        $("#essen0").toggle();
-			    });
-
-			    $("#tag1").click(function(){
-			        $("#essen1").toggle();
-			    });
-
-			    $("#tag2").click(function(){
-			        $("#essen2").toggle();
-			    });
-
-			    $("#tag3").click(function(){
-			        $("#essen3").toggle();
-			    });
-
-			    $("#tag4").click(function(){
-			        $("#essen4").toggle();
-			    })
-			});
-
-			</script>
 		</article>
 	</main>
 </body>
