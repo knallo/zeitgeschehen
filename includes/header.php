@@ -10,7 +10,11 @@
 			<li id="anfahrt" onClick="loadPage('anfahrt')"><b>Anfahrt</b></li>
 			<li id="anmeldung" onClick="loadPage('anmeldung')"><b>Anmeldung</b></li>
 			<li id="kontakt" onClick="loadPage('kontakt')"><b>Kontakt</b></li>
-			<li id="menu-button" onclick="showMenu()">⇊</li>
+			<li id="menu-button" onclick="showMenu()">
+				<span class="menuIcon"></span>
+				<span class="menuIcon"></span>
+				<span class="menuIcon"></span>
+			</li>
 		</ul>
 	</nav>
 </header>

@@ -189,6 +189,15 @@ header li:hover {
 	border-radius: 10px;
 }
 
+.menuIcon {
+	width: 18px;
+	height: 2px;
+	background-color: white;
+	display: block;
+	margin-top: 3px;
+	border-radius: 1px 1px 1px 1px;
+}
+
 /**** content ****/
 
 /* general content */

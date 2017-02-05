@@ -119,12 +119,12 @@ function showMenu() {
 	var selected = menu.querySelector('li.lastSelected');
 
 	if (menu.className != "responsive") {
-		button.innerHTML = "⇊";
+		//button.innerHTML = "⇊";
 		menu.className = "responsive";
 		menu.insertBefore(selected, menu.firstChild);
 		menu.insertBefore(button, selected.nextElementSibling);
 	} else {
-		button.innerHTML = "⇈";
+		//button.innerHTML = "⇈";
 		menu.removeAttribute("class");
 		insertInOrder(selected);
 		menu.insertBefore(button, document.getElementById("programm"));
