@@ -24,8 +24,9 @@
 				} else {
 					$p = "allgemeines";
 					echo 	'<script type="text/javascript">',
-						'history.replaceState({title: "allgemeines"}, "allgemeines", "?p=allgemeines");',
-						'</script>';
+					 	'history.replaceState({title: "allgemeines"}, "allgemeines", "?p=allgemeines");',
+					 	'</script>';
+						
 				}
 				
 				if ($p == "allgemeines" ||

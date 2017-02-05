@@ -353,3 +353,23 @@ input[type=submit]:hover {
 		float: none;
 	}
 }
+
+/**** Anmeldungen ****/
+.tableAnmeldungen {
+	width: 100%;
+	font-size: 12px;
+}
+
+.tableAnmeldungen th {
+	font-weight: bold;
+	border-bottom: 1px dotted black;
+}
+
+.tableAnmeldungen td {
+	padding: 2px 5px 2px 5px;
+	border: 0;
+}
+
+
+
+
