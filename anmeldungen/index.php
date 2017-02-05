@@ -12,12 +12,13 @@
 		include("../includes/header.php");
 	?>
 	<main>
-		<article width="90%">
+		<article class="anmeldungen">
+			<h1>Anmeldungen</h1>
 			<p>Hier sind alle Anmeldungen aufgelistet (die neuesten zuerst):</p>
 			<br />
 			<table class="tableAnmeldungen">
 				<tr>
-					<th>id</th>
+					<th width="5%">id</th>
 					<th>Name</th>
 					<th>Tage*</th>
 					<th>Geld</th>
@@ -28,60 +29,66 @@
 				</tr>
 
 				<?php
-				$essenProTag = array("", "", "", "", "");
-				$vegan = array(0,0,0,0,0);
-				$vegetarisch = array(0,0,0,0,0);
-				$anw = array(0,0,0,0,0);
-				$anfahrt2 = "";
-				$money = "";
-				$omoney = "";
-				$mails = "";
-				$z = 0;
+				$essenProTag = array("", "", "", "", ""); // Die Essenswünsche der Tn für jeden Tag, an dem sie da sind (vegan und vegetarisch werden extra abgefragt)
+				$vegan = array(0,0,0,0,0); // Vegan-Esser pro Tag
+				$vegetarisch = array(0,0,0,0,0); // vegetarische Esser pro Tag
+				$anw = array(0,0,0,0,0); // Tn, die insgesamt pro Tag da sind
+				$money = 0; // wie viel zählbares Geld (wenn nur eine Zahl eingegeben wurde) bekommen wir wahrscheinlich?
+				$otherMoney = ""; // alles nicht-zählbare Geld als String
+				$mails = ""; // Alle Mailadressen
+				$anfahrt2 = ""; // Mailadressen derer, die mit aus Bremen anfahren
+				$autos = ""; // Die Tabelle unter "Autos"
+				$fahrer = ""; // Die Tabelle unter "Fahrer"
+				$sonstigeInfos = ""; // Die Tabelle unter "sonstige Infos"
+				$z1 = 0;
+				$z2 = 0;
+				$z3 = 0;
+				$z4 = 0;
 				$i = 0;
 
 				// Connect to database
 				include("../mysql/connect.php");
-				//$sqlCount = "SELECT COUNT(*) FROM anmeldung AS count WHERE abgesagt != 1";
-				//$anzAnm = mysql_fetch_assoc($sqlCount);
-				//echo $anzAnm['count'];
 
-				$sql = "SELECT name, tage, geld, essen, mail, anfahrt, ort, autoda, gros, recht, fuhrerschein FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
+				$sql = "SELECT name, tage, geld, essen, mail, anfahrt, ort, autoda, gros, recht, fuhrerschein, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
 				    while($row = $result->fetch_assoc()) {
-				        if ($z == 1) {
-							echo "<tr style='background-color: #ddd;'>";
-							$z = 0;
+
+				    	$id = mysqli_num_rows($result) - $i;
+						$i++;
+
+				    	/* Haupttabelle */ 
+
+				        if ($z1 == 1) {
+							echo "<tr class='bgHighlight'>";
+							$z1 = 0;
 						} else {
 							echo "<tr>";
-							$z = 1;
+							$z1 = 1;
 						}
-						echo "<td>";
-						$ii = mysqli_num_rows($result);
-						$ii = $ii - $i;
-						echo $ii . "</td>";
-						$i++;
+						echo "<td>$id</td>";
 						echo "<td>" . $row['name'] . "</td>";
 						echo "<td>" . $row['tage'] . "</td>";
 						echo "<td>" . $row['geld'] . "</td>";
 						echo "<td>" . $row['essen'] . "</td>";
-						echo "<td>" . $row['mail'] . "</td>";
+						echo "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 						echo "<td>" . $row['anfahrt'] . "</td>";
 						echo "<td>" . $row['ort'] . "</td>";
 						echo "</tr>";
 
 						/* Geld */
+
 						if (!empty($row['mail'])) {
 							$mails .= $row['mail'] . ", ";
 						}
-						if ($row['anfahrt'] == "2") {
+						if ($row['anfahrt'] == "2" && !empty($row['mail'])) {
 							$anfahrt2 .= $row['mail'].", ";
 						}
 						if (is_numeric($row['geld'])) {
 							$money += $row['geld'];
 						} elseif (!empty($row['geld'])) {
-							$omoney .= "+ ".$row['geld']."<br>";
+							$otherMoney .= "+ ".$row['geld']."<br>";
 						}
 
 						/* Anwesenheit */
@@ -110,241 +117,196 @@
 								}
 							}
 						}
+
+						/* Autos */
+						if ($row['autoda'] == "1") {
+							if ($z2 == 1) {
+								$autos .= "<tr class='bgHighlight'>";
+								$z2 = 0;
+							} else {
+								$autos .= "<tr>";
+								$z2 = 1;
+							}
+							$autos .= "<td>$id</td>";
+							$autos .= "<td>" . $row['name'] . "</td>";
+							$autos .= "<td>" . $row['tage'] . "</td>";
+							$autos .= "<td>" . $row['ort'] . "</td>";
+							$autos .= "<td>" . $row['gros'] . "</td>";
+							$autos .= "<td>" . $row['recht'] . "</td>";
+							$autos .= "<td>" . $row['mail'] . "</td>";
+							$autos .= "</tr>";
+						}
+
+						/* Fahrer */
+
+						if ($row['fuhrerschein'] != "3") {
+							if ($z3 == 1) {
+								$fahrer .= "<tr class='bgHighlight'>";
+								$z3 = 0;
+							} else {
+								$fahrer .= "<tr>";
+								$z3 = 1;
+							}
+							$fahrer .= "<td>$id</td>";
+							$fahrer .= "<td>" . $row['name'] . "</td>";
+							$fahrer .= "<td>" . $row['tage'] . "</td>";
+							$fahrer .= "<td>" . $row['ort'] . "</td>";
+							$fahrer .= "<td>";
+							if ($row['fuhrerschein'] == "2") {
+								$fahrer .= "Nein";
+							} elseif ($row['fuhrerschein'] == "1") {
+								$fahrer .= "Ja";
+							} else {
+								$fahrer .= "ERROR";
+							} 
+							$fahrer .= "</td>";
+							$fahrer .= "<td>" . $row['mail'] . "</td>";
+							$fahrer .= "</tr>";
+						}
+
+						/* Sonstige Infos */
+
+						if (!empty($row['sonstiges'])) {
+							if ($z4 == 1) {
+								$sonstigeInfos .= "<tr class='bgHighlight'>";
+								$z4 = 0;
+							} else {
+								$sonstigeInfos .= "<tr>";
+								$z4 = 1;
+							}
+							$sonstigeInfos .= "<td>$id</td>";
+							$sonstigeInfos .= "<td>" . $row['name'] . "</td>";
+							$sonstigeInfos .= "<td>" . $row['sonstiges'] . "</td>";
+						}
 				    }
 				}
 				$conn->close();
 				?>
 			</table>
 
-				
-<?php
-/*				for ($i=0;$i<count($result);$i++) {
-					if ($z == 1) {
-						echo "<tr style='background-color: #ddd;'>";
-						$z = 0;
-					} else {
-						echo "<tr>";
-						$z = 1;
-					}
-					echo "<td>"; $ii=count($result)-$i; echo $ii . "</td>";
-					echo "<td>" . $result[$i]->name . "</td>";
-					echo "<td>" . $result[$i]->tage . "</td>";
-					echo "<td>" . $result[$i]->geld . "</td>";
-					echo "<td>" . $result[$i]->essen . "</td>";
-					echo "<td>" . $result[$i]->mail . "</td>";
-					echo "<td>" . $result[$i]->anfahrt . "</td>";
-					echo "<td>" . $result[$i]->ort . "</td>";
-					echo "</tr>";
+			<br />
+			<h4>Alle Mailadressen:</h4>
 
-					/* Geld */
-/*					if (!empty($result[$i]->mail)) {
-						$mails .= $result[$i]->mail . ", ";
-					}
-					if ($result[$i]->anfahrt == "2") {
-						$anfahrt2 .= $result[$i]->mail.", ";
-					}
-					if (is_numeric($result[$i]->geld)) {
-						$money += $result[$i]->geld;
-					} elseif (!empty($result[$i]->geld)) {
-						$omoney .= "+ ".$result[$i]->geld."<br>";
-					}
+			<?php
+			echo $mails;
+			?>
+			<br />
+			<br />
+			<h4>Mailadressen für die gemeinsame Anfahrt nachmittags aus Bremen: </h4>
 
-					/* Anwesenheit */
+			<?php
+			echo $anfahrt2;
+			?>
 
-	/*				for ($n=0; $n<=4; $n++) {
-						if (substr($result[$i]->tage, $n, 1) == "x") {
-							$anw[$n]++;
-							if (!empty($result[$i]->essen) && 
-								strcasecmp($result[$i]->essen, "nein") != 0 && 
-								strcasecmp($result[$i]->essen, "keine") != 0 && 
-								strcasecmp($result[$i]->essen, "nö") != 0 && 
-								strcasecmp($result[$i]->essen, "-") != 0) {
-								if ($result[$i]->essen == "Vegetarisch" || 
-									$result[$i]->essen == "vegetarisch" || 
-									$result[$i]->essen == "Vegetarisch " || 
-									$result[$i]->essen == "vegetarisch ") {
-									$vegetarisch[$n]++;
-								} else if ($result[$i]->essen == "Vegan" || 
-									$result[$i]->essen == "vegan" || 
-									$result[$i]->essen == "Vegan " || 
-									$result[$i]->essen == "vegan ") {
-									$vegan[$n]++;
-								} else {
-									$essenProTag[$n] .= "<li>".$result[$i]->essen."</li>";
-								}
-							}
-						}
-					}
-				}
-				echo "</table>";
-				echo "<br><h4>Alle Mailadressen:</h4>";
-				echo $mails;
-				echo "<br><br><h4>Mailadressen für die gemeinsame Anfahrt nachmittags aus Bremen: </h4>";
-				echo $anfahrt2;
+			<br />
+			<br />
+			<h2>Anwesenheiten und Essenswünsche</h2>
 
-				$tag = array("Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
-				echo "<br><br><h2>Anwesenheiten und Essenswünsche</h2>";
-				echo "<table>";
-				for ($i=0; $i<5; $i++) {
-				// echo "<tr><td style='padding-right: 15px;'>$tag[$i]</td><td>".$anw[$i]."</td></tr>";
-				echo "<h5 id='tag$i' style='cursor: pointer; background-color: #ddd; padding: 4px; border-radius: 3px;'>▼ $tag[$i], $anw[$i]</h5>";
-
-				echo "<ul id='essen$i' style='display: none;'>";
+			<?php
+			$tag = array("Freitag", "Samstag", "Sonntag", "Montag", "Dienstag");
+			for ($i=0; $i<5; $i++) {
+				echo "<h5 id='tag$i' class='tagesAnsicht'>▼ $tag[$i], $anw[$i]</h5>";
+				echo "<ul id='essen$i'>"; // style="display: none;"
 				echo "<li>$vegetarisch[$i] x Vegetarisch</li>";
 				echo "<li>$vegan[$i] x Vegan</li>";
 				echo "<br>außerdem:";
 				echo $essenProTag[$i];
 				echo "</ul>";
+			}
+			?>
 
-				}
-				echo "</table>";
+			<br />
+			<br />
+			<h2>Autos</h2>
 
-				/* Autofragen */
-
-/*				echo "<br><br><h2>Autos</h2>";
-				?>
-				<table width="100%"><tr><th>Name</th><th>Tage*</th><th>Stadt</th><th>Platz</th><th>Mögliche Fahrer</th><th>Mailadresse</th></tr>
-
-				<?php
-
-				$z = 1;
-
-				for ($i=0;$i<count($result);$i++) {
-
-				if ($result[$i]->autoda == "1") {
-
-				if ($z == 1) {
-
-				echo "<tr style='background-color: #ddd;'>";
-
-				$z = 0;
-
-				} else {
-
-				echo "<tr>";
-
-				$z = 1;
-
-				}
-
-				echo "<td>" . $result[$i]->name . "</td>";
-
-				echo "<td>" . $result[$i]->tage . "</td>";
-
-				echo "<td>" . $result[$i]->ort . "</td>";
-
-				echo "<td>" . $result[$i]->gros . "</td>";
-
-				echo "<td>" . $result[$i]->recht . "</td>";
-
-				echo "<td>" . $result[$i]->mail . "</td>";
-
-				echo "</tr>";
-
-				}
-
-				}
-
-				?>
-
-				</table>
-
-				<br><br><h2>Fahrer</h2>
-
-				<table width="100%"><tr><th>Name</th><th>Tage*</th><th>Stadt</th><th>Über 25?</th><th>Mailadresse</th>
+			<table>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Tage*</th>
+					<th>Stadt</th>
+					<th>Platz</th>
+					<th>Mögliche Fahrer</th>
+					<th>Mailadresse</th>
+				</tr>
 
 				<?php
-
-				$z = 1;
-
-				for ($i=0;$i<count($result);$i++) {
-
-				if ($result[$i]->fuhrerschein != "3") {
-
-				if ($z == 1) {
-
-				echo "<tr style='background-color: #ddd;'>";
-
-				$z = 0;
-
-				} else {
-
-				echo "<tr>";
-
-				$z = 1;
-
-				}
-
-				echo "<td>" . $result[$i]->name . "</td>";
-
-				echo "<td>" . $result[$i]->tage . "</td>";
-
-				echo "<td>" . $result[$i]->ort . "</td>";
-
-				echo "<td>";
-				if ($result[$i]->fuhrerschein == "2") { echo "Nein"; }
-				if ($result[$i]->fuhrerschein == "1") { echo "Ja"; } 
-				if ($result[$i]->fuhrerschein == "3") { echo "FEHLER"; } 
-				echo "</td>";
-
-				echo "<td>" . $result[$i]->mail . "</td>";
-
-				echo "</tr>";
-
-				}
-
-				}
-
-				echo "</table>";
-
-				echo "<br><br><h2>Geld</h2>";
-				echo "Geld insgesamt: ".$money."€ plus <br>".$omoney;
-*/
+				echo $autos;
 				?>
 
+			</table>
 
-				<script>
+			<br />
+			<br />
+			<h2>Fahrer</h2>
 
-				$(document).ready(function(){
+			<table>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Tage*</th>
+					<th>Stadt</th>
+					<th>Über 25?</th>
+					<th>Mailadresse</th>
+				<?php
+					echo $fahrer;
+				?>
+			</table>
+			<br />
+			<br />
+			<h2>Geld</h2>
 
-				    $("#tag0").click(function(){
+			<?php
+			echo "Geld insgesamt: ".$money."€ plus <br>".$otherMoney;
+			?>
 
-				        $("#essen0").toggle();
+			<br />
+			<br />
+			<h2>Sonstige Infos der Tn</h2>
 
-				    });
+			<table>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Kommentar</th>
+				</tr>
+				<?php
+					echo $sonstigeInfos;
+				?>
+			</table>
 
-				    $("#tag1").click(function(){
+			<br />
+			<br />
+			<hr>
 
-				        $("#essen1").toggle();
+			*) Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
+			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.
 
-				    });
+			<!-- Script für das Aus- und Einklappen der Essenswünsche pro Tag -->
+			<script>
+			$(document).ready(function(){
+			    $("#tag0").click(function(){
+			        $("#essen0").toggle();
+			    });
 
-				    $("#tag2").click(function(){
+			    $("#tag1").click(function(){
+			        $("#essen1").toggle();
+			    });
 
-				        $("#essen2").toggle();
+			    $("#tag2").click(function(){
+			        $("#essen2").toggle();
+			    });
 
-				    });
+			    $("#tag3").click(function(){
+			        $("#essen3").toggle();
+			    });
 
-				    $("#tag3").click(function(){
+			    $("#tag4").click(function(){
+			        $("#essen4").toggle();
+			    })
+			});
 
-				        $("#essen3").toggle();
-
-				    });
-
-				    $("#tag4").click(function(){
-
-				        $("#essen4").toggle();
-
-				    })
-
-				});
-
-				</script>
-
-				<hr>
-
-				*) Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
-				00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.
+			</script>
 		</article>
 	</main>
 </body>

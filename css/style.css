@@ -355,21 +355,31 @@ input[type=submit]:hover {
 }
 
 /**** Anmeldungen ****/
-.tableAnmeldungen {
+.anmeldungen table {
 	width: 100%;
-	font-size: 12px;
+	font-size: 0.75em;
 }
 
-.tableAnmeldungen th {
+.anmeldungen th {
 	font-weight: bold;
 	border-bottom: 1px dotted black;
 }
 
-.tableAnmeldungen td {
+.anmeldungen td {
 	padding: 2px 5px 2px 5px;
 	border: 0;
+	width: 1px;
 }
 
+.bgHighlight {
+	background-color: #ddd;
+}
 
+.tagesAnsicht {
+	cursor: pointer;
+	background-color: #ddd;
+	padding: 4px;
+	border-radius: 3px;
+}
 
 
