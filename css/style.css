@@ -298,8 +298,7 @@ textarea {
 }
 
 input[type=submit] {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 10px;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
@@ -318,6 +317,20 @@ input[type=submit]:hover {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	padding: 30px 20px;
+}
+
+.buttonNextToInputTable td {
+	border: 0;
+}
+
+.buttonNextToInputTable td:first-child {
+	padding-left: 0;
+	padding-top: 0;
+}
+
+.buttonNextToInputTable td:last-child {
+	width: 1%;
+	white-space: nowrap;
 }
 
 

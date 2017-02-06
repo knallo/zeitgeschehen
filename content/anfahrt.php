@@ -25,8 +25,15 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 	Autoanfahrt planen
 </h4>
 <form action="http://maps.google.com/maps" method="get" target="_blank">
-  <label>Startadresse (mit Ort)</label>
-  <input class="inputbox" type="text" name="saddr" value="" />
-  <input type="hidden" name="daddr" value="Müllerweg 8, 30890 Barsinghausen" />
-  <button type="submit">Verbindung mit Googlemaps öffnen</button>
+	<table class="buttonNextToInputTable">
+		<tr>
+	  		<td>
+				<input type="text" name="saddr" value="" placeholder="Startadresse (mit Ort)"/>
+	  			<input type="hidden" name="daddr" value="Müllerweg 8, 30890 Barsinghausen" />
+	  		</td>
+	  		<td>
+				<input type="submit" value="Verbindung mit Googlemaps öffnen" />
+			</td>
+		</tr>
+	</table>
 </form>
