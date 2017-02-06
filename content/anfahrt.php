@@ -27,6 +27,6 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 <form action="http://maps.google.com/maps" method="get" target="_blank">
   <label>Startadresse (mit Ort)</label>
   <input class="inputbox" type="text" name="saddr" value="" />
-  <input type="hidden" name="daddr" value=„Müllerweg 8, 30890 Barsinghausen“ />
+  <input type="hidden" name="daddr" value="Müllerweg 8, 30890 Barsinghausen" />
   <button type="submit">Karte aufrufen</button>
 </form>
