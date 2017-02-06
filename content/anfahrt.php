@@ -20,3 +20,13 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 <p>Für das Auto gibt es direkt am Haus die Möglichkeit, zu parken. Wenn ihr mit Auto kommt überlegt euch doch schon mal, ob ihr das auch für Einkäufe zwischendurch zur Verfügung stellen würdet. Autos waren zumindest letztes mal etwas Mangelware.</p>
 <p>Für den Fall, dass es Probleme gibt, ihr an der Bushaltestelle abgeholt werden wollt o.ä. haben wir ein Infotelefon eingerichtet: 0172 2010396</p>
 <p>Ab Mittwochnachmittag sind schon einige Leute im Haus, um organisatorische Dinge zu regeln. Wer also aus irgendwelchen Gründen schon früher da sein sollte, kann ab Mittwochnachmittag ins Haus.</p>
+
+<h4>
+	Autoanfahrt planen
+</h4>
+<form action="http://maps.google.com/maps" method="get" target="_blank">
+  <label>Startadresse (mit Ort)</label>
+  <input class="inputbox" type="text" name="saddr" value="" />
+  <input type="hidden" name="daddr" value=„Müllerweg 8, 30890 Barsinghausen“ />
+  <button type="submit">Karte aufrufen</button>
+</form>
