@@ -262,6 +262,7 @@ textarea {
     font-size: 16px;
     margin: 7px 0 20px;
     padding: 7px; /* das sorgt in Kombination mit input[type=text] {width:100%;} für breiteres Fenster als 100%. Blöd bei de mobilen Ansicht. */
+    box-sizing: border-box;
 }
 
 input:focus,
@@ -325,14 +326,16 @@ input[type=submit]:hover {
 
 .buttonNextToInputTable td:first-child {
 	padding-left: 0;
+}
+
+.buttonNextToInputTable	td {
 	padding-top: 0;
 }
 
-.buttonNextToInputTable td:last-child {
-	width: 1%;
-	white-space: nowrap;
+.buttonNextToInputTable input[type=text] {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
-
 
 /**** menu mobile ****/
 @media screen and (max-width: 820px) {
@@ -393,6 +396,13 @@ input[type=submit]:hover {
 	width: 1px;
 }
 
+@media screen and (max-width: 710px) {
+	.anmeldungen td {
+		display: table-cell;
+		width: auto;
+	}
+}
+
 .bgHighlight {
 	background-color: #ddd;
 }
@@ -407,4 +417,12 @@ input[type=submit]:hover {
 .contentTagesAnsicht {
 	display: none;
 }
+
+.essensListe {
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	padding-left: 10px;
+}
+
 

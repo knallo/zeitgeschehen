@@ -8,9 +8,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-	<?php
-		include("../includes/header.php");
-	?>
 	<main>
 		<article class="anmeldungen">
 			<h1>Anmeldungen</h1>
@@ -206,7 +203,7 @@
 			$tag = array("Freitag", "Samstag", "Sonntag", "Montag", "Dienstag");
 			for ($i=0; $i<5; $i++) {
 				echo "<h5 class='tagesAnsicht' onclick='toggleTag(this)'>▼ $tag[$i]: $anw[$i] Tn</h5>";
-				echo "<div style='display: none;'>";
+				echo "<div style='display: none;' class='essensListe'>";
 					echo "<ul>";
 						echo "<li>$vegetarisch[$i] x Vegetarisch</li>";
 						echo "<li>$vegan[$i] x Vegan</li>";
