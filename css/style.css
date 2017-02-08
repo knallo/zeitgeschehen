@@ -229,7 +229,7 @@ header li:hover {
 .menuIcon {
 	width: 18px;
 	height: 2px;
-	background-color: #000;
+	background-color: #cff;
 	display: block;
 	margin-top: 3px;
 	border-radius: 1px 1px 1px 1px;
@@ -408,6 +408,10 @@ input[type=submit]:hover {
 		margin: 0;
 	}
 
+	li.last-selected {
+		color: inherit;
+	}
+
 	/* responsive is added to ul with javascript when button is pressed */
 
 	header ul li:not(:first-child) {
@@ -417,6 +421,14 @@ input[type=submit]:hover {
 }
 
 /**** Anmeldungen ****/
+.anmeldungen h1,
+.anmeldungen h2,
+.anmeldungen h3,
+.anmeldungen h4,
+.anmeldungen h5 {
+	font-family: sans-serif;
+}
+
 .anmeldungen table {
 	width: 100%;
 	font-size: 0.75em;
@@ -433,6 +445,12 @@ input[type=submit]:hover {
 	width: 1px;
 }
 
+.anmeldungen a {
+	background-color: inherit;
+	color: inherit;
+	text-decoration: underline;
+}
+
 @media screen and (max-width: 710px) {
 	.anmeldungen td {
 		display: table-cell;
@@ -441,12 +459,12 @@ input[type=submit]:hover {
 }
 
 .bgHighlight {
-	background-color: #ddd;
+	background-color: #eff;
 }
 
 .tagesAnsicht {
 	cursor: pointer;
-	background-color: #ddd;
+	background-color: #eff;
 	padding: 4px;
 	border-radius: 3px;
 }
