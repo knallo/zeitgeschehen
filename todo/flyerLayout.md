@@ -8,7 +8,7 @@
 *WS4 gelb: #ffffcc
 	*RGB 255/255/204
 
-*Plakat orange:#ffcccc
+*Plakat orange:#ffcccc -> #fadac1
 	*RGB 255/204/204
 
 #Schriften
