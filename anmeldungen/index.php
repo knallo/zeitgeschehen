@@ -130,7 +130,7 @@
 							$autos .= "<td>" . $row['ort'] . "</td>";
 							$autos .= "<td>" . $row['gros'] . "</td>";
 							$autos .= "<td>" . $row['recht'] . "</td>";
-							$autos .= "<td>" . $row['mail'] . "</td>";
+							$autos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 							$autos .= "</tr>";
 						}
 
@@ -157,7 +157,7 @@
 								$fahrer .= "ERROR";
 							} 
 							$fahrer .= "</td>";
-							$fahrer .= "<td>" . $row['mail'] . "</td>";
+							$fahrer .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 							$fahrer .= "</tr>";
 						}
 
@@ -173,6 +173,7 @@
 							}
 							$sonstigeInfos .= "<td>$id</td>";
 							$sonstigeInfos .= "<td>" . $row['name'] . "</td>";
+							$sonstigeInfos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 							$sonstigeInfos .= "<td>" . $row['sonstiges'] . "</td>";
 						}
 				    }
@@ -269,6 +270,7 @@
 				<tr>
 					<th>id</th>
 					<th>Name</th>
+					<th>Mailadresse</th>
 					<th>Kommentar</th>
 				</tr>
 				<?php
