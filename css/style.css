@@ -338,7 +338,14 @@ input[type=submit]:hover {
 }
 
 /**** menu mobile ****/
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 820px) and (min-width: 650px) {
+	header li {
+		font-size: 0.8em;
+		padding: 10px 12px 10px 12px;
+	}
+}
+
+@media screen and (max-width: 650px) {
 
 	header ul.responsive li:not(:first-child) {
 		display: none;
