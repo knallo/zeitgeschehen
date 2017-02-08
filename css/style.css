@@ -49,10 +49,29 @@ table {
 
 
 /**** all ****/
+@font-face {
+    font-family: 'elliot_sansbold';
+    src: url('../fonts/elliotsans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/elliotsans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cm_sans_serif_2012medium';
+    src: url('../fonts/cm_sans_serif_2012-webfont.woff2') format('woff2'),
+         url('../fonts/cm_sans_serif_2012-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
 	font-family: sans-serif;
 	color: #333;
 	line-height: 1.2;
+	background-color: #ffc;
 }
 
 a {
@@ -67,6 +86,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5 {
+	font-family: 'elliot_sansbold', 'cm_sans_serif_2012medium';
 	font-weight: bold;
 	display: block;
 } 
@@ -111,6 +131,15 @@ main h1 {
 }
 
 /**** header ****/
+header img {
+	height: 200px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
 nav {
 	display: flex;
 	justify-content: center;
@@ -119,18 +148,18 @@ nav {
 }
 
 header {
-	background-image: url("../img/bgimg.png");
-	background-repeat: no-repeat;
-	background-origin: center;
-	background-size: cover;
-	color: white;
+	//background-image: url("../img/bgimg.png");
+	//background-repeat: no-repeat;
+	//background-origin: center;
+	//background-size: cover;
+	//color: white;
 	margin-top: 0;
 }
 
 header ul {
 	display: inline-block;
 	list-style: none;
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: #fcc;
 	border-radius: 10px;
 	/*border: 1px solid rgba(0, 0, 0, 0.9);*/
 	padding-left: 0px;
@@ -154,10 +183,10 @@ header li {
 	float: left;
 	padding: 10px 15px 10px 15px;
 	margin: 0 5px 0 5px;
-	color: white;
+	color: #000;
 	font-weight: bold;
 	cursor: pointer;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	//text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 header li:first-child {
@@ -167,32 +196,33 @@ header li:first-child {
 header li:nth-child(7) {
 	margin-right: 0;
 }
-
+/*
 header a {
 	color: inherit;
 	font-weight: inherit;
 }
-
-header a:hover {
+*/
+/*header a:hover {
 	color: inherit;
 	text-decoration: underline;
 	//font-weight: bold;
 }
-
+*/
 #menu-button {
 	display: none;
 }
 
 li.lastSelected,
 header li:hover {
-	background-color: red;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: #fcc;
 	border-radius: 10px;
 }
 
 .menuIcon {
 	width: 18px;
 	height: 2px;
-	background-color: white;
+	background-color: #000;
 	display: block;
 	margin-top: 3px;
 	border-radius: 1px 1px 1px 1px;
@@ -255,7 +285,7 @@ form p {
 
 input,
 textarea {
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: #fcc;
     border: none;
     border-bottom: 1px solid #eee; /* damit nicht das ganze Dokument nach unten verschoben wird, wenn durch :focus ein Border hinzugefügt wird */
     border-radius: 3px;
@@ -367,7 +397,7 @@ input[type=submit]:hover {
 	}
 
 	header li:nth-child(2):hover {
-		background-color: black;
+		background-color: inherit;
 		margin: 0;
 	}
 

@@ -1,6 +1,8 @@
 <header id="header">
-	<h1>Argumente gegen das Zeitgeschehen</h1>
-	<p><small>Eine Veranstaltung des <a href="http://arbeitskreisaufloesen.blogsport.eu/" target="blank">Arbeitskreis Auflösen</a></small></p>
+	<img src="img/AgdZ_Logo_web_mit_date.png" />
+	<!--
+		<p><small>Eine Veranstaltung des <a href="http://arbeitskreisaufloesen.blogsport.eu/" target="blank">Arbeitskreis Auflösen</a></small></p>
+	-->
 	<nav>
 		<ul>
 			<li id="allgemeines" onClick="loadPage('allgemeines')" class="lastSelected"><b>Allgemeines</b></li>
