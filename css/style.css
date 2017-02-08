@@ -72,6 +72,7 @@ body {
 	color: #333;
 	line-height: 1.2;
 	background-color: #cff;
+	font-size: 16px;
 }
 
 a {
@@ -296,7 +297,7 @@ textarea {
     border: none;
     border-bottom: 1px solid #eee; /* damit nicht das ganze Dokument nach unten verschoben wird, wenn durch :focus ein Border hinzugefügt wird */
     border-radius: 3px;
-    font-size: 16px;
+    font-size: 1em;
     margin: 7px 0 20px;
     padding: 7px; /* das sorgt in Kombination mit input[type=text] {width:100%;} für breiteres Fenster als 100%. Blöd bei de mobilen Ansicht. */
     box-sizing: border-box;
