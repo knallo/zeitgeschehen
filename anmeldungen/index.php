@@ -10,6 +10,7 @@
 <body>
 	<main>
 		<article class="anmeldungen">
+			<a href="http://zeitgeschehen.net" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
 			<h1>Anmeldungen</h1>
 			<p>Hier sind alle Anmeldungen aufgelistet (die neuesten zuerst):</p>
 			<br />
