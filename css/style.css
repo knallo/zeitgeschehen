@@ -382,9 +382,17 @@ input[type=submit]:hover {
 		font-size: 0.8em;
 		padding: 10px 12px 10px 12px;
 	}
+
+	header img {
+		height: 150px;
+	}
 }
 
 @media screen and (max-width: 650px) {
+	
+	header img {
+		height: 150px;
+	}
 
 	header ul.responsive li:not(:first-child) {
 		display: none;
