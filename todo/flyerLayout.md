@@ -8,8 +8,13 @@
 * WS4 gelb: #ffffcc
 	* RGB 255/255/204
 
+<<<<<<< HEAD
 * Plakat orange:#ffcccc
 	* RGB 255/204/204
+=======
+*Plakat orange:#ffcccc -> #fadac1
+	*RGB 255/204/204
+>>>>>>> flyerLayout
 
 #Schriften
 * Arg. gegen das Zeitgeschehen und Überschriften: Elliot Sans Bold
