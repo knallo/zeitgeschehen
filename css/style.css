@@ -49,6 +49,10 @@ table {
 
 
 /**** all ****/
+.jsLink {
+	display: none;
+}
+
 @font-face {
     font-family: 'elliot_sansbold';
     src: url('../fonts/elliotsans-bold-webfont.woff2') format('woff2'),

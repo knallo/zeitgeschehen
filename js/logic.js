@@ -2,6 +2,12 @@ var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung'
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 
+function makeJsLinkVisible() {
+	var jsLinks = document.getElementsByClassName("jsLink");
+	for (i = 0; i < jsLinks.length; i++) {
+		jsLinks[i].style.display = "inline";
+	}
+}
 
 function loadPage(title, isBack=false) {
 	if (!PAGES.includes(title)) {
@@ -19,6 +25,7 @@ function loadPage(title, isBack=false) {
 			if (!isBack) {
 				history.pushState({title: title, isPage: true}, title, "?p=" + title);
 			}
+			makeJsLinkVisible();
 		}
 	}
 	
@@ -45,6 +52,7 @@ function loadWorkshop(title, isBack=false) {
 			if (!isBack) {
 				history.pushState({title: title, isWorkshop: true}, title, "?workshop="+title);
 			}
+			makeJsLinkVisible();
 		}
 	}
 
@@ -56,6 +64,8 @@ window.onload = function makeMenuCollapsedOnMobile() {
 	if (window.matchMedia("(max-width: 820px)").matches) {
 		document.querySelector("header").querySelector("ul").className = "responsive";
 	}
+
+	makeJsLinkVisible();
 }
 
 function markMenu(title, initial=false) {
@@ -152,23 +162,3 @@ function toggleTag(el) {
 		nextEl.style.display = "none";
 	}
 }
-
-    // $("#tag0").click(function(){
-    //     $("#essen0").toggle();
-    // });
-
-    // $("#tag1").click(function(){
-    //     $("#essen1").toggle();
-    // });
-
-    // $("#tag2").click(function(){
-    //     $("#essen2").toggle();
-    // });
-
-    // $("#tag3").click(function(){
-    //     $("#essen3").toggle();
-    // });
-
-    // $("#tag4").click(function(){
-    //     $("#essen4").toggle();
-    // }

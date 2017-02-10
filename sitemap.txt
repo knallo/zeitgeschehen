@@ -1,0 +1,11 @@
+http://zeitgeschehen.net?p=allgemeines
+http://zeitgeschehen.net?p=programm
+http://zeitgeschehen.net?p=haus
+http://zeitgeschehen.net?p=kosten
+http://zeitgeschehen.net?p=anfahrt
+http://zeitgeschehen.net?p=anmeldung
+http://zeitgeschehen.net?p=kontakt
+http://zeitgeschehen.net?workshop=wahl
+http://zeitgeschehen.net?workshop=armut
+http://zeitgeschehen.net?workshop=rechteKritisieren
+http://zeitgeschehen.net?workshop=auslaender
