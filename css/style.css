@@ -205,8 +205,31 @@ header li:first-child {
 	margin-left: 0;
 }
 
+header li:nth-child(2) {
+	color: #fddec8;
+}
+
+header li:nth-child(3) {
+	color: #d1e8d4;
+}
+
+
+header li:nth-child(4) {
+	color: #fffcd9;
+}
+
+
+header li:nth-child(5) {
+	color: #f3d8e0;
+}
+
+header li:nth-child(6) {
+	color: #cce5f4;
+}
+
 header li:nth-child(7) {
 	margin-right: 0;
+	color: #fddec8;
 }
 /*
 header a {
@@ -226,9 +249,9 @@ header a {
 
 li.lastSelected,
 header li:hover {
-	background-color: rgba(0, 0, 0, 0.9);
-	color: white;
-	border-radius: 10px;
+	//background-color: rgba(0, 0, 0, 0.9);
+	color: white !important;
+	//border-radius: 10px;
 }
 
 .menuIcon {
