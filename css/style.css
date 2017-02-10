@@ -252,7 +252,7 @@ li.lastSelected,
 header li:hover {
 	//background-color: rgba(0, 0, 0, 0.9);
 	color: white !important;
-	//border-radius: 10px;
+	border-radius: 10px;
 }
 
 .menuIcon {

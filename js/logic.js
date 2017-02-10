@@ -2,6 +2,15 @@ var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung'
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 
+function manipulateCSS(tag, property) {
+	var stylesheet = document.styleSheets[0];
+	if (stylesheet.insertRule) {
+	    stylesheet.insertRule(tag + property, stylesheet.cssRules.length);
+	} else if (stylesheet.addRule) {
+	    stylesheet.addRule(tag, property, -1);
+	}
+}
+
 function changeBackgroundColors(page, workshop) {
 	var color;
 	if (!workshop) {
@@ -33,31 +42,13 @@ function changeBackgroundColors(page, workshop) {
 			color = "#fffcd9";
 		}
 	}
-	var stylesheet = document.styleSheets[0],
-	    selector1 = "body",
-	    rule1 = "{background-color: " + color + "}",
-	    selector2 = "a",
-	    rule2 = "{color: " + color + "}",
-	    selector3 = "input[type=submit]",
-	    rule3 = "{color: " + color + "}";
-
-
-	if (stylesheet.insertRule) {
-	    stylesheet.insertRule(selector1 + rule1, stylesheet.cssRules.length);
-	    stylesheet.insertRule(selector2 + rule2, stylesheet.cssRules.length);
-	    stylesheet.insertRule(selector3 + rule3, stylesheet.cssRules.length);
-	} else if (stylesheet.addRule) {
-	    stylesheet.addRule(selector1, rule1, -1);
-	    stylesheet.addRule(selector2, rule2, -1);
-	    stylesheet.addRule(selector3, rule3, -1);
-	}
+	manipulateCSS("body", "{background-color: " + color + "}");
+	manipulateCSS("a", "{color: " + color + "}");
+	manipulateCSS("input[type=submit]", "{color: " + color + "}");
 }
 
 function makeJsLinkVisible() {
-	var jsLinks = document.getElementsByClassName("jsLink");
-	for (i = 0; i < jsLinks.length; i++) {
-		jsLinks[i].style.display = "inline";
-	}
+	manipulateCSS(".jsLink", "{display: inline}");
 }
 
 function loadPage(title, isBack=false) {
@@ -205,7 +196,7 @@ function showMenu() {
 }
 
 if (window.matchMedia) {
-	var query = window.matchMedia("(min-width: 820px)");
+	var query = window.matchMedia("(min-width: 650px)");
 	query.addListener(function changeMenu(mq) {
 		if (mq.matches) {
 			document.querySelector('header').querySelector('ul').className = "responsive";
