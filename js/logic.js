@@ -2,6 +2,57 @@ var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung'
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 
+function changeBackgroundColors(page, workshop) {
+	var color;
+	if (!workshop) {
+		if (page == "allgemeines") {
+			color = "#cce5f4";
+		} else if (page == "programm") {
+			color = "#fddec8";
+		} else if (page == "haus") {
+			color = "#d1e8d4";
+		} else if (page == "kosten") {
+			color = "#fffcd9";
+		} else if (page == "anfahrt") {
+			color = "#f3d8e0";
+		} else if (page == "anmeldung") {
+			color = "#cce5f4";
+		} else if (page == "kontakt") {
+			color = "#fddec8";
+		} else {
+			color = "#cce5f4";
+		}
+	} else {
+		if (page == "wahl") {
+			color = "#cce5f4";
+		} else if (page == "rechteKritisieren") {
+			color = "#d1e8d4";
+		} else if (page == "auslaender") {
+			color = "#f3d8e0";
+		} else if (page == "armut") {
+			color = "#fffcd9";
+		}
+	}
+	var stylesheet = document.styleSheets[0],
+	    selector1 = "body",
+	    rule1 = "{background-color: " + color + "}",
+	    selector2 = "a",
+	    rule2 = "{color: " + color + "}",
+	    selector3 = "input[type=submit]",
+	    rule3 = "{color: " + color + "}";
+
+
+	if (stylesheet.insertRule) {
+	    stylesheet.insertRule(selector1 + rule1, stylesheet.cssRules.length);
+	    stylesheet.insertRule(selector2 + rule2, stylesheet.cssRules.length);
+	    stylesheet.insertRule(selector3 + rule3, stylesheet.cssRules.length);
+	} else if (stylesheet.addRule) {
+	    stylesheet.addRule(selector1, rule1, -1);
+	    stylesheet.addRule(selector2, rule2, -1);
+	    stylesheet.addRule(selector3, rule3, -1);
+	}
+}
+
 function makeJsLinkVisible() {
 	var jsLinks = document.getElementsByClassName("jsLink");
 	for (i = 0; i < jsLinks.length; i++) {
@@ -15,6 +66,8 @@ function loadPage(title, isBack=false) {
 	} else {
 		markMenu(title);
 	}
+
+	changeBackgroundColors(title, false);
 
 	var article = document.querySelector('article');
 	var xhttp = new XMLHttpRequest();
@@ -41,6 +94,8 @@ function loadWorkshop(title, isBack=false) {
 		markMenu('programm');
 	}
 
+	changeBackgroundColors(title, true);
+
 	var article = document.querySelector('article');
 	var xhttp = new XMLHttpRequest();
 
@@ -66,6 +121,14 @@ window.onload = function makeMenuCollapsedOnMobile() {
 	}
 
 	makeJsLinkVisible();
+	var url = window.location.href.split("=");
+	var workshop;
+	if (url[0].split("?")[1] == "workshop") {
+		workshop = true;
+	} else {
+		workshop = false;
+	}
+	changeBackgroundColors(window.location.href.split("=")[1], workshop);
 }
 
 function markMenu(title, initial=false) {

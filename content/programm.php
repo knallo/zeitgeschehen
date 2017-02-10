@@ -15,14 +15,14 @@
 <table>
 	<tbody>
 		<tr>
-			<td>
+			<td id="wahl">
 				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('wahl')" title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" class="jsLink">Ankündiger</a><noscript><a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Programm</a></noscript>
 			</td>
-			<td>
+			<td id="rechteKritisieren">
 				<h4>Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
@@ -37,14 +37,14 @@
 <table>
 	<tbody>
 		<tr>
-			<td>
+			<td id="auslaender">
 				<h4>Inländer vs. Ausländer - wovon lebt diese Unterscheidung?</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Ankündiger</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Programm</a></noscript>
 			</td>
-			<td>
+			<td id="armut">
 				<h4>Armut, kapitalistische</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />

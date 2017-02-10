@@ -203,6 +203,7 @@ header li {
 
 header li:first-child {
 	margin-left: 0;
+	color: #cce5f4;
 }
 
 header li:nth-child(2) {
@@ -311,6 +312,34 @@ td {
 		display: block;
 		width: auto;
 	}
+}
+
+#wahl {
+	background-color: #cce5f4;
+}
+#wahl a {
+	color: #cce5f4;
+}
+
+#rechteKritisieren {
+	background-color: #d1e8d4;
+}
+#rechteKritisieren a {
+	color: #d1e8d4;
+}
+
+#auslaender {
+	background-color: #f3d8e0;
+}
+#auslaender a {
+	color: #f3d8e0;	
+}
+
+#armut {
+	background-color: #fffcd9;
+}
+#armut a {
+	color: #fffcd9;	
 }
 
 /* formular */
