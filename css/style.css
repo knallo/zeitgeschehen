@@ -170,7 +170,7 @@ header ul {
 	display: inline-block;
 	list-style: none;
 	background-color: #000;
-	border-radius: 5px;
+	//border-radius: 5px;
 	/*border: 1px solid rgba(0, 0, 0, 0.9);*/
 	padding-left: 0px;
 	padding-right: 0px;
@@ -195,7 +195,8 @@ header li {
 	float: left;
 	padding: 10px 15px 8px 15px;
 	//margin: 0 5px 0 5px;
-	color: #cce5f4;
+	//color: #cce5f4;
+	color: white;
 	font-weight: bold;
 	cursor: pointer;
 	//text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -203,9 +204,9 @@ header li {
 
 header li:first-child {
 	margin-left: 0;
-	color: #cce5f4;
+	//color: #cce5f4;
 }
-
+/*
 header li:nth-child(2) {
 	color: #fddec8;
 }
@@ -232,6 +233,7 @@ header li:nth-child(7) {
 	margin-right: 0;
 	color: #fddec8;
 }
+*/
 /*
 header a {
 	color: inherit;
@@ -250,8 +252,8 @@ header a {
 
 li.lastSelected,
 header li:hover {
-	//background-color: rgba(0, 0, 0, 0.9);
-	color: white !important;
+	background-color: white;
+	color: black !important;
 	//border-radius: 10px;
 }
 
