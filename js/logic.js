@@ -1,11 +1,12 @@
 var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt', 'impressum'];
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
+var COLORS = ["#cce5f4", "#fddec8", "#d1e8d4", "#fffcd9", "#f3d8e0"]
 
 function changeBackgroundColors(page, workshop) {
 	var color;
 	if (!workshop) {
-		if (page == "allgemeines") {
+		/*if (page == "allgemeines") {
 			color = "#cce5f4";
 		} else if (page == "programm") {
 			color = "#fddec8";
@@ -21,7 +22,8 @@ function changeBackgroundColors(page, workshop) {
 			color = "#fddec8";
 		} else {
 			color = "#cce5f4";
-		}
+		}*/
+		color = COLORS[Math.floor(Math.random()*COLORS.length)];
 	} else {
 		if (page == "wahl") {
 			color = "#cce5f4";
