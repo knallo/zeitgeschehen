@@ -142,6 +142,7 @@ main h1 {
 /**** header ****/
 header img {
 	height: 200px;
+	max-width: 100%;
 	padding-top: 20px;
 	padding-bottom: 5px;
 	margin-left: auto;
