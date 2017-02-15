@@ -73,6 +73,7 @@ table {
 
 body {
 	font-family: sans-serif;
+	font-size: 12pt;
 	color: #333;
 	line-height: 1.2;
 	background-color: #cce5f4;
@@ -140,7 +141,7 @@ main h1 {
 }
 
 /**** header ****/
-header img {
+logo img {
 	height: 200px;
 	max-width: 100%;
 	padding-top: 20px;
@@ -151,13 +152,14 @@ header img {
 }
 
 nav {
-	display: flex;
-	justify-content: center;
+	//display: flex;
+	//justify-content: space-around;
+	width: 100%;
 	padding-bottom: 20px;
 	padding-top: 20px;
 }
 
-header {
+logo, header {
 	/*background-image: url("../img/bgimg.png");
 	background-repeat: no-repeat;
 	background-origin: center;
@@ -167,7 +169,8 @@ header {
 }
 
 header ul {
-	display: inline-block;
+	display: flex;
+	justify-content: space-around;
 	list-style: none;
 	background-color: #000;
 	border-radius: 5px;
@@ -175,6 +178,7 @@ header ul {
 	padding-left: 0px;
 	padding-right: 0px;
 	margin: auto;
+	width: 100%;
 }
 
 /*header h1 {
@@ -198,6 +202,7 @@ header li {
 	color: #cce5f4;
 	font-weight: bold;
 	cursor: pointer;
+	flex-grow: 1;
 	//text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -243,17 +248,18 @@ header li:hover {
 /**** content ****/
 
 /* general content */
+
 main {
-	margin-top: 30px;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
 article {
 	display: block;
-	max-width: 800px;
-	margin-left: auto;
-	margin-right: auto;
+	padding-top: 5px;
 	padding-bottom: 30px;
 }
 
@@ -383,6 +389,15 @@ input[type=submit]:hover {
 
 /**** menu mobile ****/
 @media screen and (max-width: 820px) and (min-width: 650px) {
+	nav {
+		display: flex;
+	}
+
+	header ul {
+		display: inline-block;
+		width: auto;
+	}
+
 	header li {
 		font-size: 0.8em;
 		padding: 10px 12px 10px 12px;
@@ -403,6 +418,15 @@ input[type=submit]:hover {
 		header li {
 			font-size: 1.33333em;
 		}
+	}
+
+	nav {
+		display: flex;
+	}
+
+	header ul {
+		display: inline-block;
+		width: auto;
 	}
 	
 	header img {

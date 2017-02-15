@@ -8,11 +8,15 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-	<?php
-		include("includes/header.php");
-	?>
-
+	<logo>
+		<img src="img/AgdZ_Logo_web_mit_date.png" alt="Argumente gegen das Zeitgeschehen - 2.-6. Juni 2017" />
+	</logo>
 	<main>
+		<header id="header">
+			<?php
+				include("includes/header.php");
+			?>
+		</header>
 		<article>
 			<?php
 				$p = "";
@@ -52,7 +56,7 @@
 						'</script>';
 					echo '<br><br><a onclick="loadPage(\'programm\')">zurück zum Programm</a>';
 				} elseif ($workshop != "") {
-					include('content/workshop-404.inc');
+					include('content/workshop-404.php');
 				} else {
 					include('content/404.php');
 				}
