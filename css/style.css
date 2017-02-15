@@ -158,11 +158,11 @@ nav {
 }
 
 header {
-	//background-image: url("../img/bgimg.png");
-	//background-repeat: no-repeat;
-	//background-origin: center;
-	//background-size: cover;
-	//color: white;
+	/*background-image: url("../img/bgimg.png");
+	background-repeat: no-repeat;
+	background-origin: center;
+	background-size: cover;
+	color: white;*/
 	margin-top: 0;
 }
 
@@ -394,6 +394,16 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width: 650px) {
+
+	@media screen and (orientation:landscape) {
+		body {
+			font-size: 0.75em;
+		}
+
+		header li {
+			font-size: 1.33333em;
+		}
+	}
 	
 	header img {
 		height: 150px;
