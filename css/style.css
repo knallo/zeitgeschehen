@@ -79,16 +79,20 @@ body {
 	background-color: #cce5f4;
 }
 
+em {
+	font-style: italic;
+}
+
 a {
 	text-decoration: none;
 	font-weight: bold;
 	color: #cce5f4;
 	cursor: pointer;
-	//text-shadow: 1px 0px 4px rgba(0, 0, 0, 1);
-	//text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+/*	text-shadow: 1px 0px 4px rgba(0, 0, 0, 1);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
 	background-color: black;
-	//padding-left: 2px;
-	//padding-right: 2px;
+/*	padding-left: 2px;
+	padding-right: 2px;*/
 }
 
 a:hover {
@@ -152,8 +156,8 @@ logo img {
 }
 
 nav {
-	//display: flex;
-	//justify-content: space-around;
+	/*display: flex;
+	justify-content: space-around;*/
 	width: 100%;
 	padding-bottom: 20px;
 	padding-top: 20px;
@@ -195,15 +199,15 @@ header p {
 
 header li {
 	font-family: 'elliot_sansbold', 'cm_sans_serif_2012medium';
-	//font-size: 0.9em;
+	/*font-size: 0.9em;*/
 	float: left;
 	padding: 10px 15px 8px 15px;
-	//margin: 0 5px 0 5px;
+	/*margin: 0 5px 0 5px;*/
 	color: #cce5f4;
 	font-weight: bold;
 	cursor: pointer;
 	flex-grow: 1;
-	//text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	/*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);*/
 }
 
 header li:first-child {
@@ -310,7 +314,7 @@ textarea {
     font-size: 1em;
     margin: 7px 0 20px;
     padding: 7px; /* das sorgt in Kombination mit input[type=text] {width:100%;} für breiteres Fenster als 100%. Blöd bei de mobilen Ansicht. */
-    box-sizing: border-box;
+    box-sizing: border-box; /* damit die paddings an der Seite nicht für eine width über 100% sorgen */
 }
 
 input:focus,

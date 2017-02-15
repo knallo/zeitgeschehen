@@ -16,10 +16,10 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 <p style="padding-left: 30px;">Müllerweg 8<br /> Barsinghausen OT Großgoltern<br /> 30890 Niedersachsen</p>
 <p>Mit dem Bus ist das die Haltestelle</p>
 <p style="padding-left: 30px;">"Großgoltern Gutsstraße, Barsinghausen"</p>
-<p>Dorthin fahren Buslinien von Wunstorf, sowie mit vorheriger S-Bahn oder Straßenbahnfahrt auch von Hannover. Nähere Infos sind der DB Seite prima zu entnehmen.</p>
-<p>Für das Auto gibt es direkt am Haus die Möglichkeit, zu parken. Wenn ihr mit Auto kommt überlegt euch doch schon mal, ob ihr das auch für Einkäufe zwischendurch zur Verfügung stellen würdet. Autos waren zumindest letztes mal etwas Mangelware.</p>
-<p>Für den Fall, dass es Probleme gibt, ihr an der Bushaltestelle abgeholt werden wollt o.ä. haben wir ein Infotelefon eingerichtet: 0172 2010396</p>
-<p>Ab Freitagnachmittag sind schon einige Leute im Haus, um organisatorische Dinge zu regeln. Wer also aus irgendwelchen Gründen schon früher da sein sollte, kann ab Freitagnachmittag ins Haus.</p>
+<p>Dorthin fahren Buslinien von Wunstorf sowie mit vorheriger S-Bahn oder Straßenbahnfahrt auch von Hannover. Nähere Infos sind der DB-Seite prima zu entnehmen.</p>
+<p>Für Autos gibt es direkt am Haus die Möglichkeit zu parken. Wenn ihr mit Auto kommt überlegt euch doch schon mal, ob ihr das auch für Einkäufe zwischendurch zur Verfügung stellen würdet. Autos waren zumindest letztes mal etwas Mangelware.</p>
+<p>Für den Fall, dass es Probleme gibt, ihr an der Bushaltestelle abgeholt werden wollt o.ä. haben wir ein Infotelefon eingerichtet: <em>die Nummer wird in den nächsten Tagen hier veröffentlicht</em></p>
+<p>Ab Freitagnachmittag sind schon einige Leute vor Ort, um organisatorische Dinge zu regeln. Wer also aus irgendwelchen Gründen schon früher da sein sollte, kann ab Freitagnachmittag ins Haus.</p>
 
 <h4>
 	Autoanfahrt planen
