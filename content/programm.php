@@ -15,14 +15,14 @@
 <table>
 	<tbody>
 		<tr>
-			<td>
+			<td id="armut">
 				<h4>Armut, kapitalistische</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
 			</td>
-			<td>
+			<td id="rechteKritisieren">
 				<h4>Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
@@ -37,14 +37,14 @@
 <table>
 	<tbody>
 		<tr>
-			<td>
+			<td id="auslaender">
 				<h4>Was ist der Inländer, was ist der Ausländer, und was für Ausländer sind Merkels Flüchtlinge?</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Einführungstext</a></noscript>
 			</td>
-			<td>
+			<td id="wahl">
 				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
