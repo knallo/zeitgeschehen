@@ -251,7 +251,8 @@ header a {
 li.lastSelected,
 header li:hover {
 	//background-color: rgba(0, 0, 0, 0.9);
-	color: white !important;
+	//color: white !important;
+	text-decoration: underline;
 	border-radius: 10px;
 }
 
