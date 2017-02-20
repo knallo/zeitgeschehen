@@ -68,7 +68,7 @@
 <br />
 <p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>
 <label><input type="radio" name="gruppe" value="1" /> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
-<label><input type="radio" name="gruppe" value="2" checked /> Ich fahre mit der Fahrgemeinschaft am Mittwoch per Bahn (16 Uhr, HBF Bremen)</label><br />
+<label><input type="radio" name="gruppe" value="2" checked /> Ich fahre mit der Fahrgemeinschaft am Freitag per Bahn (16 Uhr, HBF Bremen)</label><br />
 <label><input type="radio" name="gruppe" value="3" /> Ich fahre nicht in einer der genannten Gruppen mit</label><br />
 <br />
 <p><strong>An welchen Tagen kommst du?</strong></p>

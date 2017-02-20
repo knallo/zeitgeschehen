@@ -1,6 +1,7 @@
 var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt', 'impressum'];
 var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
+var maxWidthOnMobile = "650px";
 
 function manipulateCSS(tag, property) {
 	var stylesheet = document.styleSheets[0];
@@ -107,7 +108,7 @@ function loadWorkshop(title, isBack=false) {
 }
 
 window.onload = function makeMenuCollapsedOnMobile() {
-	if (window.matchMedia("(max-width: 820px)").matches) {
+	if (window.matchMedia("(max-width: "+maxWidthOnMobile+")").matches) {
 		document.querySelector("header").querySelector("ul").className = "responsive";
 	}
 
@@ -131,7 +132,7 @@ function markMenu(title, initial=false) {
 	title = title !== "impressum" ? title : "kontakt";
 	var item = document.getElementById(title);
 	item.className = "lastSelected";
-	if (window.matchMedia("(max-width: 820px)").matches) {
+	if (window.matchMedia("(max-width: "+maxWidthOnMobile+")").matches) {
 		button = document.getElementById("menu-button");
 		if (initial) {
 			item.parentNode.insertBefore(item, item.parentNode.firstChild);
@@ -196,7 +197,7 @@ function showMenu() {
 }
 
 if (window.matchMedia) {
-	var query = window.matchMedia("(min-width: 650px)");
+	var query = window.matchMedia("(min-width: "+maxWidthOnMobile+")");
 	query.addListener(function changeMenu(mq) {
 		if (mq.matches) {
 			document.querySelector('header').querySelector('ul').className = "responsive";
