@@ -27,6 +27,7 @@ function loadPage(title, isBack=false) {
 				history.pushState({title: title, isPage: true}, title, "?p=" + title);
 			}
 			makeJsLinkVisible();
+			showMenu();
 		}
 	}
 	
