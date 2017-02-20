@@ -16,11 +16,11 @@
 	<tbody>
 		<tr>
 			<td>
-				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
+				<h4>Armut, kapitalistische</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('wahl')" title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Einführungstext</a></noscript>
+				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
 			</td>
 			<td>
 				<h4>Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!</h4>
@@ -38,18 +38,18 @@
 	<tbody>
 		<tr>
 			<td>
-				<h4>Inländer vs. Ausländer - wovon lebt diese Unterscheidung?</h4>
+				<h4>Was ist der Inländer, was ist der Ausländer, und was für Ausländer sind Merkels Flüchtlinge?</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Einführungstext</a></noscript>
 			</td>
 			<td>
-				<h4>Armut, kapitalistische</h4>
+				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
+				<a onclick="loadWorkshop('wahl')" title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Einführungstext</a></noscript>
 			</td>
 		</tr>
 	</tbody>
