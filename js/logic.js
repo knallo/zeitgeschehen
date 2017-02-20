@@ -27,7 +27,7 @@ function loadPage(title, isBack=false) {
 				history.pushState({title: title, isPage: true}, title, "?p=" + title);
 			}
 			makeJsLinkVisible();
-			showMenu();
+			toggleMenu();
 		}
 	}
 	
@@ -122,6 +122,12 @@ function insertInOrder(element) {
 	if (ORDER[element.id]) {
 		var menu = document.querySelector('header').querySelector('ul');
 		menu.insertBefore(element, document.getElementById(ORDER[element.id]));
+	}
+}
+
+function toggleMenu() {
+	if (window.matchMedia("(max-width: "+maxWidthOnMobile+")").matches) {
+		showMenu();
 	}
 }
 
