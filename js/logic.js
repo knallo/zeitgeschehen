@@ -3,11 +3,53 @@ var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 var maxWidthOnMobile = "650px";
 
-function makeJsLinkVisible() {
-	var jsLinks = document.getElementsByClassName("jsLink");
-	for (i = 0; i < jsLinks.length; i++) {
-		jsLinks[i].style.display = "inline";
+function manipulateCSS(tag, property) {
+	var stylesheet = document.styleSheets[0];
+	if (stylesheet.insertRule) {
+	    stylesheet.insertRule(tag + property, stylesheet.cssRules.length);
+	} else if (stylesheet.addRule) {
+	    stylesheet.addRule(tag, property, -1);
 	}
+}
+
+function changeBackgroundColors(page, workshop) {
+	var color;
+	if (!workshop) {
+		if (page == "allgemeines") {
+			color = "#cce5f4";
+		} else if (page == "programm") {
+			color = "#fddec8";
+		} else if (page == "haus") {
+			color = "#d1e8d4";
+		} else if (page == "kosten") {
+			color = "#fffcd9";
+		} else if (page == "anfahrt") {
+			color = "#f3d8e0";
+		} else if (page == "anmeldung") {
+			color = "#cce5f4";
+		} else if (page == "kontakt") {
+			color = "#fddec8";
+		} else {
+			color = "#cce5f4";
+		}
+	} else {
+		if (page == "wahl") {
+			color = "#cce5f4";
+		} else if (page == "rechteKritisieren") {
+			color = "#d1e8d4";
+		} else if (page == "auslaender") {
+			color = "#f3d8e0";
+		} else if (page == "armut") {
+			color = "#fffcd9";
+		}
+	}
+	manipulateCSS("body", "{background-color: " + color + "}");
+	manipulateCSS("a", "{color: " + color + "}");
+	manipulateCSS("input[type=submit]", "{color: " + color + "}");
+}
+
+function makeJsLinkVisible() {
+	manipulateCSS(".jsLink", "{display: inline}");
 }
 
 function loadPage(title, isBack=false) {
@@ -16,6 +58,8 @@ function loadPage(title, isBack=false) {
 	} else {
 		markMenu(title);
 	}
+
+	changeBackgroundColors(title, false);
 
 	var article = document.querySelector('article');
 	var xhttp = new XMLHttpRequest();
@@ -43,6 +87,8 @@ function loadWorkshop(title, isBack=false) {
 		markMenu('programm');
 	}
 
+	changeBackgroundColors(title, true);
+
 	var article = document.querySelector('article');
 	var xhttp = new XMLHttpRequest();
 
@@ -68,6 +114,14 @@ window.onload = function makeMenuCollapsedOnMobile() {
 	}
 
 	makeJsLinkVisible();
+	var url = window.location.href.split("=");
+	var workshop;
+	if (url[0].split("?")[1] == "workshop") {
+		workshop = true;
+	} else {
+		workshop = false;
+	}
+	changeBackgroundColors(window.location.href.split("=")[1], workshop);
 }
 
 function markMenu(title, initial=false) {
