@@ -117,14 +117,15 @@ h2 {
 }
 
 h3 {
-	font-size: 1.17em;
-	margin: 1em 0;
+	font-size: 1.27em;
+	margin-top: 1em;
+	margin-bottom: 0;
 }
 
 h4 {
 	font-size: 1em;
 	margin-bottom: 1.33em;
-	margin-top: 1em;
+	margin-top: 0.5em;
 }
 
 h5 {

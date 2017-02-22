@@ -11,19 +11,21 @@
 	<li>Die letzten beiden Workshops gehen parallel von <b>04.06., 17 Uhr</b> bis <b>05.06., 20 Uhr</b></li>
 </ol>
 
-<p><strong>03.-04. Juni</strong> </p>
+<h2>03.-04. Juni</h2>
 <table>
 	<tbody>
 		<tr>
 			<td id="armut">
-				<h4>Armut, kapitalistische</h4>
+				<h3>Armut, kapitalistische</h3>
+				<h4>Eine Säule unserer Wirtschaft</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
 			</td>
 			<td id="rechteKritisieren">
-				<h4>Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!</h4>
+				<h3>Kritik des Rechtsrucks</h3>
+				<h4>Wie sie geht und wie nicht</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
@@ -33,19 +35,21 @@
 	</tbody>
 </table>
 <p> </p>
-<p><strong>04.-05. Juni</strong> </p>
+<h2>04.-05. Juni</h2>
 <table>
 	<tbody>
 		<tr>
 			<td id="auslaender">
-				<h4>Was ist der Inländer, was ist der Ausländer, und was für Ausländer sind Merkels Flüchtlinge?</h4>
+				<h3>Inländer / Ausländer / Flüchtlinge</h3>
+				<h4>Ein Werk der Gewalt</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Einführungstext</a></noscript>
 			</td>
 			<td id="wahl">
-				<h4>Superwahljahr - Volksherrschaft in Hochform</h4>
+				<h3>Demokratische Wahlen</h3>
+				<h4>Superwahljahr - Sternstunde des Volkes</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
