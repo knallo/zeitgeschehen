@@ -43,7 +43,7 @@
 				<h3>Inländer / Ausländer / Flüchtlinge</h3>
 				<h4>Ein Werk der Gewalt</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
+					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Einführungstext</a></noscript>
 			</td>
@@ -51,7 +51,7 @@
 				<h3>Demokratische Wahlen</h3>
 				<h4>Superwahljahr - Sternstunde des Volkes</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Pfingstmontag 11:00 Uhr bis 14:00 Uhr<br />
+					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
 				<a onclick="loadWorkshop('wahl')" title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Einführungstext</a></noscript>
 			</td>

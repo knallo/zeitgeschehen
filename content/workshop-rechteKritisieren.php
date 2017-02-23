@@ -1,6 +1,8 @@
-<h1>
-	Workshop: Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!
-</h1>
+<?php
+include("/home/webpages/lima-city/fruehlingsseminar/zeitgeschehen/includes/wsstruktur.php");
+wsTitel("Kritik des Rechtsrucks", "Wie sie geht und wie nicht");
+?>
+
 <p>
 	Dass Flüchtlinge uns die Arbeitsplätze wegnehmen, leuchtet nicht nur bekennenden AfD-Anhängern ein. Die Rechnung scheint ja auch sehr einfach zu sein: Je mehr die Nachfrage nach Arbeitsplätzen das Angebot übersteigt, desto schwerer wird es für jeden einzelnen Bewerber, sein Ziel zu erreichen. Doch ist das eigentlich der Gehalt der Parole? Geht es den Ausländerfeinden von der AfD überhaupt darum, Leuten in ihren Konkurrenznöten zu helfen, wie immer die sie deuten?
 </p>
@@ -19,3 +21,7 @@
 		<li>Und was wird der Flüchtlingspolitik der Kanzlerin damit alles vorgeworfen?</li>
 	</ul>
 </p>
+
+<?php
+wsZeiten(1);
+?>

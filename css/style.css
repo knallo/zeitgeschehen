@@ -111,9 +111,17 @@ h1 {
 	margin: 0.67em 0;
 }
 
+.obertitel {
+	margin-bottom: 0;
+}
+
 h2 {
 	font-size: 1.5em;
 	margin: 0.83em 0;
+}
+
+.untertitel {
+	margin-top: 0.5em;
 }
 
 h3 {
@@ -301,7 +309,16 @@ td {
 	}
 }
 
-#wahl {
+.workshopzeiten {
+	margin-top: 2em;
+	margin-left: 3em;
+}
+
+.wszeitueberschrift {
+	margin-bottom: 0.5em;
+}
+
+/*#wahl {
 	background-color: #cce5f4;
 }
 #wahl a {
@@ -327,7 +344,7 @@ td {
 }
 #armut a {
 	color: #fffcd9;	
-}
+}*/
 
 /* formular */
 form p {

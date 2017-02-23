@@ -1,6 +1,8 @@
-<h1>
-	Workshop: Superwahljahr - Volksherrschaft in Hochform
-</h1>
+<?php
+include("/home/webpages/lima-city/fruehlingsseminar/zeitgeschehen/includes/wsstruktur.php");
+wsTitel("Demokratische Wahlen", "Superwahljahr - Sternstunde des Volkes");
+?>
+
 <p>Das Jahr 2017 wird als „Superwahljahr“ angekündigt. Drei Landtagswahlen und die Bundestagswahl! Für die politischen Parteien sind das wichtige Ereignisse. Mit Kandidaten, Parteitagen und -programmen bemühen sie sich, Profil zu gewinnen und dem Wähler genau die Themen nahe zu bringen, die sie mit ihrer Partei „besetzen“ möchten. Dafür scheuen Politiker keine Mühe. Für sie geht es bei der Wahl ja um einiges; nämlich darum, mit möglichst vielen Stimmen an die Macht zu kommen.</p>
 
 <p>Das umworbene Wahlvolk hat die Wahlen nicht bestellt, sie werden von Oben angesetzt und nach festen Regeln durchgeführt; und das auch dann, wenn ein großer Teil der Wähler nach allgemeiner Einschätzung „wahlmüde“ ist. Die Parteien haben dann die Aufgabe, sie (für sich) zu mobilisieren. Das – so hört man - umso mehr, wenn große Teile des Wahlvolks „politikverdrossen“ sind und – bloß weil sie wählen dürfen! - dazu neigen, ihre Stimme den Falschen (der AfD!) zu geben. Dann müssen die etablierten Parteien alles geben, damit sie die Wahl gewinnen und die Stimmen dieser Protestwähler garantiert bloß „verschenkt“ sind!</p>
@@ -12,3 +14,7 @@
 <p>Auf die Wählerstimmen kommt's in der Demokratie insofern mächtig an: Daraus wird eine neue Herrschaft gebildet. Die kann sich in ihrer souveränen Ausübung der Regierungsgewalt auf den Wähler berufen. Wenn der dann über ihre Politik und die Ergebnisse für ihn unzufrieden ist, kann er bei der nächsten Wahl ja die Opposition wählen, die verspricht ihm eine (personelle) Alternative…</p>
 <p></p>
 <p>Im Workshop soll dieses merkwürdige demokratische Verhältnis zwischen Oben und Unten diskutiert und bestimmt werden. Das wird mit Sicherheit kein gutes Licht auf die Demokratie werfen.</p>
+
+<?php
+wsZeiten(2);
+?>
