@@ -24,7 +24,7 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 <h4>
 	Autoanfahrt planen
 </h4>
-<form action="http://maps.google.com/maps" method="get" target="_blank">
+<form action="https://www.google.de/maps/" method="get" target="_blank">
 	<table class="buttonNextToInputTable">
 		<tr>
 	  		<td>
