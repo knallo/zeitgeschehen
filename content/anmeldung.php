@@ -3,6 +3,7 @@
 </h1>
 
 <?php
+	$gespeichert = false;
 	if (!empty($_POST['absenden'])) {
 		if (!empty($_POST['name'])
 		&& !empty($_POST['geld'])
@@ -57,67 +58,128 @@
 
 			mysqli_stmt_close($stmt);
 			mysqli_close($conn);
+
+			$gespeichert = true;
 			
 			include("content/angemeldet.php");
 		} else {
 			echo "<div class='alert'>Dein Name, die Höhe deines Eigenbeitrags und deine Mailadresse sind Pflichtfelder.</div>";
 		}
 	}
+
+	function setValue($fieldName) {
+		global $gespeichert; // sorgt für eine in der Funktion lokale Instanz der Variable gespeichert
+		if (!empty($_POST[$fieldName])
+			&& !$gespeichert) {
+			echo " value=\"" . $_POST[$fieldName] . "\" ";
+		}
+	}
+
+	function makeCheckbox($fieldName, $default) {
+		global $gespeichert;
+		$checked = false;
+		if (!empty($_POST[$fieldName])
+			&& !$gespeichert) {
+			$checked = true;
+		}
+		if (empty($_POST['absenden']) && $default) {
+			$checked = true;
+		}
+
+		echo "<input type=\"checkbox\" name=\"" . $fieldName . "\" value=\"true\"";
+		if ($checked) {
+			echo " checked";
+		}
+		echo " />";
+	}
+
+	function makeRadiobutton($custom, $fieldName, $fieldValue, $default) {
+		global $gespeichert;
+		$checked = false;
+		if (!empty($_POST[$fieldName]) &&
+			!$gespeichert &&
+			$_POST[$fieldName] == $fieldValue) {
+			$checked = true;
+		}
+		if (empty($_POST['absenden']) && $default) {
+			$checked = true;
+		}
+
+		if (!$custom) {
+			echo "<input type=\"radio\" name=\"" . $fieldName . "\" value=\"" . $fieldValue . "\"";
+		}
+		if ($checked) {
+			echo " checked";
+		}
+		if (!$custom) {
+			echo " />";
+		}
+	}
+
 ?>
 
 <form action="" method="post">
 <p><strong>Dein Name</strong></p>
-<input type="text" name="name" placeholder="Name" required />
+<input type="text" name="name" placeholder="Name" <?php setValue("name"); ?> required />
 <br />
 <p><strong>Aus welchem Ort kommst du?</strong></p>
-<input type="text" name="ort" placeholder="Bremen" />
+<input type="text" name="ort" placeholder="Bremen" <?php setValue("ort"); ?> />
 <br />
 <p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>
-<label><input type="radio" name="gruppe" value="1" /> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
-<label><input type="radio" name="gruppe" value="2" checked /> Ich fahre mit der Fahrgemeinschaft am Freitag per Bahn (16 Uhr, HBF Bremen)</label><br />
-<label><input type="radio" name="gruppe" value="3" /> Ich fahre nicht in einer der genannten Gruppen mit</label><br />
+<label><?php makeRadiobutton(false, "gruppe", "1", false); ?> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
+<label><?php makeRadiobutton(false, "gruppe", "2", true); ?> Ich fahre mit der Fahrgemeinschaft am Freitag per Bahn (16 Uhr, HBF Bremen)</label><br />
+<label><?php makeRadiobutton(false, "gruppe", "3", false); ?> Ich fahre nicht in einer der genannten Gruppen mit</label><br />
 <br />
 <p><strong>An welchen Tagen kommst du?</strong></p>
 <p>(1. Workshopschiene: Samstag bis Sonntag Vormittag, 2. Workshopschiene: Sonntag Nachmittag bis Pfingstmontag)</p>
-<label><input type="checkbox" name="tag1" value="true" checked /> Freitag</label><br />
-<label><input type="checkbox" name="tag2" value="true" checked /> Samstag</label><br />
-<label><input type="checkbox" name="tag3" value="true" checked /> Sonntag</label><br />
-<label><input type="checkbox" name="tag4" value="true" checked /> Pfingstmontag</label><br />
-<label><input type="checkbox" name="tag5" value="true" checked /> Dienstag</label><br />
+<label><?php makeCheckbox("tag1", true); ?> Freitag</label><br />
+<label><?php makeCheckbox("tag2", true); ?> Samstag</label><br />
+<label><?php makeCheckbox("tag3", true); ?> Sonntag</label><br />
+<label><?php makeCheckbox("tag4", true); ?> Pfingstmontag</label><br />
+<label><?php makeCheckbox("tag5", true); ?> Dienstag</label><br />
 <br />
 <p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a title="Kosten" onclick="loadPage('kosten')" class="jsLink">Kosten</a><noscript><a title="Kosten" href="?p=kosten">Kosten</a></noscript>)?</strong></p>
-<input type="number" name="geld" placeholder="65" style="width: 50px; text-align: right;" required /> €<br />
+<input type="number" name="geld" placeholder="65" style="width: 50px; text-align: right;" <?php setValue("geld"); ?> required /> €<br />
 <br />
 <p><strong>Hast du besondere Essenswünsche (vegan, vegetarisch, Allergien o.ä.)?</strong></p>
-<input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!" /><br />
+<input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!" <?php setValue("essen"); ?>/><br />
 <br />
 <p><strong>Wir brauchen vor Ort wahrscheinlich wieder das eine oder andere Auto samt Fahrer, um zwischendurch Einkäufe u.ä. zu erledigen.</strong></p>
-<label><input type="radio" name="autoBesitzen" value="2" id="besitztKeinAuto" onclick="autofrage()" checked /> Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
-<label><input type="radio" name="autoBesitzen" value="1" id="besitztAuto" onclick="autofrage()" /> Ich kann ein Auto zur Verfügung stellen</label><br />
+<label><input type="radio" name="autoBesitzen" value="2" id="besitztKeinAuto" onclick="autofrage()" <?php makeRadiobutton(true, "autoBesitzen", "2", true); ?> /> Ich habe kein Auto / Ich stelle mein Auto nicht zur Verfügung</label><br />
+<label><input type="radio" name="autoBesitzen" value="1" id="besitztAuto" onclick="autofrage()" <?php makeRadiobutton(true, "autoBesitzen", "1", false); ?> /> Ich kann ein Auto zur Verfügung stellen</label><br />
 <br />
 
 <div id="autofrage" class="hidden">
 	<p><strong> Größe des Autos / Platz im Auto</strong></p>
-	<input type="text" name="autoGroesse" placeholder="Opel Astra" /><br />
+	<input type="text" name="autoGroesse" placeholder="Opel Astra" <?php setValue("autoGroesse"); ?>/><br />
 	<br />
 	<p><strong> Wer darf das Auto fahren?</strong></p>
-	<input type="text" name="autoVersicherung" placeholder="Nur ich / wg. Vers. nur Menschen über 25J. / alle mit Führerschein / ..." /><br />
+	<input type="text" name="autoVersicherung" placeholder="Nur ich / wg. Vers. nur Menschen über 25J. / alle mit Führerschein / ..." <?php setValue("autoVersicherung"); ?>/><br />
 	<br />
 	<p><strong> Deine Telefonnummer (für Absprache bzgl. Mitfahrmöglichkeiten u.ä.)</strong></p>
-	<input type="text" name="telefon" placeholder="0173 891276345" />
+	<input type="tel" name="telefon" placeholder="0173 891276345" <?php setValue("telefon"); ?>/>
 	<br />
 </div>
 
+<script>
+	autofrage();
+</script>
+
 <p><strong>Würdest du bei Bedarf eine Autofahrt übernehmen und hast einen Führerschein (für einige Autos müssen die Fahrer über 25 sein wegen der Versicherung)?</strong></p>
-<label><input type="radio" name="autoFahren" value="1" /> Ja und ich bin über 25J</label><br />
-<label><input type="radio" name="autoFahren" value="2" /> Ja, ich bin aber unter 25J</label><br />
-<label><input type="radio" name="autoFahren" value="3" checked /> Nein</label><br />
+<label><?php makeRadiobutton(false, "autoFahren", "1", false); ?> Ja und ich bin über 25J</label><br />
+<label><?php makeRadiobutton(false, "autoFahren", "2", false); ?> Ja, ich bin aber unter 25J</label><br />
+<label><?php makeRadiobutton(false, "autoFahren", "3", true); ?> Nein</label><br />
 <br />
 <p><strong>Deine Mailadresse (für alle weiteren Infos & evtl. Koordination von Fahrgemeinschaften):</strong></p>
-<input type="email" name="mail" placeholder="example[at]riseup.net" required /><br />
+<input type="email" name="mail" placeholder="example[at]riseup.net" <?php setValue("mail"); ?> required /><br />
 <br />
 <p><strong>Sonstige Infos / Fragen? Sollen Fahrtkosten übernommen werden?</strong></p>
-<textarea name="sonstso" rows="2"></textarea><br />
+<textarea name="sonstso" rows="2"><?php
+	if (!empty($_POST["sonstso"])
+		&& !$gespeichert) {
+		echo $_POST["sonstso"];
+	}
+?></textarea><br />
 <br />
 <input type="submit" name="absenden" value="Jetzt anmelden!" />
 
