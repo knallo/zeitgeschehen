@@ -439,10 +439,11 @@ input[type=submit]:hover {
 	cursor: pointer;
 }
 
-.alert-success {
+.alert {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	padding: 30px 20px;
+	margin-bottom: 30px;
 }
 
 .buttonNextToInputTable td {
