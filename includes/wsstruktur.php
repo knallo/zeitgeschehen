@@ -26,14 +26,14 @@ function wsZeiten($zeit) {
 				?>
 				<em>
 					Samstag, den 3.6., von 11:00 Uhr bis 14:00 Uhr<br />
-					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
+					sowie von 17:00 Uhr bis 20:00 Uhr<br />
 					und Sonntag, den 4.6., von 11:00 Uhr bis 14:00 Uhr.
 				</em>
 				<?php
 			} else {
 				?>
 				<em>
-					Sonntag, den 4.6., von 17:00 Uhr bis 20:00 Uhr,<br />
+					Sonntag, den 4.6., von 17:00 Uhr bis 20:00 Uhr<br />
 					und Pfingstmontag, den 5.6., von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.
 				</em>
