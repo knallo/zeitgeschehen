@@ -11,6 +11,9 @@
 <body>
 	<logo>
 		<img src="img/AgdZ_Logo_web_mit_date.png" alt="Argumente gegen das Zeitgeschehen - 2.-6. Juni 2017" />
+		<p>
+			Eine Veranstaltung des <a href="http://arbeitskreisaufloesen.blogsport.eu" target="blank">Arbeitskreis Auflösen</a>
+		</p>
 	</logo>
 	<main>
 		<header id="header">
