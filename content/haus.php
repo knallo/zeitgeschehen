@@ -14,7 +14,7 @@
 </h4>
 <p>Das Außengelände ist sehr weitläufig, da das Tagungshaus auf dem Land liegt. Es gibt zwei von Baumringen umgebene große Wiesen, die, wenn wir denn so viele werden sollten, auch als Campingplätze umfunktioniert werden können. Neben der wohl nicht zur Anwendung kommenden Außendusche finden sich hier</p>
 <ul>
-	<li>eine übderdachte Terrasse, auf der bei besonders gutem Wetter luftig leichte Workshops stattfinden können oder auch gegessen wird,</li>
+	<li>eine übderdachte Terrasse, auf der bei besonders gutem Wetter Workshops stattfinden können oder auch gegessen wird,</li>
 	<li>einen ausreichend bestuhlten Hof,</li>
 	<li>eine Feuerstelle,</li>
 	<li>ein Pavillon, damit man auch noch bei Sturm und Gewitter nach draußen zum Rauchen gehen kann sowie</li>

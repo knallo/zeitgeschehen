@@ -17,7 +17,7 @@
 		<tr>
 			<td id="armut">
 				<h3>Armut, kapitalistische</h3>
-				<h4>Eine Säule unserer Wirtschaft</h4>
+				<h4 class="untertitel">Eine Säule unserer Wirtschaft</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
@@ -25,7 +25,7 @@
 			</td>
 			<td id="rechteKritisieren">
 				<h3>Kritik des Rechtsrucks</h3>
-				<h4>Wie sie geht und wie nicht</h4>
+				<h4 class="untertitel">Wie sie geht und wie nicht</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
@@ -41,7 +41,7 @@
 		<tr>
 			<td id="auslaender">
 				<h3>Inländer / Ausländer / Flüchtlinge</h3>
-				<h4>Ein Werk der Gewalt</h4>
+				<h4 class="untertitel">Ein Werk der Gewalt</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
@@ -49,7 +49,7 @@
 			</td>
 			<td id="wahl">
 				<h3>Demokratische Wahlen</h3>
-				<h4>Superwahljahr - Sternstunde des Volkes</h4>
+				<h4 class="untertitel">Superwahljahr - Sternstunde des Volkes</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
