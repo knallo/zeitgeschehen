@@ -86,7 +86,7 @@ em {
 a {
 	text-decoration: none;
 	font-weight: bold;
-	color: #cce5f4;
+	color: #fff !important;
 	cursor: pointer;
 /*	text-shadow: 1px 0px 4px rgba(0, 0, 0, 1);
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
@@ -96,7 +96,7 @@ a {
 }
 
 a:hover {
-	color: #fff !important;
+	color: #cce5f4 !important;
 }
 
 h1, h2, h3, h4, h5 {
@@ -204,7 +204,7 @@ logo p {
 
 logo p a {
 	background-color: inherit;
-	color: inherit;
+	color: inherit !important;
 }
 
 logo p a:hover {
