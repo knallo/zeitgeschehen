@@ -8,62 +8,71 @@
 		if (!empty($_POST['name'])
 		&& strlen($_POST['geld']) > 0
 		&& !empty($_POST['mail'])) {
-			// An welchen Tagen bist du da?
-			if (!empty($_POST['tag1'])) {
-				$tage = "x";
-			} else {
-				$tage = "0";
-			}
-			if (!empty($_POST['tag2'])) {
-				$tage .= "x";
-			} else {
-				$tage .= "0";
-			}
-			if (!empty($_POST['tag3'])) {
-				$tage .= "x";
-			} else {
-				$tage .= "0";
-			}
-			if (!empty($_POST['tag4'])) {
-				$tage .= "x";
-			} else {
-				$tage .= "0";
-			}
-			if (!empty($_POST['tag5'])) {
-				$tage .= "x";
-			} else {
-				$tage .= "0";
-			}
-			include("mysql/connect.php");
+			if (!empty($_POST['tag1']) ||
+				!empty($_POST['tag2']) ||
+				!empty($_POST['tag3']) ||
+				!empty($_POST['tag4']) ||
+				!empty($_POST['tag5'])) {
 
-			// prepare and bind
-			$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			mysqli_stmt_bind_param($stmt, "sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
+				// An welchen Tagen bist du da?
+				if (!empty($_POST['tag1'])) {
+					$tage = "x";
+				} else {
+					$tage = "0";
+				}
+				if (!empty($_POST['tag2'])) {
+					$tage .= "x";
+				} else {
+					$tage .= "0";
+				}
+				if (!empty($_POST['tag3'])) {
+					$tage .= "x";
+				} else {
+					$tage .= "0";
+				}
+				if (!empty($_POST['tag4'])) {
+					$tage .= "x";
+				} else {
+					$tage .= "0";
+				}
+				if (!empty($_POST['tag5'])) {
+					$tage .= "x";
+				} else {
+					$tage .= "0";
+				}
+				include("mysql/connect.php");
 
-			// set parameters and execute
-			$sql_name = $_POST['name'];
-			$sql_tage = $tage;
-			$sql_geld = $_POST['geld'];
-			$sql_essen = $_POST['essen'];
-			$sql_mail = $_POST['mail'];
-			$sql_anfahrt = $_POST['gruppe'];
-			$sql_ort = $_POST['ort'];
-			$sql_sonstiges = $_POST['sonstso'];
-			$sql_autoda = $_POST['autoBesitzen'];
-			$sql_gros = $_POST['autoGroesse'];
-			$sql_recht = $_POST['autoVersicherung'];
-			$sql_tel = $_POST['telefon'];
-			$sql_fuhrerschein = $_POST['autoFahren'];
-			mysqli_stmt_execute($stmt);
+				// prepare and bind
+				$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				mysqli_stmt_bind_param($stmt, "sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
 
-			mysqli_stmt_close($stmt);
-			mysqli_close($conn);
+				// set parameters and execute
+				$sql_name = $_POST['name'];
+				$sql_tage = $tage;
+				$sql_geld = $_POST['geld'];
+				$sql_essen = $_POST['essen'];
+				$sql_mail = $_POST['mail'];
+				$sql_anfahrt = $_POST['gruppe'];
+				$sql_ort = $_POST['ort'];
+				$sql_sonstiges = $_POST['sonstso'];
+				$sql_autoda = $_POST['autoBesitzen'];
+				$sql_gros = $_POST['autoGroesse'];
+				$sql_recht = $_POST['autoVersicherung'];
+				$sql_tel = $_POST['telefon'];
+				$sql_fuhrerschein = $_POST['autoFahren'];
+				mysqli_stmt_execute($stmt);
 
-			$gespeichert = true;
-			
-			include("content/angemeldet.php");
+				mysqli_stmt_close($stmt);
+				mysqli_close($conn);
+
+				$gespeichert = true;
+				
+				include("content/angemeldet.php");
+			} else {
+				echo "<div class='alert'>Du musst angeben, an welchen Tagen du da sein wirst!</div>";
+			}
 		} else {
-			echo "<div class='alert'>Dein Name, die Höhe deines Eigenbeitrags und deine Mailadresse sind Pflichtfelder.</div>";
+			echo "<div class='alert'>Dein Name, die Höhe deines Eigenbeitrags, deine Mailadresse und die Tage an denen du da sein wirst sind Pflichtfelder.</div>";
 		}
 	}
 
@@ -121,7 +130,7 @@
 ?>
 
 <form action="" method="post">
-<p><strong>Dein Name</strong></p>
+<p><strong>Dein Name*</strong></p>
 <input type="text" name="name" placeholder="Name" <?php setValue("name"); ?> required />
 <br />
 <p><strong>Aus welchem Ort kommst du?</strong></p>
@@ -132,15 +141,15 @@
 <label><?php makeRadiobutton(false, "gruppe", "2", true); ?> Ich fahre mit der Fahrgemeinschaft am Freitag per Bahn (16 Uhr, HBF Bremen)</label><br />
 <label><?php makeRadiobutton(false, "gruppe", "3", false); ?> Ich fahre nicht in einer der genannten Gruppen mit</label><br />
 <br />
-<p><strong>An welchen Tagen kommst du?</strong></p>
+<p><strong>An welchen Tagen kommst du?*</strong></p>
 <p>(1. Workshopschiene: Samstag bis Sonntag Vormittag, 2. Workshopschiene: Sonntag Nachmittag bis Pfingstmontag)</p>
-<label><?php makeCheckbox("tag1", true); ?> Freitag</label><br />
-<label><?php makeCheckbox("tag2", true); ?> Samstag</label><br />
-<label><?php makeCheckbox("tag3", true); ?> Sonntag</label><br />
-<label><?php makeCheckbox("tag4", true); ?> Pfingstmontag</label><br />
-<label><?php makeCheckbox("tag5", true); ?> Dienstag</label><br />
+<label><?php makeCheckbox("tag1", false); ?> Freitag</label><br />
+<label><?php makeCheckbox("tag2", false); ?> Samstag</label><br />
+<label><?php makeCheckbox("tag3", false); ?> Sonntag</label><br />
+<label><?php makeCheckbox("tag4", false); ?> Pfingstmontag</label><br />
+<label><?php makeCheckbox("tag5", false); ?> Dienstag</label><br />
 <br />
-<p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a title="Kosten" onclick="loadPage('kosten')" class="jsLink">Kosten</a><noscript><a title="Kosten" href="?p=kosten">Kosten</a></noscript>)?</strong></p>
+<p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a title="Kosten" onclick="loadPage('kosten')" class="jsLink">Kosten</a><noscript><a title="Kosten" href="?p=kosten">Kosten</a></noscript>)?*</strong></p>
 <input type="number" name="geld" placeholder="65" style="width: 60px; text-align: right;" <?php setValue("geld"); ?> required /> €<br />
 <br />
 <p><strong>Hast du besondere Essenswünsche (vegan, vegetarisch, Allergien o.ä.)?</strong></p>
@@ -172,7 +181,7 @@
 <label><?php makeRadiobutton(false, "autoFahren", "2", false); ?> Ja, ich bin aber unter 25J</label><br />
 <label><?php makeRadiobutton(false, "autoFahren", "3", true); ?> Nein</label><br />
 <br />
-<p><strong>Deine Mailadresse (für alle weiteren Infos & evtl. Koordination von Fahrgemeinschaften):</strong></p>
+<p><strong>Deine Mailadresse (für alle weiteren Infos & evtl. Koordination von Fahrgemeinschaften):*</strong></p>
 <input type="email" name="mail" placeholder="example[at]riseup.net" <?php setValue("mail"); ?> required /><br />
 <br />
 <p><strong>Sonstige Infos / Fragen? Sollen Fahrtkosten übernommen werden?</strong></p>

@@ -45,7 +45,7 @@ function changeBackgroundColors(page, workshop) {
 	}
 	// manipulateCSS(".pace-progress", "{background-color: " + color + "}");
 	manipulateCSS("body", "{background-color: " + color + "}");
-	manipulateCSS("a:hover", "{color: " + color + " !important}");
+	manipulateCSS("a:hover", "{color: " + color + "}");
 	manipulateCSS("input[type=submit]", "{color: " + color + "}");
 }
 
