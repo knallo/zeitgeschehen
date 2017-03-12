@@ -459,12 +459,12 @@ input[type=submit] {
 	text-align: center;
 	background-color: #000;
 	font-family: 'elliot_sansbold', 'cm_sans_serif_2012medium';
-	color: #cce5f4;
+	color: white;
 	width: 100%;
 }
 
 input[type=submit]:hover {
-	color: white;
+	color: #cce5f4;
 	cursor: pointer;
 }
 
@@ -610,6 +610,10 @@ input[type=submit]:hover {
 	background-color: inherit;
 	color: inherit;
 	text-decoration: underline;
+}
+
+.anmeldungen a:hover {
+	color: #999;
 }
 
 @media screen and (max-width: 710px) {

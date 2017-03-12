@@ -12,6 +12,32 @@
 		<article class="anmeldungen">
 			<a href="http://zeitgeschehen.net" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
 			<h1>Anmeldungen</h1>
+			<?php
+			if (!empty($_GET['rm'])) {
+				if ($_GET['bestatigt'] == "false") {
+					echo "<form action='' method='get'>
+						<input type='hidden' name='rm' value='true' />
+						<input type='hidden' name='dbid' value='" . $_GET['dbid'] . "' />
+						<input type='hidden' name='bestatigt' value='true' />
+						<input type='submit' value='Jetzt die Anmeldung mit der id " . $_GET['uiid'] . " löschen' />
+					</form>
+					<br />";
+				} else if ($_GET['bestatigt'] == "true") {
+
+					echo "Löschung wurde bestätigt";
+					
+					include("../mysql/connect.php");
+					$sql = "UPDATE anmeldung SET abgesagt = 1 WHERE id = '" . $_GET['dbid'] . "'";
+					if ($conn->query($sql) === TRUE) {
+					    echo "Record updated successfully";
+					} else {
+					    echo "Error updating record: " . $conn->error;
+					}
+
+					echo "<div class='alert'>Der Eintrag wurde erfolgreich gelöscht</div>";
+				}
+			}
+			?>
 			<p>Hier sind alle Anmeldungen aufgelistet (die neuesten zuerst):</p>
 			<br />
 			<table class="tableAnmeldungen">
@@ -24,6 +50,7 @@
 					<th>Mail</th>
 					<th>Anf.</th>
 					<th>Ort</th>
+					<th>löschen</th>
 				</tr>
 
 				<?php
@@ -47,7 +74,7 @@
 				// Connect to database
 				include("../mysql/connect.php");
 
-				$sql = "SELECT name, tage, geld, essen, mail, anfahrt, ort, autoda, gros, recht, fuhrerschein, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
+				$sql = "SELECT id, name, tage, geld, essen, mail, anfahrt, ort, autoda, gros, recht, fuhrerschein, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
@@ -73,6 +100,7 @@
 						echo "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 						echo "<td>" . $row['anfahrt'] . "</td>";
 						echo "<td>" . $row['ort'] . "</td>";
+						echo "<td style='text-align: center;'><a href='?rm=true&dbid=" . $row['id'] . "&uiid=" . $id . "&bestatigt=false'>X</a></td>";
 						echo "</tr>";
 
 						/* Geld */
