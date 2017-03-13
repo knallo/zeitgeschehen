@@ -29,12 +29,10 @@
 					include("../mysql/connect.php");
 					$sql = "UPDATE anmeldung SET abgesagt = 1 WHERE id = '" . $_GET['dbid'] . "'";
 					if ($conn->query($sql) === TRUE) {
-					    echo "Record updated successfully";
+					    echo "<div class='alert'>Der Eintrag wurde erfolgreich gelöscht</div>";
 					} else {
-					    echo "Error updating record: " . $conn->error;
+					    echo "<div class='alert'>Ein Systemfehler ist aufgetreten. Bitte kontaktiere einen Admin und gib ihm die folgende Fehlermeldung: " . $conn->error . "</div>";
 					}
-
-					echo "<div class='alert'>Der Eintrag wurde erfolgreich gelöscht</div>";
 				}
 			}
 			?>

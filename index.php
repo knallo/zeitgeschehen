@@ -50,9 +50,9 @@
 						'markMenu("'.$p.'", true);',
 						'</script>';
 				} elseif ($workshop == "wahl" ||
-						$workshop == "auslaender" ||
+						$workshop == "inlanderauslanderfluchtlinge" ||
 						$workshop == "armut" ||
-						$workshop == "rechteKritisieren") {
+						$workshop == "rechtsruck") {
 					include('content/workshop-'.$workshop.'.php');
 
 					echo '<script type="text/javascript">',

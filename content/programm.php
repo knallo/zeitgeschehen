@@ -15,7 +15,7 @@
 <table>
 	<tbody>
 		<tr>
-			<td id="armut">
+			<td>
 				<h3>Armut, kapitalistische</h3>
 				<h4 class="untertitel">Eine Säule unserer Wirtschaft</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
@@ -23,13 +23,13 @@
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
 				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
 			</td>
-			<td id="rechteKritisieren">
+			<td>
 				<h3>Kritik des Rechtsrucks</h3>
 				<h4 class="untertitel">Wie sie geht und wie nicht</h4>
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('rechteKritisieren')" title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" href="?workshop=rechteKritisieren">Einführungstext</a></noscript>
+				<a onclick="loadWorkshop('rechtsruck')" title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" href="?workshop=rechtsruck">Einführungstext</a></noscript>
 			</td>
 		</tr>
 	</tbody>
@@ -39,15 +39,15 @@
 <table>
 	<tbody>
 		<tr>
-			<td id="auslaender">
+			<td>
 				<h3>Inländer / Ausländer / Flüchtlinge</h3>
 				<h4 class="untertitel">Ein Werk der Gewalt</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('auslaender')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=auslaender">Einführungstext</a></noscript>
+				<a onclick="loadWorkshop('inlanderauslanderfluchtlinge')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=inlanderauslanderfluchtlinge">Einführungstext</a></noscript>
 			</td>
-			<td id="wahl">
+			<td>
 				<h3>Demokratische Wahlen</h3>
 				<h4 class="untertitel">Superwahljahr - Sternstunde des Volkes</h4>
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
