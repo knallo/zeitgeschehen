@@ -37,6 +37,7 @@
 						
 				}
 				
+				$isWorkshop = false;
 				if ($p == "allgemeines" ||
 					$p == "programm" ||
 					$p == "haus" ||
@@ -54,15 +55,18 @@
 						$workshop == "armut" ||
 						$workshop == "rechtsruck") {
 					include('content/workshop-'.$workshop.'.php');
-
+					$isWorkshop = true;
+				} elseif ($workshop != "") {
+					include('content/workshop-404.php');
+					$isWorkshop = true;
+				} else {
+					include('content/404.php');
+				}
+				if ($isWorkshop) {
 					echo '<script type="text/javascript">',
 						'markMenu("programm", true);',
 						'</script>';
 					echo '<br><br><a onclick="loadPage(\'programm\')">zurück zum Programm</a>';
-				} elseif ($workshop != "") {
-					include('content/workshop-404.php');
-				} else {
-					include('content/404.php');
 				}
 			?>
 		</article>

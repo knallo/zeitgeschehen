@@ -1,5 +1,5 @@
 var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt', 'impressum'];
-var WORKSHOPS = ['wahl', 'rechteKritisieren', 'auslaender', 'armut'];
+var WORKSHOPS = ['wahl', 'rechtsruck', 'inlanderauslanderfluchtlinge', 'armut'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 var maxWidthOnMobile = "650px";
 
@@ -35,9 +35,9 @@ function changeBackgroundColors(page, workshop) {
 	} else {
 		if (page == "wahl") {
 			color = "#cce5f4";
-		} else if (page == "rechteKritisieren") {
+		} else if (page == "rechtsruck") {
 			color = "#d1e8d4";
-		} else if (page == "auslaender") {
+		} else if (page == "inlanderauslanderfluchtlinge") {
 			color = "#f3d8e0";
 		} else if (page == "armut") {
 			color = "#fffcd9";
