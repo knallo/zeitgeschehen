@@ -254,7 +254,7 @@ header p {
 	font-size: 0.9em;
 }
 
-header li {
+header a {
 	font-family: 'elliot_sansbold', 'cm_sans_serif_2012medium';
 	/*font-size: 0.9em;*/
 	float: left;
@@ -267,11 +267,11 @@ header li {
 	/*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);*/
 }
 
-header li:first-child {
+header a:first-child {
 	margin-left: 0;
 }
 
-header li:nth-child(7) {
+header a:nth-child(7) {
 	margin-right: 0;
 }
 /*
@@ -290,8 +290,8 @@ header a {
 	display: none;
 }
 
-li.lastSelected,
-header li:hover {
+a.lastSelected,
+header a:hover {
 	background-color: #fff;
 	color: #000;
 	/*border-radius: 10px;*/
@@ -503,7 +503,7 @@ input[type=submit]:hover {
 		width: auto;
 	}
 
-	header li {
+	header a {
 		font-size: 0.8em;
 		padding: 10px 12px 10px 12px;
 	}
@@ -520,7 +520,7 @@ input[type=submit]:hover {
 			font-size: 0.75em;
 		}
 
-		header li {
+		header a {
 			font-size: 1.33333em;
 		}
 	}
@@ -538,11 +538,11 @@ input[type=submit]:hover {
 		height: 150px;
 	}
 
-	header ul.responsive li:not(:first-child) {
+	header ul.responsive a:not(:first-child) {
 		display: none;
 	}
 
-	header ul li:first-child {
+	header ul a:first-child {
 		display: inline;
 		float: left;
 	}
@@ -551,31 +551,31 @@ input[type=submit]:hover {
 		display: inline-block;
 	}
 
-	header li {
+	header a {
 		margin: 2px 0 2px 0;
 	}
 
-	header li:first-child,
-	header li:nth-child(2) {
+	header a:first-child,
+	header a:nth-child(2) {
 		margin: 0;
 	}
 
-	header li:last-child {
+	header a:last-child {
 		margin-bottom: 0;
 	}
 
-	header li:nth-child(2):hover {
+	header a:nth-child(2):hover {
 		background-color: inherit;
 		margin: 0;
 	}
 
-	li.last-selected {
+	a.last-selected {
 		color: inherit;
 	}
 
 	/* responsive is added to ul with javascript when button is pressed */
 
-	header ul li:not(:first-child) {
+	header ul a:not(:first-child) {
 		display: block;
 		float: none;
 	}

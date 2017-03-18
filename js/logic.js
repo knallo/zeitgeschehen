@@ -126,7 +126,7 @@ window.onload = function makeMenuCollapsedOnMobile() {
 }
 
 function markMenu(title, initial=false) {
-	var last = document.querySelector("li[class=lastSelected]");
+	var last = document.querySelector("a[class=lastSelected]");
 	if (last) {
 		last.removeAttribute("class");	
 	}
@@ -188,8 +188,8 @@ function toggleMenu() {
 
 function showMenu() {
 	var menu = document.querySelector('header').querySelector('ul');
-	var button = menu.querySelector('li#menu-button');
-	var selected = menu.querySelector('li.lastSelected');
+	var button = menu.querySelector('a#menu-button');
+	var selected = menu.querySelector('a.lastSelected');
 
 	if (menu.className != "responsive") {
 		//button.innerHTML = "⇊";

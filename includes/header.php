@@ -1,79 +1,44 @@
 <nav>
 	<ul>
-		<li id="allgemeines" onClick="loadPage('allgemeines')" class="lastSelected">
-			<span class="jsLink">
+		<a href="?p=allgemeines" title="Allgemeines" class="lastSelected" id="allgemeines">
+			<li>			
 				Allgemeines
-			</span>
-			<noscript>
-				<a href="?p=allgemeines" title="Allgemeines">
-					Allgemeines
-				</a>
-			</noscript>
-		</li>
-		<li id="programm" onClick="loadPage('programm')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=programm" title="Programm" id="programm">
+			<li>		
 				Programm
-			</span>
-			<noscript>
-				<a href="?p=programm" title="Programm">
-					Programm
-				</a>
-			</noscript>
-		</li>
-		<li id="haus" onClick="loadPage('haus')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=haus" title="Das Haus" id="haus">
+			<li>
 				Das Haus
-			</span>
-			<noscript>
-				<a href="?p=haus" title="Das Haus">
-					Das Haus
-				</a>
-			</noscript>
-		</li>
-		<li id="kosten" onClick="loadPage('kosten')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=kosten" title="Kosten" id="kosten">
+			<li>
 				Kosten
-			</span>
-			<noscript>
-				<a href="?p=kosten" title="Kosten">
-					Kosten
-				</a>
-			</noscript>
-		</li>
-		<li id="anfahrt" onClick="loadPage('anfahrt')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=anfahrt" title="Anfahrt" id="anfahrt">
+			<li>
 				Anfahrt
-			</span>
-			<noscript>
-				<a href="?p=anfahrt" title="Anfahrt">
-					Anfahrt
-				</a>
-			</noscript>
-		</li>
-		<li id="anmeldung" onClick="loadPage('anmeldung')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=anmeldung" title="Anmeldung" id="anmeldung">
+			<li>
 				Anmeldung
-			</span>
-			<noscript>
-				<a href="?p=anmeldung" title="Anmeldung">
-					Anmeldung
-				</a>
-			</noscript>
-		</li>
-		<li id="kontakt" onClick="loadPage('kontakt')">
-			<span class="jsLink">
+			</li>
+		</a>
+		<a href="?p=kontakt" title="Kontakt" id="kontakt">
+			<li>
 				Kontakt
-			</span>
-			<noscript>
-				<a href="?p=kontakt" title="Kontakt">
-					Kontakt
-				</a>
-			</noscript>
-		</li>
-		<li id="menu-button" onclick="showMenu()">
+			</li>
+		</a>
+		<a onclick="showMenu()" id="menu-button">
 			<span class="menuIcon"></span>
 			<span class="menuIcon"></span>
 			<span class="menuIcon"></span>
-		</li>
+		</a>
 	</ul>
 </nav>

@@ -21,7 +21,7 @@
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('armut')" title="Ankündiger zum Workshop 'Armut, kapitalistische'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a></noscript>
+				<a title="Ankündiger zum Workshop 'Armut, kapitalistische'" href="?workshop=armut">Einführungstext</a>
 			</td>
 			<td>
 				<h3>Kritik des Rechtsrucks</h3>
@@ -29,7 +29,7 @@
 				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a onclick="loadWorkshop('rechtsruck')" title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" href="?workshop=rechtsruck">Einführungstext</a></noscript>
+				<a title="Ankündiger zum Workshop 'Wie man die Ausländerfeindlichkeit von AfD und Pegida kritisiert und wie nicht!'" href="?workshop=rechtsruck">Einführungstext</a>
 			</td>
 		</tr>
 	</tbody>
@@ -45,7 +45,7 @@
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('inlanderauslanderfluchtlinge')" title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=inlanderauslanderfluchtlinge">Einführungstext</a></noscript>
+				<a title="Ankündiger zum Workshop 'Inländer vs. Ausländer - wovon lebt diese Unterscheidung?'" href="?workshop=inlanderauslanderfluchtlinge">Einführungstext</a>
 			</td>
 			<td>
 				<h3>Demokratische Wahlen</h3>
@@ -53,7 +53,7 @@
 				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
 					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a onclick="loadWorkshop('wahl')" title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" class="jsLink">Einführungstext</a><noscript><a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Einführungstext</a></noscript>
+				<a title="Ankündiger zum Workshop 'Superwahljahr - Volksherrschaft in Hochform'" href="?workshop=wahl">Einführungstext</a>
 			</td>
 		</tr>
 	</tbody>
