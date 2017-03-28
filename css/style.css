@@ -492,6 +492,28 @@ input[type=submit]:hover {
 	padding-bottom: 10px;
 }
 
+/* Newsletter */
+
+.newsletter {
+	max-width: 250px;
+	border: 1px dashed black;
+	float: right;
+	padding: 10px;
+	margin: 10px;
+}
+
+.newsletter p {
+	font-size: 0.8em;
+}
+
+.newsletter input[type=mail] {
+	width: 100%;
+}
+
+.newsletter input[type=mail]:focus {
+	border-color: black;
+}
+
 /**** menu mobile ****/
 @media screen and (max-width: 820px) and (min-width: 650px) {
 	nav {
@@ -578,6 +600,10 @@ input[type=submit]:hover {
 	header ul a:not(:first-child) {
 		display: block;
 		float: none;
+	}
+
+	.newsletter {
+		max-width: 100%;
 	}
 }
 

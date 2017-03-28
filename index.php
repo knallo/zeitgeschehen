@@ -6,6 +6,20 @@
 	<title>Argumente gegen das Zeitgeschehen 2017</title>
 	<meta name="Description" content="Info- und Anmeldeseite für das Argumente gegen das Zeitgeschehen 2017: Vom 02. bis 06. Juni 2017 - also um Pfingsten - wird unter dem Titel 'Argumente gegen das Zeitgeschehen' ein Seminarwochenende in Großgoltern stattfinden. In den mehrstündigen Workshops können dort zwei der insgesamt vier Workshopthemen intensiv diskutiert werden und auch außerhalb der Workshops wird es ausreichend Gelegenheit geben, noch weitere Themen zu diskutieren, die euch unter den Nägeln brennen.">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+	    var u="//piwik.zeitgeschehen.net/";
+	    _paq.push(['setTrackerUrl', u+'piwik.php']);
+	    _paq.push(['setSiteId', '1']);
+	    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//piwik.zeitgeschehen.net/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 </head>
 <body>
 	<logo>

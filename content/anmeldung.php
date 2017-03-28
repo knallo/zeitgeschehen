@@ -5,6 +5,7 @@
 <?php
 	$gespeichert = false;
 	if (!empty($_POST['absenden'])) {
+
 		if (!empty($_POST['name'])
 		&& strlen($_POST['geld']) > 0
 		&& !empty($_POST['mail'])) {
@@ -65,6 +66,8 @@
 				mysqli_stmt_close($stmt);
 				mysqli_close($conn);
 
+				
+				
 				$gespeichert = true;
 				
 				include("content/angemeldet.php");
@@ -129,7 +132,7 @@
 
 ?>
 
-<form action="" method="post">
+<form action="?p=anmeldung&abgeschickt=true" method="post">
 <p><strong>Dein Name*</strong></p>
 <input type="text" name="name" placeholder="Name" <?php setValue("name"); ?> required />
 <br />
@@ -192,6 +195,6 @@
 	}
 ?></textarea><br />
 <br />
-<input type="submit" name="absenden" value="Jetzt anmelden!" />
+<input type="submit" name="absenden" value="Jetzt anmelden!"/>
 
 </form>
