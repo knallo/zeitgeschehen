@@ -158,8 +158,16 @@ main h1 {
 	text-shadow: none;
 }
 
+.mobile {
+	display: none;
+}
+
+.desktop {
+	display: block;
+}
+
 /**** progress-bar ***/
-.pace {
+/*.pace {
   -webkit-pointer-events: none;
   pointer-events: none;
 
@@ -169,7 +177,7 @@ main h1 {
 }
 
 .pace-inactive .pace-progress {
-  /*display: none;*/
+  display: none;
   position: absolute !important;
 }
 
@@ -182,7 +190,7 @@ main h1 {
   width: 100%;
   height: 2px;
 }
-
+*/
 /**** header ****/
 logo img {
 	max-height: 200px;
@@ -536,6 +544,14 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width: 650px) {
+
+	.mobile {
+		display: block;
+	}
+
+	.desktop {
+		display: none;
+	}
 
 	@media screen and (orientation:landscape) {
 		body {

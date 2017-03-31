@@ -6,7 +6,7 @@
 <p><strong>Wer es noch nicht getan hat, soll sich bitte unbedingt unter <a title="Programm" href="?p=anmeldung">Anmeldung</a> anmelden. Nur so können wir uns mit Verpflegung und Schlafplätzen auf euch einstellen!</strong></p>
 <?php
 	include("includes/newsletter.php");
-	printNewsletter("allgemeines");
+	printNewsletter("allgemeines", "desktop");
 ?>
 <p>Als <strong>Übernachtungsmöglichkeit</strong> gibt es Betten. Bezug und Laken müssen selbst mitgebracht werden - wer das vergisst, kann sie sich aber auch gegen eine Gebühr vom Haus leihen. Je nach Anmeldezahlen kann es passieren, dass die Betten nicht ganz reichen, sodass Einzelne entweder zelten oder mit Schlafsack im Haus schlafen müssen. Irgendwie werden wir schon eine bequeme Schlafmöglichkeit finden. Insgesamt gilt auf jeden Fall: Die ersten Anmeldungen haben einen Bettplatz sicher.</p>
 <p>Bitte stellt euch darauf ein, dass es auch einige Aufgaben zu erledigen geben wird (putzen, Essen kochen, abwaschen usw.), von denen jeder etwas übernimmt.</p>
@@ -14,3 +14,6 @@
 	Natürlich gibt es verschiedenste Gründe, warum sich Einzelne den Eigenanteil nicht leisten können. Wer weniger oder gar nichts zahlen kann, der macht halt das - die eigene finanzielle Situation soll auf keinen Fall ein Grund sein, nicht mitzukommen! Umgekehrt freuen wir uns dann aber natürlich auch, wenn Einzelne etwas mehr als den Richtwert zahlen können.<br />
 	Weiteres dazu unter <a title="Programm" href="?p=kosten">Kosten</a>.</p>
 <p>Wir freuen uns, wenn ihr auch noch interessierte <strong>Freunde und Bekannte</strong> mitbringt - Hauptsache, die melden sich dann auch an, damit wir unsere Essenplanung darauf abstimmen können.</p>
+<?php
+	printNewsletter("allgemeines", "mobile");
+?>

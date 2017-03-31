@@ -3,7 +3,7 @@
 </h1>
 <?php
 	include("includes/newsletter.php");
-	printNewsletter("kontakt");
+	printNewsletter("kontakt", "desktop");
 ?>
 <p>
 	Die Veranstaltung wird organisiert vom <a href="http://arbeitskreisaufloesen.blogsport.eu" target="blank" title="Zur Website des Arbeitskreis Auflösen">Arbeitskreis Auflösen</a>.
@@ -16,3 +16,6 @@
 <p>
 	Für rechtliche Fragen haben wir auch ein <a href="?p=impressum" title="Impressum">Impressum</a> eingerichtet.
 </p>
+<?php
+	printNewsletter("kontakt", "mobile");
+?>

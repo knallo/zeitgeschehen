@@ -1,7 +1,7 @@
 <?php
-function printNewsletter($page) {
+function printNewsletter($page, $appearence) {
 	?>
-	<div class="newsletter">
+	<div class="newsletter <?php echo $appearence; ?>">
 		<p>
 			Willst auf dem Laufenden bleiben? Hier kannst du dich in den Newsletter eintragen (du kannst dich jederzeit wieder austragen):
 		</p>
