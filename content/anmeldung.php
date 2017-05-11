@@ -66,10 +66,25 @@
 				mysqli_stmt_close($stmt);
 				mysqli_close($conn);
 
-				
-				
-				$gespeichert = true;
-				
+				$to1 = $_POST['mail'];
+				$wir = 'zeitgeschehen@riseup.net';
+				$to2 = $wir;
+				$subject = 'Anmeldung zum Argumente gegen das Zeitgeschehen';
+				$message1 = 'Hi, '. "\r\n\r\n" .
+					'schön, dass du dich zum Argumente gegen das Zeitgeschehen angemeldet hast! :)'. "\r\n" . 
+					'Die wichtigsten Infos zu dem Workshopwochenende findest du auf unserer Website unter www.zeitgeschehen.net. Alle Planänderungen oder weitere Infos werden wir dir per Mail schicken.'. "\r\n" .
+					'Falls du dich ausversehen angemeldet haben solltest, du dich umentscheidest oder falls du dich gar nicht angemeldet hast, melde dich bitte bei uns.'. "\r\n\r\n" .
+					'LG aus der Orga-Gruppe';
+				$message2 = 'Es gibt eine neue Anmeldung.';
+				$headers = 'From: Argumente gegen das Zeitgeschehen <'. $wir . ">\r\n" .
+				    'Reply-To: '. $wir . "\r\n" .
+				    'X-Mailer: PHP/' . phpversion();
+
+				if (mail($to1, $subject, $message1, $headers) &&
+					mail($to2, $subject, $message2, $headers)) {
+					$gespeichert = true;
+				}
+
 				include("content/angemeldet.php");
 			} else {
 				echo "<div class='alert'>Du musst angeben, an welchen Tagen du da sein wirst!</div>";
