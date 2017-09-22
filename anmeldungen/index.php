@@ -58,7 +58,7 @@
 				$anw = array(0,0,0,0,0); // Tn, die insgesamt pro Tag da sind
 				$money = 0; // wie viel zählbares Geld (wenn nur eine Zahl eingegeben wurde) bekommen wir wahrscheinlich?
 				$otherMoney = ""; // alles nicht-zählbare Geld als String
-				$mails = ""; // Alle Mailadressen
+				$mails = array(); // Alle Mailadressen
 				$anfahrt2 = ""; // Mailadressen derer, die mit aus Bremen anfahren
 				$autos = ""; // Die Tabelle unter "Autos"
 				$fahrer = ""; // Die Tabelle unter "Fahrer"
@@ -104,7 +104,7 @@
 						/* Geld */
 
 						if (!empty($row['mail'])) {
-							$mails .= $row['mail'] . ", ";
+							array_push($mails, $row['mail']);
 						}
 						if ($row['anfahrt'] == "2" && !empty($row['mail'])) {
 							$anfahrt2 .= $row['mail'].", ";
@@ -213,8 +213,25 @@
 			<h4>Alle Mailadressen:</h4>
 
 			<?php
-			echo $mails;
+			foreach ($mails as $mail) {
+				echo $mail . ", ";
+			}
 			?>
+
+			<script>
+			function printMails() {
+				alert("<?php
+					foreach ($mails as $mail) {
+						echo $mail . "\\n";
+					}
+
+					?>");
+			}
+			</script>
+
+			<br />
+			<br />
+			<button onclick="printMails()">Für lists.riseup.net anzeigen</button>
 			<br />
 			<br />
 			<h4>Mailadressen für die gemeinsame Anfahrt nachmittags aus Bremen: </h4>
@@ -286,7 +303,10 @@
 			<h2>Geld</h2>
 
 			<?php
-			echo "Geld insgesamt: ".$money."€ plus <br>".$otherMoney;
+			echo "Geld insgesamt: ".$money."€";
+			if (!empty($otherMoney)) {
+				echo " plus <br>".$otherMoney;
+			}
 			?>
 
 			<br />

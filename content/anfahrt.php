@@ -18,7 +18,7 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 <p style="padding-left: 30px;">"Großgoltern Gutsstraße, Barsinghausen"</p>
 <p>Dorthin fahren Buslinien von Wunstorf sowie mit vorheriger S-Bahn oder Straßenbahnfahrt auch von Hannover. Nähere Infos sind der DB-Seite prima zu entnehmen.</p>
 <p>Für Autos gibt es direkt am Haus die Möglichkeit zu parken. Wenn ihr mit Auto kommt überlegt euch doch schon mal, ob ihr das auch für Einkäufe zwischendurch zur Verfügung stellen würdet. Autos waren zumindest letztes mal etwas Mangelware.</p>
-<p>Für den Fall, dass es Probleme gibt, ihr an der Bushaltestelle abgeholt werden wollt o.ä. haben wir ein Infotelefon eingerichtet: <em>die Nummer wird in den nächsten Tagen hier veröffentlicht</em></p>
+<p>Für den Fall, dass es Probleme gibt, ihr an der Bushaltestelle abgeholt werden wollt o.ä. haben wir ein Infotelefon eingerichtet: <a href="tel:015751795399" title="Infohandy Argumente gegen das Zeitgeschehen">0157 51795399</a></p>
 <p>Ab Freitagnachmittag sind schon einige Leute vor Ort, um organisatorische Dinge zu regeln. Wer also aus irgendwelchen Gründen schon früher da sein sollte, kann ab Freitagnachmittag ins Haus.</p>
 
 <h4>
