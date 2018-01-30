@@ -5,8 +5,7 @@
 <h4>
 	Gemeinsame Anfahrt
 </h4>
-<p>Es wird am Freitag Nachmittag eine gemeinsame Anfahrt mit dem Zug aus Bremen geben, Treffpunkt ist der Infopoint am Bremer Hauptbahnhof um 16 Uhr.</p>
-<p>Wenn ihr nicht aus Bremen kommt oder nicht am Freitag Nachmittag fahren wollt und noch eine Gruppe sucht, mit der ihr fahren könnt, tragt das bitte bei der Anmeldung unter "Sonstige Infos/Fragen" ein. Wir versuchen dann, zu vermitteln (vielleicht gibt es sogar noch den einen oder anderen Autoplatz).<br />
+<p>Wenn ihr eine Gruppe sucht, mit der ihr fahren könnt, tragt das bitte bei der Anmeldung unter "Sonstige Infos/Fragen" ein. Wir versuchen dann, zu vermitteln (vielleicht gibt es sogar noch den einen oder anderen Autoplatz).<br />
 Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch erreichen können!</p>
 
 <h4>

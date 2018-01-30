@@ -43,8 +43,8 @@
 				include("mysql/connect.php");
 
 				// prepare and bind
-				$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, anfahrt, ort, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-				mysqli_stmt_bind_param($stmt, "sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_anfahrt, $sql_ort, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
+				$stmt = mysqli_prepare($conn, "INSERT INTO anmeldung (name, tage, geld, essen, mail, ort, marketing, sonstiges, autoda, gros, recht, tel, fuhrerschein) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				mysqli_stmt_bind_param($stmt, "sssssssssssss", $sql_name, $sql_tage, $sql_geld, $sql_essen, $sql_mail, $sql_ort, $sql_marketing, $sql_sonstiges, $sql_autoda, $sql_gros, $sql_recht, $sql_tel, $sql_fuhrerschein);
 
 				// set parameters and execute
 				$sql_name = $_POST['name'];
@@ -52,8 +52,8 @@
 				$sql_geld = $_POST['geld'];
 				$sql_essen = $_POST['essen'];
 				$sql_mail = $_POST['mail'];
-				$sql_anfahrt = $_POST['gruppe'];
 				$sql_ort = $_POST['ort'];
+				$sql_marketing = $_POST['marketing'];
 				$sql_sonstiges = $_POST['sonstso'];
 				$sql_autoda = $_POST['autoBesitzen'];
 				$sql_gros = $_POST['autoGroesse'];
@@ -136,11 +136,6 @@
 <p><strong>Aus welchem Ort kommst du?</strong></p>
 <input type="text" name="ort" placeholder="Bremen" <?php setValue("ort"); ?> />
 <br />
-<p><strong>Fährst du in einer der großen Gruppen mit?</strong></p>
-<label><?php makeRadiobutton(false, "gruppe", "1", false); ?> Ich fahre bereits Freitag Vormittag und helfe beim Aufbau</label><br />
-<label><?php makeRadiobutton(false, "gruppe", "2", true); ?> Ich fahre mit der Fahrgemeinschaft am Freitag per Bahn (16 Uhr, HBF Bremen)</label><br />
-<label><?php makeRadiobutton(false, "gruppe", "3", false); ?> Ich fahre nicht in einer der genannten Gruppen mit</label><br />
-<br />
 <p><strong>An welchen Tagen kommst du?*</strong></p>
 <p>(1. Workshopschiene: Samstag bis Sonntag Vormittag, 2. Workshopschiene: Sonntag Nachmittag bis Pfingstmontag)</p>
 <label><?php makeCheckbox("tag1", false); ?> Freitag</label><br />
@@ -183,6 +178,14 @@
 <br />
 <p><strong>Deine Mailadresse (für alle weiteren Infos & evtl. Koordination von Fahrgemeinschaften):*</strong></p>
 <input type="email" name="mail" placeholder="example[at]riseup.net" <?php setValue("mail"); ?> required /><br />
+<br />
+<p><strong>Wie hast du vom Argumente gegen das Zeitgeschehen erfahren?</strong></p>
+<textarea name="marketing" rows="2"><?php
+	if (!empty($_POST["marketing"])
+		&& !$gespeichert) {
+		echo $_POST["marketing"];
+	}
+?></textarea><br />
 <br />
 <p><strong>Sonstige Infos / Fragen? Sollen Fahrtkosten übernommen werden?</strong></p>
 <textarea name="sonstso" rows="2"><?php
