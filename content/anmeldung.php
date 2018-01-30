@@ -145,7 +145,7 @@
 <label><?php makeCheckbox("tag5", false); ?> Dienstag</label><br />
 <br />
 <p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a title="Kosten" onclick="loadPage('kosten')" class="jsLink">Kosten</a><noscript><a title="Kosten" href="?p=kosten">Kosten</a></noscript>)?*</strong></p>
-<input type="number" name="geld" placeholder="65" style="width: 60px; text-align: right;" <?php setValue("geld"); ?> required /> €<br />
+<input type="number" min="0" name="geld" placeholder="65" style="width: 60px; text-align: right;" <?php setValue("geld"); ?> required /> €<br />
 <br />
 <p><strong>Hast du besondere Essenswünsche (vegan, vegetarisch, Allergien o.ä.)?</strong></p>
 <input type="text" name="essen" placeholder="hier bitte auch ALLE Allergien etc. angeben!" <?php setValue("essen"); ?>/><br />
