@@ -46,7 +46,6 @@
 					<th>Geld</th>
 					<th>Essen</th>
 					<th>Mail</th>
-					<th>Anf.</th>
 					<th>Ort</th>
 					<th>löschen</th>
 				</tr>
@@ -59,20 +58,21 @@
 				$money = 0; // wie viel zählbares Geld (wenn nur eine Zahl eingegeben wurde) bekommen wir wahrscheinlich?
 				$otherMoney = ""; // alles nicht-zählbare Geld als String
 				$mails = ""; // Alle Mailadressen
-				$anfahrt2 = ""; // Mailadressen derer, die mit aus Bremen anfahren
 				$autos = ""; // Die Tabelle unter "Autos"
 				$fahrer = ""; // Die Tabelle unter "Fahrer"
+				$marketing = ""; //Marketinginfos
 				$sonstigeInfos = ""; // Die Tabelle unter "sonstige Infos"
 				$z1 = 0;
 				$z2 = 0;
 				$z3 = 0;
 				$z4 = 0;
+				$z5 = 0;
 				$i = 0;
 
 				// Connect to database
 				include("../mysql/connect.php");
 
-				$sql = "SELECT id, name, tage, geld, essen, mail, anfahrt, ort, autoda, gros, recht, fuhrerschein, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
+				$sql = "SELECT id, name, tage, geld, essen, mail, ort, autoda, gros, recht, fuhrerschein, marketing, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
@@ -96,7 +96,6 @@
 						echo "<td>" . $row['geld'] . "</td>";
 						echo "<td>" . $row['essen'] . "</td>";
 						echo "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-						echo "<td>" . $row['anfahrt'] . "</td>";
 						echo "<td>" . $row['ort'] . "</td>";
 						echo "<td style='text-align: center;'><a href='?rm=true&dbid=" . $row['id'] . "&uiid=" . $id . "&bestatigt=false'>X</a></td>";
 						echo "</tr>";
@@ -203,6 +202,20 @@
 							$sonstigeInfos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
 							$sonstigeInfos .= "<td>" . $row['sonstiges'] . "</td>";
 						}
+
+						if (!empty($row['marketing'])) {
+							if ($z5 == 1) {
+								$marketing .= "<tr class='bgHighlight'>";
+								$z5 = 0;
+							} else {
+								$marketing .= "<tr>";
+								$z5 = 1;
+							}
+							$marketing .= "<td>$id</td>";
+							$marketing .= "<td>" . $row['name'] . "</td>";
+							$marketing .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
+							$marketing .= "<td>" . $row['marketing'] . "</td>";
+						}
 				    }
 				}
 				$conn->close();
@@ -302,6 +315,22 @@
 				</tr>
 				<?php
 					echo $sonstigeInfos;
+				?>
+			</table>
+
+			<br />
+			<br />
+			<h2>Marketinginfos</h2>
+
+			<table>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Mailadresse</th>
+					<th>Info</th>
+				</tr>
+				<?php
+					echo $marketing;
 				?>
 			</table>
 
