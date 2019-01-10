@@ -180,12 +180,7 @@
 <input type="email" name="mail" placeholder="example[at]riseup.net" <?php setValue("mail"); ?> required /><br />
 <br />
 <p><strong>Wie hast du vom Argumente gegen das Zeitgeschehen erfahren?</strong></p>
-<textarea name="marketing" rows="2"><?php
-	if (!empty($_POST["marketing"])
-		&& !$gespeichert) {
-		echo $_POST["marketing"];
-	}
-?></textarea><br />
+<input type="text" name="marketing" placeholder="Flyer / Facebook / ..." <?php setValue("marketing"); ?>>
 <br />
 <p><strong>Sonstige Infos / Fragen? Sollen Fahrtkosten übernommen werden?</strong></p>
 <textarea name="sonstso" rows="2"><?php

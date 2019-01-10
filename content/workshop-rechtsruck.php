@@ -23,5 +23,9 @@ wsTitel("Kritik des Rechtsrucks", "Wie sie geht und wie nicht");
 </p>
 
 <?php
-wsZeiten(1);
+wsZeiten(2);
 ?>
+
+<p><strong>ACHTUNG:</strong>
+	Die Zeiten mussten getauscht werden. Die hier angegebenen Zeiten sind der aktuelle Plan; die Zeiten, die auf den <strong>Flyern</strong> angegeben wurden, sind <strong>falsch</strong>!
+</p>

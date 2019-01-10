@@ -1,5 +1,5 @@
 var PAGES = ['allgemeines', 'programm', 'haus', 'kosten', 'anfahrt', 'anmeldung', 'kontakt', 'impressum'];
-var WORKSHOPS = ['wahl', 'rechtsruck', 'inlanderauslanderfluchtlinge', 'armut'];
+var WORKSHOPS = ['klima', 'trump', 'kritik', 'bge', 'demonstrationsfreiheit'];
 var ORDER = {allgemein:"programm", programm:"haus", haus:"kosten", kosten:"anfahrt", anfahrt:"anmeldung", anmeldung:"kontakt", kontakt:"impressum", impressum:"show"};
 var maxWidthOnMobile = "650px";
 
@@ -18,7 +18,7 @@ function changeBackgroundColors(page, workshop) {
 		if (page == "allgemeines") {
 			color = "#cce5f4";
 		} else if (page == "programm") {
-			color = "#fddec8";
+			color = "#f3d8e0";
 		} else if (page == "haus") {
 			color = "#d1e8d4";
 		} else if (page == "kosten") {
@@ -33,14 +33,16 @@ function changeBackgroundColors(page, workshop) {
 			color = "#cce5f4";
 		}
 	} else {
-		if (page == "wahl") {
+		if (page == "trump") {
 			color = "#cce5f4";
-		} else if (page == "rechtsruck") {
+		} else if (page == "bge") {
 			color = "#d1e8d4";
-		} else if (page == "inlanderauslanderfluchtlinge") {
-			color = "#f3d8e0";
-		} else if (page == "armut") {
+		} else if (page == "kritik") {
 			color = "#fffcd9";
+		} else if (page == "klima") {
+			color = "#fddec8";
+		} else if (page == "demonstrationsfreiheit") {
+			color = "#cce5f4";
 		}
 	}
 	// manipulateCSS(".pace-progress", "{background-color: " + color + "}");
@@ -126,7 +128,7 @@ window.onload = function makeMenuCollapsedOnMobile() {
 }
 
 function markMenu(title, initial=false) {
-	var last = document.querySelector("li[class=lastSelected]");
+	var last = document.querySelector("a[class=lastSelected]");
 	if (last) {
 		last.removeAttribute("class");	
 	}
@@ -188,8 +190,8 @@ function toggleMenu() {
 
 function showMenu() {
 	var menu = document.querySelector('header').querySelector('ul');
-	var button = menu.querySelector('li#menu-button');
-	var selected = menu.querySelector('li.lastSelected');
+	var button = menu.querySelector('a#menu-button');
+	var selected = menu.querySelector('a.lastSelected');
 
 	if (menu.className != "responsive") {
 		//button.innerHTML = "⇊";

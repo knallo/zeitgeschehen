@@ -76,7 +76,7 @@ body {
 	font-size: 12pt;
 	color: #333;
 	line-height: 1.2;
-	background-color: #cce5f4;
+	background-color: #f3d8e0;
 }
 
 em {
@@ -112,7 +112,8 @@ h1 {
 }
 
 .obertitel {
-	margin-bottom: 0;
+	margin-top: 0.7em;
+	margin-bottom: 0.7em;
 }
 
 h2 {
@@ -121,7 +122,7 @@ h2 {
 }
 
 .untertitel {
-	margin-top: 0.5em;
+	margin-top: 0.2em;
 }
 
 h3 {
@@ -137,7 +138,7 @@ h4 {
 }
 
 td .untertitel {
-	margin-bottom: 1.33em;
+	margin-bottom: 0.7em;
 	margin-top: 0.5em;
 }
 
@@ -158,8 +159,16 @@ main h1 {
 	text-shadow: none;
 }
 
+.mobile {
+	display: none;
+}
+
+.desktop {
+	display: block;
+}
+
 /**** progress-bar ***/
-.pace {
+/*.pace {
   -webkit-pointer-events: none;
   pointer-events: none;
 
@@ -169,7 +178,7 @@ main h1 {
 }
 
 .pace-inactive .pace-progress {
-  /*display: none;*/
+  display: none;
   position: absolute !important;
 }
 
@@ -182,7 +191,7 @@ main h1 {
   width: 100%;
   height: 2px;
 }
-
+*/
 /**** header ****/
 logo img {
 	max-height: 200px;
@@ -254,7 +263,7 @@ header p {
 	font-size: 0.9em;
 }
 
-header li {
+header a {
 	font-family: 'elliot_sansbold', 'cm_sans_serif_2012medium';
 	/*font-size: 0.9em;*/
 	float: left;
@@ -267,11 +276,11 @@ header li {
 	/*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);*/
 }
 
-header li:first-child {
+header a:first-child {
 	margin-left: 0;
 }
 
-header li:nth-child(7) {
+header a:nth-child(7) {
 	margin-right: 0;
 }
 /*
@@ -290,8 +299,8 @@ header a {
 	display: none;
 }
 
-li.lastSelected,
-header li:hover {
+a.lastSelected,
+header a:hover {
 	background-color: #fff;
 	color: #000;
 	/*border-radius: 10px;*/
@@ -364,6 +373,19 @@ td {
 
 .wszeitueberschrift {
 	margin-bottom: 0.5em;
+}
+
+blockquote {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 3em;
+	font-style: italic;
+}
+
+blockquote .author {
+	margin-top: 0.5em;
+	//margin-left: 1em;
+	font-style: normal;
 }
 
 /*#wahl {
@@ -492,6 +514,33 @@ input[type=submit]:hover {
 	padding-bottom: 10px;
 }
 
+/* littleBox */
+
+.littleBox {
+	max-width: 250px;
+	border: 1px dashed black;
+	float: right;
+	padding: 10px;
+	margin: 10px;
+}
+
+.littleBox input[type=mail] {
+	width: 100%;
+}
+
+.littleBox input[type=mail]:focus {
+	border-color: black;
+}
+
+.newsletter p {
+	font-size: 0.8em;
+}
+
+.calendar p {
+	font-size: 1em;
+	text-align: center;
+}
+
 /**** menu mobile ****/
 @media screen and (max-width: 820px) and (min-width: 650px) {
 	nav {
@@ -503,7 +552,7 @@ input[type=submit]:hover {
 		width: auto;
 	}
 
-	header li {
+	header a {
 		font-size: 0.8em;
 		padding: 10px 12px 10px 12px;
 	}
@@ -515,12 +564,20 @@ input[type=submit]:hover {
 
 @media screen and (max-width: 650px) {
 
+	.mobile {
+		display: block;
+	}
+
+	.desktop {
+		display: none;
+	}
+
 	@media screen and (orientation:landscape) {
 		body {
 			font-size: 0.75em;
 		}
 
-		header li {
+		header a {
 			font-size: 1.33333em;
 		}
 	}
@@ -538,11 +595,11 @@ input[type=submit]:hover {
 		height: 150px;
 	}
 
-	header ul.responsive li:not(:first-child) {
+	header ul.responsive a:not(:first-child) {
 		display: none;
 	}
 
-	header ul li:first-child {
+	header ul a:first-child {
 		display: inline;
 		float: left;
 	}
@@ -551,33 +608,37 @@ input[type=submit]:hover {
 		display: inline-block;
 	}
 
-	header li {
+	header a {
 		margin: 2px 0 2px 0;
 	}
 
-	header li:first-child,
-	header li:nth-child(2) {
+	header a:first-child,
+	header a:nth-child(2) {
 		margin: 0;
 	}
 
-	header li:last-child {
+	header a:last-child {
 		margin-bottom: 0;
 	}
 
-	header li:nth-child(2):hover {
+	header a:nth-child(2):hover {
 		background-color: inherit;
 		margin: 0;
 	}
 
-	li.last-selected {
+	a.last-selected {
 		color: inherit;
 	}
 
 	/* responsive is added to ul with javascript when button is pressed */
 
-	header ul li:not(:first-child) {
+	header ul a:not(:first-child) {
 		display: block;
 		float: none;
+	}
+
+	.littleBox {
+		max-width: 100%;
 	}
 }
 

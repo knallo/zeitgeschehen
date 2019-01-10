@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^zeitgeschehen.net [NC]
+RewriteRule ^(.*)$ http://www.zeitgeschehen.net/$1 [L,R=301]
+
+Options -Indexes

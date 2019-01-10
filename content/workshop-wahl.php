@@ -1,5 +1,5 @@
 <?php
-include("/home/webpages/lima-city/fruehlingsseminar/zeitgeschehen/includes/wsstruktur.php");
+include("includes/wsstruktur.php");
 wsTitel("Demokratische Wahlen", "Superwahljahr - Sternstunde des Volkes");
 ?>
 
@@ -16,5 +16,9 @@ wsTitel("Demokratische Wahlen", "Superwahljahr - Sternstunde des Volkes");
 <p>Im Workshop soll dieses merkwürdige demokratische Verhältnis zwischen Oben und Unten diskutiert und bestimmt werden. Das wird mit Sicherheit kein gutes Licht auf die Demokratie werfen.</p>
 
 <?php
-wsZeiten(2);
+wsZeiten(1);
 ?>
+
+<p><strong>ACHTUNG:</strong>
+	Die Zeiten mussten getauscht werden. Die hier angegebenen Zeiten sind der aktuelle Plan; die Zeiten, die auf den <strong>Flyern</strong> angegeben wurden, sind <strong>falsch</strong>!
+</p>

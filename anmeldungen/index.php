@@ -37,6 +37,7 @@
 			}
 			?>
 			<p>Hier sind alle Anmeldungen aufgelistet (die neuesten zuerst):</p>
+			<p>Ein nicht ausgefüllter Ort bedeutet idR Bremen.</p>
 			<br />
 			<table class="tableAnmeldungen">
 				<tr>
@@ -62,6 +63,7 @@
 				$fahrer = ""; // Die Tabelle unter "Fahrer"
 				$marketing = ""; //Marketinginfos
 				$sonstigeInfos = ""; // Die Tabelle unter "sonstige Infos"
+				$eigeneLeute = 0; // Die Leute, die sich explizit als Referent oder Orga angemeldet haben.
 				$z1 = 0;
 				$z2 = 0;
 				$z3 = 0;
@@ -72,7 +74,7 @@
 				// Connect to database
 				include("../mysql/connect.php");
 
-				$sql = "SELECT id, name, tage, geld, essen, mail, ort, autoda, gros, recht, fuhrerschein, marketing, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
+				$sql = "SELECT id, name, tage, geld, essen, mail, ort, autoda, gros, recht, fuhrerschein, tel, marketing, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
@@ -123,6 +125,7 @@
 									strcasecmp($row['essen'], "nein") != 0 && 
 									strcasecmp($row['essen'], "keine") != 0 && 
 									strcasecmp($row['essen'], "nö") != 0 && 
+									strcasecmp($row['essen'], "Egal") != 0 &&
 									strcasecmp($row['essen'], "-") != 0) {
 									if ($row['essen'] == "Vegetarisch" || 
 										$row['essen'] == "vegetarisch" || 
@@ -157,6 +160,7 @@
 							$autos .= "<td>" . $row['gros'] . "</td>";
 							$autos .= "<td>" . $row['recht'] . "</td>";
 							$autos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
+							$autos .= "<td>" . $row['tel'] . "</td>";
 							$autos .= "</tr>";
 						}
 
@@ -203,18 +207,25 @@
 							$sonstigeInfos .= "<td>" . $row['sonstiges'] . "</td>";
 						}
 
+						/* Marketing */
+
 						if (!empty($row['marketing'])) {
-							if ($z5 == 1) {
-								$marketing .= "<tr class='bgHighlight'>";
-								$z5 = 0;
+
+							if (strcasecmp($row['marketing'], "referent") != 0 &&
+								strcasecmp($row['marketing'], "orga") != 0) {
+								if ($z5 == 1) {
+									$marketing .= "<tr class='bgHighlight'>";
+									$z5 = 0;
+								} else {
+									$marketing .= "<tr>";
+									$z5 = 1;
+								}
+								$marketing .= "<td>$id</td>";
+								$marketing .= "<td>" . $row['name'] . "</td>";
+								$marketing .= "<td>" . $row['marketing'] . "</td>";
 							} else {
-								$marketing .= "<tr>";
-								$z5 = 1;
+								$eigeneLeute++;
 							}
-							$marketing .= "<td>$id</td>";
-							$marketing .= "<td>" . $row['name'] . "</td>";
-							$marketing .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-							$marketing .= "<td>" . $row['marketing'] . "</td>";
 						}
 				    }
 				}
@@ -223,6 +234,7 @@
 			</table>
 
 			<br />
+			<p>(Davon sind mindestens <?php echo $eigeneLeute; ?> Leute unmittelbar von uns)</p>
 			<h4>Alle Mailadressen:</h4>
 
 			<?php
@@ -270,6 +282,7 @@
 					<th>Platz</th>
 					<th>Mögliche Fahrer</th>
 					<th>Mailadresse</th>
+					<th>Telefonnummer</th>
 				</tr>
 
 				<?php
@@ -299,7 +312,10 @@
 			<h2>Geld</h2>
 
 			<?php
-			echo "Geld insgesamt: ".$money."€ plus <br>".$otherMoney;
+			echo "Geld insgesamt: ".$money."€";
+			if (!empty($otherMoney)) {
+				echo " plus <br>".$otherMoney;
+			}
 			?>
 
 			<br />
@@ -326,8 +342,7 @@
 				<tr>
 					<th>id</th>
 					<th>Name</th>
-					<th>Mailadresse</th>
-					<th>Info</th>
+					<th>geworben durch</th>
 				</tr>
 				<?php
 					echo $marketing;

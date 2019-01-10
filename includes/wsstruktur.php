@@ -1,4 +1,7 @@
+<h2>blabla</h2>
+
 <?php
+//echo "wsstruktur";
 function wsTitel($obertitel, $untertitel) {
 	?>
 	<h1 class="obertitel">
@@ -6,12 +9,16 @@ function wsTitel($obertitel, $untertitel) {
 		echo $obertitel;
 		?>
 	</h1>
-	<h2 class="untertitel">
-		<?php
-		echo $untertitel;
+	?>
+	if (!empty($untertitel)) {
 		?>
-	</h2>
-	<?php
+		<h2 class="untertitel">
+			<?php
+			echo $untertitel;
+			?>
+		</h2>
+		<?php
+	}
 }
 
 function wsZeiten($zeit) {
@@ -25,16 +32,16 @@ function wsZeiten($zeit) {
 			if ($zeit == 1) {
 				?>
 				<em>
-					Samstag, den 3.6., von 11:00 Uhr bis 14:00 Uhr<br />
+					Samstag, den 19.5., von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr<br />
-					und Sonntag, den 4.6., von 11:00 Uhr bis 14:00 Uhr.
+					und Sonntag, den 20.5., von 11:00 Uhr bis 14:00 Uhr.
 				</em>
 				<?php
-			} else {
+			} elseif ($zeit == 2) {
 				?>
 				<em>
-					Sonntag, den 4.6., von 17:00 Uhr bis 20:00 Uhr<br />
-					und Pfingstmontag, den 5.6., von 11:00 Uhr bis 14:00 Uhr<br />
+					Sonntag, den 20.5., von 17:00 Uhr bis 20:00 Uhr<br />
+					und Pfingstmontag, den 21.5., von 11:00 Uhr bis 14:00 Uhr<br />
 					sowie von 17:00 Uhr bis 20:00 Uhr.
 				</em>
 				<?php
