@@ -26,3 +26,38 @@ INSERT INTO workshops_zeit VALUES (
 	'2019-06-09 17:00',
 	'2019-06-09 20:00'
 );
+
+INSERT INTO workshops VALUES (
+	"Transnistrische Eisenbahngesellschaften",
+	"und der Stand ihrer Entwicklung",
+	"Ein kurzer Einblick in die Entwicklung der transnistrischen Eisenbahngesellschaften.<br/> Dazu gehört natürlich <strong>eine</strong> Versagerin und <strong>ein</strong> Versager.",
+	"TNE",
+	True,
+	False
+);
+
+INSERT INTO workshops VALUES (
+	"Vielbeschworene Wirkungen",
+	"Gibt es nur wenn die Revolution durchgeführt wird! <br/> Der abermalige Beweis <br/> ihrer Notwendigkeit ist für mich keiner!",
+	"VW",
+	True,
+	False
+);
+
+INSERT INTO workshops VALUES (
+	"Angenommen",
+	"alle diese Workshops",
+	"gäbe es wirklich?",
+	"ANGST",
+	False,
+	True
+);
+
+INSERT INTO workshops VALUES (
+	"Das",
+	"wars",
+	"dann aber auch mal",
+	"DITTO",
+	False,
+	True
+);
