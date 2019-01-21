@@ -16,11 +16,6 @@
 	<li>Die letzten beiden Workshops gehen parallel von <b>20.05., 17 Uhr</b> bis <b>21.05., 20 Uhr</b></li>
 </ol>
 
-<p id="hinweis"><strong>ACHTUNG:</strong><br />
-	Leider müssen wir den Workshop zu <strong>Populismus und Trump</strong> absagen. Das ist für alle ärgerlich, lässt sich aber leider nicht ändern. Falls du dich nur wegen diesem Workshop angemeldet hast und nun nicht mehr kommen möchtest, denk bitte daran, dich gegebenenfalls wieder abzumelden. Dazu reicht eine kurze Mail an <a title="Mail zur Abmeldung an zeitgeschehen@riseup.net schreiben" href="mailto:zeitgeschehen@riseup.net?subject=Abmeldung&body=Hallo,%0A%0Ada der Trump-Workshop nun abgesagt wurde, melde ich mich hiermit von dem diesjährigen Argumente gegen das Zeitgeschehen ab.">zeitgeschehen@riseup.net</a>.
-<br>Als Alternative dazu werden wir zu derselben Zeit nun einen Workshop <strong>über die Freiheit zum Demonstrieren</strong> anbieten.
-</p>
-
 <h2>19.-20. Mai</h2>
 <table>
 	<tbody>

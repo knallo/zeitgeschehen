@@ -25,13 +25,13 @@ CREATE TABLE allgemein (
 CREATE TABLE workshops_zeit (
 	freitagsschiene_anfang DATETIME NOT NULL,
 	freitagsschiene_erstes_zwischenende DATETIME NOT NULL,
-	freitagsschiene_erster_zwischenanfang DATEMTIME NOT NULL,
+	freitagsschiene_erster_zwischenanfang DATETIME NOT NULL,
 	freitagsschiene_zweites_zwischenende DATETIME NOT NULL,
 	freitagsschiene_zweiter_zwischenanfang DATETIME NOT NULL,
 	freitagsschiene_ende DATETIME NOT NULL,
 	sonntagsschiene_anfang DATETIME NOT NULL,
 	sonntagsschiene_erstes_zwischenende DATETIME NOT NULL,
-	sonntagsschiene_erster_zwischenanfang DATEMTIME NOT NULL,
+	sonntagsschiene_erster_zwischenanfang DATETIME NOT NULL,
 	sonntagsschiene_zweites_zwischenende DATETIME NOT NULL,
 	sonntagsschiene_zweiter_zwischenanfang DATETIME NOT NULL,
 	sonntagsschiene_ende DATETIME NOT NULL
@@ -76,7 +76,7 @@ CREATE TABLE autos (
 CREATE TABLE freitag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id
+	CONSTRAINT fk_teilnehmer_id_freitag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT
@@ -85,7 +85,7 @@ CREATE TABLE freitag (
 CREATE TABLE samstag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id
+	CONSTRAINT fk_teilnehmer_id_samstag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT
@@ -93,7 +93,7 @@ CREATE TABLE samstag (
 CREATE TABLE sonntag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id
+	CONSTRAINT fk_teilnehmer_id_sonntag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT
@@ -101,7 +101,7 @@ CREATE TABLE sonntag (
 CREATE TABLE montag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id
+	CONSTRAINT fk_teilnehmer_id_montag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT
@@ -110,7 +110,7 @@ CREATE TABLE montag (
 CREATE TABLE dienstag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id
+	CONSTRAINT fk_teilnehmer_id_dienstag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT

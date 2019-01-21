@@ -1,9 +1,6 @@
 <h1>
 	Allgemeines
 </h1>
-<?php
-//<p>Wir sind ab sofort telefonisch und auf WhatsApp und Telegram erreichbar unter der Nummer <a href="tel:015751795399">0157 51795399</a>.</p>
-?>
 <p>Vom <strong>18. bis 22. Mai 2018 - also um Pfingsten -</strong> wird unter dem Titel "Argumente gegen das Zeitgeschehen" ein Seminarwochenende in Großgoltern stattfinden. In den mehrtägigen Workshops können dort zwei der insgesamt vier Workshopthemen intensiv diskutiert werden und auch außerhalb der Workshops wird es ausreichend Gelegenheit geben, noch weitere Themen zu diskutieren, die euch unter den Nägeln brennen. Für die Workshops wird kein Vorwissen vorausgesetzt, wer Interesse hat soll einfach kommen.<br />
 	<strong>Die inhaltlichen Ankündiger und die einzelnen Workshopthemen stehen unter <a title="Programm" href="?p=programm">Programm</a>.</strong></p>
 <p><strong>Wer es noch nicht getan hat, soll sich bitte unbedingt unter <a title="Programm" href="?p=anmeldung">Anmeldung</a> anmelden. Nur so können wir uns mit Verpflegung und Schlafplätzen auf euch einstellen!</strong></p>
