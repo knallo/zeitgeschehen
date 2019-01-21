@@ -107,9 +107,6 @@
 						if (!empty($row['mail'])) {
 							$mails .= $row['mail'] . ", ";
 						}
-						if ($row['anfahrt'] == "2" && !empty($row['mail'])) {
-							$anfahrt2 .= $row['mail'].", ";
-						}
 						if (is_numeric($row['geld'])) {
 							$money += $row['geld'];
 						} elseif (!empty($row['geld'])) {
@@ -240,14 +237,6 @@
 			<?php
 			echo $mails;
 			?>
-			<br />
-			<br />
-			<h4>Mailadressen für die gemeinsame Anfahrt nachmittags aus Bremen: </h4>
-
-			<?php
-			echo $anfahrt2;
-			?>
-
 			<br />
 			<br />
 			<h2>Anwesenheiten und Essenswünsche</h2>
