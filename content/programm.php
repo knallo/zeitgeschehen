@@ -7,57 +7,53 @@
 	printCalendar("desktop");
 ?>
 
-<p>Wir besprechen in drei Tagen 4 Workshopthemen. Jedes der Themen wird neunstündig (drei mal drei Stunden) behandelt - zwei Themen werden Samstag und Sonntagvormittag behandelt, die beiden anderen Sonntagnachmittag und Pfingsmontag.</p>
+<?php
+	include("mysql/programm.php")
+?>
+
+<p>Wir besprechen in <?php echo $zahlwoerter[date('d', $end) - date('d', $start)] ?> Tagen <?php echo $zahlwoerter[$anzahl_workshops] ?> Workshopthemen. Jedes der Themen wird <?php echo $zahlwoerter[3 * $slotlaenge] ?>stündig (drei mal <?php echo $zahlwoerter[$slotlaenge] ?> Stunden) behandelt - <?php echo $zahlwoerter[$anzahl_erste] ?> Themen werden <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_anfang'])) - 1] ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang']))) ?> behandelt, die <?php echo $zahlwoerter[$anzahl_zweite] ?> anderen <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_anfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['zweite_schiene_anfang']))) ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_zweiter_zwischenanfang'])) - 1] ?>.</p>
 <p> </p>
 
-<p>Das Haus ist geöffnet von <b>18.05.</b> bis <b>22.05.18</b></p>
+<p>Das Haus ist geöffnet von <b><?php echo date('d.m.', $start) ?></b> bis <b><?php echo date('d.m.y', $end) ?></b></p>
 <ol>
-	<li>Die ersten beiden Workshops gehen parallel von <b>19.05., 11 Uhr</b> bis <b>20.05., 14 Uhr</b></li>
-	<li>Die letzten beiden Workshops gehen parallel von <b>20.05., 17 Uhr</b> bis <b>21.05., 20 Uhr</b></li>
+	<li>Die ersten <?php echo $zahlwoerter[$anzahl_erste] ?> Workshops gehen parallel von <b><?php echo date('d.m., H', strtotime($workshopzeiten['erste_schiene_anfang'])) ?> Uhr</b> bis <b><?php echo date('d.m., H', strtotime($workshopzeiten['erste_schiene_ende'])) ?> Uhr</b></li>
+	<li>Die letzten <?php echo $zahlwoerter[$anzahl_zweite] ?> Workshops gehen parallel von <b><?php echo date('d.m., H', strtotime($workshopzeiten['zweite_schiene_anfang'])) ?> Uhr</b> bis <b><?php echo date('d.m., H', strtotime($workshopzeiten['zweite_schiene_ende'])) ?> Uhr</b></li>
 </ol>
 
-<h2>19.-20. Mai</h2>
+<h2><?php echo date('d.', strtotime($workshopzeiten['erste_schiene_anfang'])); ?>-<?php echo date('d.', strtotime($workshopzeiten['erste_schiene_ende'])); ?> <?php echo $monate[date('m', strtotime($workshopzeiten['erste_schiene_ende'])) - 1] ?></h2>
 <table>
 	<tbody>
 		<tr>
-			<td>
-				<h3 class="obertitel">Bedingungsloses Grundeinkommen</h3>
-				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
-					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a title="Ankündiger zum Workshop 'Bedingungsloses Grundeinkommen'" href="?workshop=bge">Einführungstext</a>
-			</td>
-			<td>
-				<h3 class="obertitel">Über die Freiheit zum Demonstrieren</h3>
-				<h4 class="untertitel">oder: Warum mündet die Wahrnehmung dieses Grundrechts regelmäßig in eine Gewaltdebatte?</h4>
-				<p>Samstag von 11:00 Uhr bis 14:00 Uhr<br />
-					sowie von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Sonntag von 11:00 Uhr bis 14:00 Uhr.</p>
-				<a title="Ankündiger zum Workshop 'Über die Freiheit zum Demonstrieren'" href="?workshop=demonstrationsfreiheit">Einführungstext</a>
-			</td>
+			<?php
+				foreach ($workshops_erste_schiene as &$workshop) {
+					echo "<td>";
+					echo "<h3 class='obertitel'>" . $workshop[0] . "</h3>";
+					if ($workshop[1] != "") {
+						echo "<h4 class='untertitel'>" . $workshop[1] . "</h4>";
+					}
+					echo "<p>" . $zeittext_erste_schiene . "</p>";
+					echo $workshop[2];
+				}
+			 ?>
 		</tr>
 	</tbody>
 </table>
 <p> </p>
-<h2>20.-21. Mai</h2>
+<h2><?php echo date('d.', strtotime($workshopzeiten['zweite_schiene_anfang'])); ?>-<?php echo date('d.', strtotime($workshopzeiten['zweite_schiene_ende'])); ?> <?php echo $monate[date('m', strtotime($workshopzeiten['zweite_schiene_ende'])) - 1] ?></h2>
 <table>
 	<tbody>
 		<tr>
-			<td>
-				<h3 class="obertitel">Klimawandel und Energiewende</h3>
-				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
-					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a title="Ankündiger zum Workshop 'Klimawandel und Energiewende'" href="?workshop=klima">Einführungstext</a>
-			</td>
-			<td>
-				<h3 class="obertitel">Kritik – wie geht das?</h3>
-				<h4 class="untertitel">Eine Auseinandersetzung mit üblichen Formen des Kritisierens</h4>
-				<p>Sonntag von 17:00 Uhr bis 20:00 Uhr,<br />
-					und Pfingstmontag von 11:00 Uhr bis 14:00 Uhr<br />
-					sowie von 17:00 Uhr bis 20:00 Uhr.</p>
-				<a title="Ankündiger zum Workshop 'Kritik – wie geht das?'" href="?workshop=kritik">Einführungstext</a>
-			</td>
+			<?php
+				foreach ($workshops_zweite_schiene as &$workshop) {
+					echo "<td>";
+					echo "<h3 class='obertitel'>" . $workshop[0] . "</h3>";
+					if (!$workshop[1]) {
+						echo "<h4 class='untertitel'>" . $workshop[1] . "</h4>";
+					}
+					echo "<p>" . $zeittext_zweite_schiene . "</p>";
+					echo $workshop[2];
+				}
+			 ?>
 		</tr>
 	</tbody>
 </table>

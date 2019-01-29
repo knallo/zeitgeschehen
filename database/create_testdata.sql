@@ -13,10 +13,6 @@ INSERT INTO allgemein VALUES (
 );
 
 INSERT INTO workshops_zeit VALUES (
-	'2019-06-07 11:00',
-	'2019-06-07 14:00',
-	'2019-06-07 17:00',
-	'2019-06-07 20:00',
 	'2019-06-08 11:00',
 	'2019-06-08 14:00',
 	'2019-06-08 17:00',
@@ -24,7 +20,11 @@ INSERT INTO workshops_zeit VALUES (
 	'2019-06-09 11:00',
 	'2019-06-09 14:00',
 	'2019-06-09 17:00',
-	'2019-06-09 20:00'
+	'2019-06-09 20:00',
+	'2019-06-10 11:00',
+	'2019-06-10 14:00',
+	'2019-06-10 17:00',
+	'2019-06-10 20:00'
 );
 
 INSERT INTO workshops VALUES (
@@ -36,7 +36,7 @@ INSERT INTO workshops VALUES (
 	False
 );
 
-INSERT INTO workshops (titel, einfuehrungstext, kuerzel, ist_freitag, ist_sonntag) VALUES (
+INSERT INTO workshops (titel, einfuehrungstext, kuerzel, ist_erste_schiene, ist_zweite_schiene) VALUES (
 	"Vielbeschworene Wirkungen",
 	"Gibt es nur wenn die Revolution durchgeführt wird! <br/> Der abermalige Beweis <br/> ihrer Notwendigkeit ist für mich keiner!",
 	"VW",

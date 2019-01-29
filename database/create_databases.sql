@@ -9,32 +9,41 @@ CREATE TABLE allgemein (
 	haus_oeffnungsdatum DATE NOT NULL,
 	haus_schliessdatum DATE NOT NULL,
 	workshops_anzahl INT UNSIGNED NOT NULL,
-	freitagsworkshops_anzahl INT UNSIGNED NOT NULL,
-	sonntagsworkshops_anzahl INT UNSIGNED NOT NULL,
+	erste_schiene_workshops_anzahl INT UNSIGNED NOT NULL,
+	zweite_schiene_workshops_anzahl INT UNSIGNED NOT NULL,
 	kosten_untere_schranke INT UNSIGNED NOT NULL,
 	kosten_obere_schranke INT UNSIGNED NOT NULL,
 
 	CONSTRAINT anfang_vor_ende CHECK (anfangsdatum > enddatum),
 	CONSTRAINT oeffnen_vor_schliessen CHECK (haus_oeffnungsdatum > haus_schliessdatum),
-	CONSTRAINT workshops_anzahl_korrekt CHECK (workshops_anzahl = freitagsworkshops_anzahl + sonntagsworkshops_anzahl),
-	CONSTRAINT freitag_anfang_vor_ende CHECK (freitagsschiene_anfangszeit < freitagsschiene_endzeit),
-	CONSTRAINT sonntag_anfang_vor_ende CHECK (sonntagsschiene_anfangszeit < sonntagsschiene_endzeit),
+	CONSTRAINT workshops_anzahl_korrekt CHECK (workshops_anzahl = erste_schiene_workshops_anzahl + zweite_schiene_workshops_anzahl),
 	CONSTRAINT kosten_schranken_korrekt CHECK (kosten_untere_schranke <= kosten_obere_schranke)
 );
 
 CREATE TABLE workshops_zeit (
-	freitagsschiene_anfang DATETIME NOT NULL,
-	freitagsschiene_erstes_zwischenende DATETIME NOT NULL,
-	freitagsschiene_erster_zwischenanfang DATETIME NOT NULL,
-	freitagsschiene_zweites_zwischenende DATETIME NOT NULL,
-	freitagsschiene_zweiter_zwischenanfang DATETIME NOT NULL,
-	freitagsschiene_ende DATETIME NOT NULL,
-	sonntagsschiene_anfang DATETIME NOT NULL,
-	sonntagsschiene_erstes_zwischenende DATETIME NOT NULL,
-	sonntagsschiene_erster_zwischenanfang DATETIME NOT NULL,
-	sonntagsschiene_zweites_zwischenende DATETIME NOT NULL,
-	sonntagsschiene_zweiter_zwischenanfang DATETIME NOT NULL,
-	sonntagsschiene_ende DATETIME NOT NULL
+	erste_schiene_anfang DATETIME NOT NULL,
+	erste_schiene_erstes_zwischenende DATETIME NOT NULL,
+	erste_schiene_erster_zwischenanfang DATETIME NOT NULL,
+	erste_schiene_zweites_zwischenende DATETIME NOT NULL,
+	erste_schiene_zweiter_zwischenanfang DATETIME NOT NULL,
+	erste_schiene_ende DATETIME NOT NULL,
+	zweite_schiene_anfang DATETIME NOT NULL,
+	zweite_schiene_erstes_zwischenende DATETIME NOT NULL,
+	zweite_schiene_erster_zwischenanfang DATETIME NOT NULL,
+	zweite_schiene_zweites_zwischenende DATETIME NOT NULL,
+	zweite_schiene_zweiter_zwischenanfang DATETIME NOT NULL,
+	zweite_schiene_ende DATETIME NOT NULL,
+
+	CONSTRAINT erste_schiene_anfang_vor_erstem_zwischenende CHECK (erste_schiene_anfang < erste_schiene_erstes_zwischenende),
+	CONSTRAINT erste_schiene_erstes_zwischenende_vor_erstem_zwischenanfang CHECK (erste_schiene_erstes_zwischenende < erste_schiene_erster_zwischenanfang),
+	CONSTRAINT erste_schiene_erster_zwischenanfang_vor_zweitem_zwischenende CHECK (erste_schiene_erster_zwischenanfang < erste_schiene_zweites_zwischenende),
+	CONSTRAINT erste_schiene_zweites_zwischenende_vor_zweitem_zwischenanfang CHECK (erste_schiene_zweites_zwischenende < erste_schiene_zweiter_zwischenanfang),
+	CONSTRAINT erste_schiene_zweiter_zwischenanfang_vor_ende CHECK (erste_schiene_zweiter_zwischenanfang < erste_schiene_ende),
+	CONSTRAINT zweite_schiene_anfang_vor_erstem_zwischenende CHECK (zweite_schiene_anfang < zweite_schiene_erstes_zwischenende),
+	CONSTRAINT zweite_schiene_erstes_zwischenende_vor_erstem_zwischenanfang CHECK (zweite_schiene_erstes_zwischenende < zweite_schiene_erster_zwischenanfang),
+	CONSTRAINT zweite_schiene_erster_zwischenanfang_vor_zweitem_zwischenende CHECK (zweite_schiene_erster_zwischenanfang < zweite_schiene_zweites_zwischenende),
+	CONSTRAINT zweite_schiene_zweites_zwischenende_vor_zweitem_zwischenanfang CHECK (zweite_schiene_zweites_zwischenende < zweite_schiene_zweiter_zwischenanfang),
+	CONSTRAINT zweite_schiene_zweiter_zwischenanfang_vor_ende CHECK (zweite_schiene_zweiter_zwischenanfang < zweite_schiene_ende)
 );
 
 CREATE TABLE workshops (
@@ -42,10 +51,10 @@ CREATE TABLE workshops (
 	untertitel VARCHAR(255),
 	einfuehrungstext VARCHAR(2500) NOT NULL,
 	kuerzel VARCHAR(10) NOT NULL,
-	ist_freitag BOOLEAN NOT NULL,
-	ist_sonntag BOOLEAN NOT NULL,
+	ist_erste_schiene BOOLEAN NOT NULL,
+	ist_zweite_schiene BOOLEAN NOT NULL,
 
-	CONSTRAINT freitag_oder_sonntag CHECK (ist_freitag XOR ist_sonntag) 
+	CONSTRAINT erste_oder_zweite_schiene CHECK (ist_erste_schiene XOR ist_zweite_schiene)
 );
 
 CREATE TABLE teilnehmer (

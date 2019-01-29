@@ -1,8 +1,8 @@
-<?php     
-$servername = "fruehlingsseminar.lima-db.de";
-$username = "USER291951";
-$password = "jYfmVtIdy";
-$dbname = "db_291951_2";
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_zeitgeschehen";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
