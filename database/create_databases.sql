@@ -14,8 +14,8 @@ CREATE TABLE allgemein (
 	kosten_untere_schranke INT UNSIGNED NOT NULL,
 	kosten_obere_schranke INT UNSIGNED NOT NULL,
 
-	CONSTRAINT anfang_vor_ende CHECK (anfangsdatum > enddatum),
-	CONSTRAINT oeffnen_vor_schliessen CHECK (haus_oeffnungsdatum > haus_schliessdatum),
+	CONSTRAINT anfang_vor_ende CHECK (anfangsdatum < enddatum),
+	CONSTRAINT oeffnen_vor_schliessen CHECK (haus_oeffnungsdatum < haus_schliessdatum),
 	CONSTRAINT workshops_anzahl_korrekt CHECK (workshops_anzahl = erste_schiene_workshops_anzahl + zweite_schiene_workshops_anzahl),
 	CONSTRAINT kosten_schranken_korrekt CHECK (kosten_untere_schranke <= kosten_obere_schranke)
 );
