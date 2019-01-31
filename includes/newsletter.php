@@ -34,8 +34,8 @@ function printCalendar($appearence) {
 	?>
 	<div class="littleBox newsletter <?php echo $appearence; ?>">
 		<p><strong>NEU: </strong><br />
-			Ab sofort gibt es 
-			<a href="https://zeitgeschehen.net/uploads/zeitgeschehen-kalender_2018.ics" target="blank" alt="Kalender-Datei für alle Workshops beim Argumente gegen das Zeitgeschehen 2018">hier</a> 
+			Ab sofort gibt es
+			<a href="uploads/ics.php" target="blank" alt="Kalender-Datei für alle Workshops beim Argumente gegen das Zeitgeschehen 2018">hier</a> 
 			eine .ics-Datei für die automatische Eintragung der Workshops in deinen Kalender. Einfach Datei herunterladen und öffnen.</p>
 	</div>
 	<?php

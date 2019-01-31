@@ -1,6 +1,6 @@
 <?php
 
-  include('mysql/connect.php');
+  include("mysql/connect.php");
 
   function get_workshop($titel, $conn) {
     $stmt = $conn->prepare("SELECT titel, untertitel, einfuehrungstext, ist_erste_schiene, ist_zweite_schiene FROM workshops WHERE kuerzel = ?");

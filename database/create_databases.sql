@@ -6,8 +6,8 @@ USE db_zeitgeschehen;
 CREATE TABLE allgemein (
 	anfangsdatum DATE NOT NULL,
 	enddatum DATE NOT NULL,
-	haus_oeffnungsdatum DATE NOT NULL,
-	haus_schliessdatum DATE NOT NULL,
+	haus_oeffnungsdatum DATETIME NOT NULL,
+	haus_schliessdatum DATETIME NOT NULL,
 	workshops_anzahl INT UNSIGNED NOT NULL,
 	erste_schiene_workshops_anzahl INT UNSIGNED NOT NULL,
 	zweite_schiene_workshops_anzahl INT UNSIGNED NOT NULL,

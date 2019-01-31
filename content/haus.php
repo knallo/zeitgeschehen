@@ -28,3 +28,6 @@
 
 <h4>Schlafplätze</h4>
 <p>Im Haus gibt es Betten, für die aber Laken und Bezug mitgebracht werden müssen (können sonst gegen ein paar Euro dort auch ausgeliehen werden). Je nach Teilnehmerzahl und Haussituation wäre es dennoch nicht schlecht, wenn ihr Schlafsäcke oder Zeltutensilien mitbringt - nur für den Fall ;)</p>
+<?php
+	include("mysql/close.php");
+?>

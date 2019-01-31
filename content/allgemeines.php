@@ -17,3 +17,6 @@
 <?php
 	printNewsletter("allgemeines", "mobile");
 ?>
+<?php
+	include("mysql/close.php");
+?>

@@ -19,3 +19,7 @@
 <?php
 	printNewsletter("kontakt", "mobile");
 ?>
+
+<?php
+	include("mysql/close.php");
+?>

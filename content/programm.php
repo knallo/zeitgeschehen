@@ -11,7 +11,7 @@
 	include("mysql/programm.php")
 ?>
 
-<p>Wir besprechen in <?php echo $zahlwoerter[date('d', $end) - date('d', $start)] ?> Tagen <?php echo $zahlwoerter[$anzahl_workshops] ?> Workshopthemen. Jedes der Themen wird <?php echo $zahlwoerter[3 * $slotlaenge] ?>stündig (drei mal <?php echo $zahlwoerter[$slotlaenge] ?> Stunden) behandelt - <?php echo $zahlwoerter[$anzahl_erste] ?> Themen werden <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_anfang'])) - 1] ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang']))) ?> behandelt, die <?php echo $zahlwoerter[$anzahl_zweite] ?> anderen <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_anfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['zweite_schiene_anfang']))) ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_zweiter_zwischenanfang'])) - 1] ?>.</p>
+<p>Wir besprechen in <?php echo $zahlwoerter[date('d', strtotime($workshopzeiten['zweite_schiene_ende'])) - date('d', strtotime($workshopzeiten['erste_schiene_anfang'])) + 1] ?> Tagen <?php echo $zahlwoerter[$anzahl_workshops] ?> Workshopthemen. Jedes der Themen wird <?php echo $zahlwoerter[3 * $slotlaenge] ?>stündig (drei mal <?php echo $zahlwoerter[$slotlaenge] ?> Stunden) behandelt - <?php echo $zahlwoerter[$anzahl_erste] ?> Themen werden <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_anfang'])) - 1] ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['erste_schiene_zweiter_zwischenanfang']))) ?> behandelt, die <?php echo $zahlwoerter[$anzahl_zweite] ?> anderen <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_anfang'])) - 1] ?><?php echo vor_oder_nachmittag(date('H', strtotime($workshopzeiten['zweite_schiene_anfang']))) ?> und <?php echo $wochentage[date('N', strtotime($workshopzeiten['zweite_schiene_zweiter_zwischenanfang'])) - 1] ?>.</p>
 <p> </p>
 
 <p>Das Haus ist geöffnet von <b><?php echo date('d.m.', $start) ?></b> bis <b><?php echo date('d.m.y', $end) ?></b></p>
@@ -59,4 +59,8 @@
 </table>
 <?php
 	printCalendar("mobile");
+?>
+
+<?php
+	include("mysql/close.php");
 ?>

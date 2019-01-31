@@ -66,7 +66,7 @@
 				mysqli_close($conn);
 
 				$gespeichert = true;
-				
+
 				include("content/angemeldet.php");
 			} else {
 				echo "<div class='alert'>Du musst angeben, an welchen Tagen du da sein wirst!</div>";
@@ -193,3 +193,6 @@
 <input type="submit" name="absenden" value="Jetzt anmelden!" />
 
 </form>
+<?php
+	include("mysql/close.php");
+?>

@@ -3,4 +3,6 @@
 	Alle notwendigen Infos schicken wir dir rechtzeitig per Mail zu.
 	Wenn es irgendwelche Probleme gibt oder du noch Fragen hast, melde dich einfach bei <a href="mailto:zeitgeschehen@riseup.net">zeitgeschehen&#64;riseup.net</a>.
 </div>
-
+<?php
+	include("mysql/close.php");
+?>

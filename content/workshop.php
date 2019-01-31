@@ -25,3 +25,7 @@
     echo "</em></div>";
   }
 ?>
+
+<?php
+	include("mysql/close.php");
+?>

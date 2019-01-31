@@ -35,3 +35,7 @@ Denkt dann aber bitte daran, eure echte Mailadresse anzugeben, damit wir euch er
 		</tr>
 	</table>
 </form>
+
+<?php
+	include("mysql/close.php");
+?>
