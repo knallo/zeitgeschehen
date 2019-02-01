@@ -62,17 +62,21 @@ CREATE TABLE teilnehmer (
 	name VARCHAR(255) NOT NULL,
 	geld INT UNSIGNED NOT NULL,
 	essenswuensche VARCHAR(255),
+	ueber_25 BOOLEAN,
+	fahrerlaubnis BOOLEAN,
 	mailadresse VARCHAR(255) NOT NULL,
 	herkunftsort VARCHAR(255) NOT NULL,
 	marketing VARCHAR(255),
 	sonstiges VARCHAR(255),
+
+	CONSTRAINT ueber_25_nur_mit_fahrerlaubnis CHECK (fahrerlaubnis || !ueber_25),
 
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE autos (
 	art VARCHAR(255) NOT NULL,
-	fahrerlaubnis VARCHAR(255) NOT NULL,
+	nutzung VARCHAR(255) NOT NULL,
 	telefonnummer VARCHAR(255) NOT NULL,
 	teilnehmer_id INT UNSIGNED NOT NULL,
 
@@ -117,6 +121,15 @@ CREATE TABLE montag (
 );
 
 CREATE TABLE dienstag (
+	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
+
+	CONSTRAINT fk_teilnehmer_id_dienstag
+	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
+	ON DELETE CASCADE
+	ON UPDATE RESTRICT
+);
+
+CREATE TABLE intern (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
 	CONSTRAINT fk_teilnehmer_id_dienstag

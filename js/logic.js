@@ -77,7 +77,7 @@ function loadPage(title, isBack=false) {
 			toggleMenu();
 		}
 	}
-	
+
 	xhttp.open("GET", "../content/" + title + ".php", true);
 	xhttp.send();
 }
@@ -130,9 +130,9 @@ window.onload = function makeMenuCollapsedOnMobile() {
 function markMenu(title, initial=false) {
 	var last = document.querySelector("a[class=lastSelected]");
 	if (last) {
-		last.removeAttribute("class");	
+		last.removeAttribute("class");
 	}
-	
+
 	title = title !== "impressum" ? title : "kontakt";
 	var item = document.getElementById(title);
 	item.className = "lastSelected";
@@ -167,11 +167,39 @@ function autofrage() {
 	var autoform = document.getElementById("autofrage");
 	var besitztAuto = document.getElementById("besitztAuto");
 	var besitztKeinAuto = document.getElementById("besitztKeinAuto");
+	var autoInputs = autoform.querySelectorAll("input");
 
 	if (besitztKeinAuto.checked){
 	    autoform.className = "hidden";
+			for (let input of autoInputs) {
+				input.removeAttribute("required");
+			}
 	} else if (besitztAuto.checked) {
 	    autoform.className = "visible";
+			for (let input of autoInputs) {
+				input.setAttribute("required", "");
+			}
+	}
+}
+
+// Man muss sich für mindestens einen Tag anmelden
+function mindestens_ein_tag() {
+	var checkboxes = document.querySelectorAll("input[type=checkbox]");
+	var is_one_checked = false;
+
+	for (let checkbox of checkboxes) {
+		console.log(checkbox.checked);
+		if (checkbox.checked) {
+			is_one_checked = true;
+		}
+	}
+
+	for (let checkbox of checkboxes) {
+		if (is_one_checked) {
+			checkbox.removeAttribute("required");
+		} else {
+			checkbox.setAttribute("required", "");
+		}
 	}
 }
 
