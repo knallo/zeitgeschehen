@@ -65,7 +65,7 @@ CREATE TABLE teilnehmer (
 	ueber_25 BOOLEAN,
 	fahrerlaubnis BOOLEAN,
 	mailadresse VARCHAR(255) NOT NULL,
-	herkunftsort VARCHAR(255) NOT NULL,
+	herkunftsort VARCHAR(255),
 	marketing VARCHAR(255),
 	sonstiges VARCHAR(255),
 
@@ -132,7 +132,7 @@ CREATE TABLE dienstag (
 CREATE TABLE intern (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
-	CONSTRAINT fk_teilnehmer_id_dienstag
+	CONSTRAINT fk_teilnehmer_id_intern
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT

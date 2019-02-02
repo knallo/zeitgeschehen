@@ -12,339 +12,271 @@
 		<article class="anmeldungen">
 			<a href="http://zeitgeschehen.net" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
 			<h1>Anmeldungen</h1>
+			<p>Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
+			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.</p>
 			<?php
-			if (!empty($_GET['rm'])) {
-				if ($_GET['bestatigt'] == "false") {
-					echo "<form action='' method='get'>
-						<input type='hidden' name='rm' value='true' />
-						<input type='hidden' name='dbid' value='" . $_GET['dbid'] . "' />
-						<input type='hidden' name='bestatigt' value='true' />
-						<input type='submit' value='Jetzt die Anmeldung mit der id " . $_GET['uiid'] . " löschen' />
-					</form>
-					<br />";
-				} else if ($_GET['bestatigt'] == "true") {
-
-					echo "Löschung wurde bestätigt";
-					
-					include("../mysql/connect.php");
-					$sql = "UPDATE anmeldung SET abgesagt = 1 WHERE id = '" . $_GET['dbid'] . "'";
-					if ($conn->query($sql) === TRUE) {
-					    echo "<div class='alert'>Der Eintrag wurde erfolgreich gelöscht</div>";
-					} else {
-					    echo "<div class='alert'>Ein Systemfehler ist aufgetreten. Bitte kontaktiere einen Admin und gib ihm die folgende Fehlermeldung: " . $conn->error . "</div>";
-					}
-				}
-			}
-			?>
-			<p>Hier sind alle Anmeldungen aufgelistet (die neuesten zuerst):</p>
-			<p>Ein nicht ausgefüllter Ort bedeutet idR Bremen.</p>
-			<br />
-			<table class="tableAnmeldungen">
-				<tr>
-					<th width="5%">id</th>
-					<th>Name</th>
-					<th>Tage*</th>
-					<th>Geld</th>
-					<th>Essen</th>
-					<th>Mail</th>
-					<th>Ort</th>
-					<th>löschen</th>
-				</tr>
-
-				<?php
-				$essenProTag = array("", "", "", "", ""); // Die Essenswünsche der Tn für jeden Tag, an dem sie da sind (vegan und vegetarisch werden extra abgefragt)
-				$vegan = array(0,0,0,0,0); // Vegan-Esser pro Tag
-				$vegetarisch = array(0,0,0,0,0); // vegetarische Esser pro Tag
-				$anw = array(0,0,0,0,0); // Tn, die insgesamt pro Tag da sind
-				$money = 0; // wie viel zählbares Geld (wenn nur eine Zahl eingegeben wurde) bekommen wir wahrscheinlich?
-				$otherMoney = ""; // alles nicht-zählbare Geld als String
-				$mails = ""; // Alle Mailadressen
-				$autos = ""; // Die Tabelle unter "Autos"
-				$fahrer = ""; // Die Tabelle unter "Fahrer"
-				$marketing = ""; //Marketinginfos
-				$sonstigeInfos = ""; // Die Tabelle unter "sonstige Infos"
-				$eigeneLeute = 0; // Die Leute, die sich explizit als Referent oder Orga angemeldet haben.
-				$z1 = 0;
-				$z2 = 0;
-				$z3 = 0;
-				$z4 = 0;
-				$z5 = 0;
-				$i = 0;
-
-				// Connect to database
 				include("../mysql/connect.php");
 
-				$sql = "SELECT id, name, tage, geld, essen, mail, ort, autoda, gros, recht, fuhrerschein, tel, marketing, sonstiges FROM anmeldung WHERE abgesagt != 1 ORDER BY id DESC";
-				$result = $conn->query($sql);
+				//creates a html table from mysql data.
+				//tabellen_spalten is an associative array where the keys are the database column names, and the values are the table header names.
+				//daten is an array of associative arrays with the data
+				function erstelle_tabelle($tabellen_spalten, $daten) {
+					echo "<table>";
+					//headers
+					$schluessel = array_keys($tabellen_spalten);
+					echo "<tr>";
+					foreach ($schluessel as &$key) {
+						echo "<th>";
+						echo $tabellen_spalten[$key];
+						echo "</th>";
+					}
+					echo "</tr>";
 
-				if ($result->num_rows > 0) {
-				    while($row = $result->fetch_assoc()) {
-
-				    	$id = mysqli_num_rows($result) - $i;
-						$i++;
-
-				    	/* Haupttabelle */ 
-
-				        if ($z1 == 1) {
-							echo "<tr class='bgHighlight'>";
-							$z1 = 0;
-						} else {
-							echo "<tr>";
-							$z1 = 1;
+					//rows
+					foreach ($daten as &$reihe) {
+						echo "<tr>";
+						foreach ($schluessel as &$key) {
+							echo "<td>";
+							echo $reihe[$key];
+							echo "</td>";
 						}
-						echo "<td>$id</td>";
-						echo "<td>" . $row['name'] . "</td>";
-						echo "<td>" . $row['tage'] . "</td>";
-						echo "<td>" . $row['geld'] . "</td>";
-						echo "<td>" . $row['essen'] . "</td>";
-						echo "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-						echo "<td>" . $row['ort'] . "</td>";
-						echo "<td style='text-align: center;'><a href='?rm=true&dbid=" . $row['id'] . "&uiid=" . $id . "&bestatigt=false'>X</a></td>";
 						echo "</tr>";
+					}
 
-						/* Geld */
-
-						if (!empty($row['mail'])) {
-							$mails .= $row['mail'] . ", ";
-						}
-						if (is_numeric($row['geld'])) {
-							$money += $row['geld'];
-						} elseif (!empty($row['geld'])) {
-							$otherMoney .= "+ ".$row['geld']."<br>";
-						}
-
-						/* Anwesenheit */
-
-						for ($n=0; $n<=4; $n++) {
-							if (substr($row['tage'], $n, 1) == "x") {
-								$anw[$n]++;
-								if (!empty($row['essen']) && 
-									strcasecmp($row['essen'], "nein") != 0 && 
-									strcasecmp($row['essen'], "keine") != 0 && 
-									strcasecmp($row['essen'], "nö") != 0 && 
-									strcasecmp($row['essen'], "Egal") != 0 &&
-									strcasecmp($row['essen'], "-") != 0) {
-									if ($row['essen'] == "Vegetarisch" || 
-										$row['essen'] == "vegetarisch" || 
-										$row['essen'] == "Vegetarisch " || 
-										$row['essen'] == "vegetarisch ") {
-										$vegetarisch[$n]++;
-									} else if ($row['essen'] == "Vegan" || 
-										$row['essen'] == "vegan" || 
-										$row['essen'] == "Vegan " || 
-										$row['essen'] == "vegan ") {
-										$vegan[$n]++;
-									} else {
-										$essenProTag[$n] .= "<li>".$row['essen']."</li>";
-									}
-								}
-							}
-						}
-
-						/* Autos */
-						if ($row['autoda'] == "1") {
-							if ($z2 == 1) {
-								$autos .= "<tr class='bgHighlight'>";
-								$z2 = 0;
-							} else {
-								$autos .= "<tr>";
-								$z2 = 1;
-							}
-							$autos .= "<td>$id</td>";
-							$autos .= "<td>" . $row['name'] . "</td>";
-							$autos .= "<td>" . $row['tage'] . "</td>";
-							$autos .= "<td>" . $row['ort'] . "</td>";
-							$autos .= "<td>" . $row['gros'] . "</td>";
-							$autos .= "<td>" . $row['recht'] . "</td>";
-							$autos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-							$autos .= "<td>" . $row['tel'] . "</td>";
-							$autos .= "</tr>";
-						}
-
-						/* Fahrer */
-
-						if ($row['fuhrerschein'] != "3") {
-							if ($z3 == 1) {
-								$fahrer .= "<tr class='bgHighlight'>";
-								$z3 = 0;
-							} else {
-								$fahrer .= "<tr>";
-								$z3 = 1;
-							}
-							$fahrer .= "<td>$id</td>";
-							$fahrer .= "<td>" . $row['name'] . "</td>";
-							$fahrer .= "<td>" . $row['tage'] . "</td>";
-							$fahrer .= "<td>" . $row['ort'] . "</td>";
-							$fahrer .= "<td>";
-							if ($row['fuhrerschein'] == "2") {
-								$fahrer .= "Nein";
-							} elseif ($row['fuhrerschein'] == "1") {
-								$fahrer .= "Ja";
-							} else {
-								$fahrer .= "ERROR";
-							} 
-							$fahrer .= "</td>";
-							$fahrer .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-							$fahrer .= "</tr>";
-						}
-
-						/* Sonstige Infos */
-
-						if (!empty($row['sonstiges'])) {
-							if ($z4 == 1) {
-								$sonstigeInfos .= "<tr class='bgHighlight'>";
-								$z4 = 0;
-							} else {
-								$sonstigeInfos .= "<tr>";
-								$z4 = 1;
-							}
-							$sonstigeInfos .= "<td>$id</td>";
-							$sonstigeInfos .= "<td>" . $row['name'] . "</td>";
-							$sonstigeInfos .= "<td><a href='mailto:" . $row['mail'] . "'>" . $row['mail'] . "</a></td>";
-							$sonstigeInfos .= "<td>" . $row['sonstiges'] . "</td>";
-						}
-
-						/* Marketing */
-
-						if (!empty($row['marketing'])) {
-
-							if (strcasecmp($row['marketing'], "referent") != 0 &&
-								strcasecmp($row['marketing'], "orga") != 0) {
-								if ($z5 == 1) {
-									$marketing .= "<tr class='bgHighlight'>";
-									$z5 = 0;
-								} else {
-									$marketing .= "<tr>";
-									$z5 = 1;
-								}
-								$marketing .= "<td>$id</td>";
-								$marketing .= "<td>" . $row['name'] . "</td>";
-								$marketing .= "<td>" . $row['marketing'] . "</td>";
-							} else {
-								$eigeneLeute++;
-							}
-						}
-				    }
+					echo "</table>";
 				}
-				$conn->close();
-				?>
-			</table>
 
-			<br />
-			<p>(Davon sind mindestens <?php echo $eigeneLeute; ?> Leute unmittelbar von uns)</p>
-			<h4>Alle Mailadressen:</h4>
+				//verwandelt ein mysqli resultat in ein array von assoziativen arrays
+				function resultat_zu_array($resultat) {
+					$daten = array();
+					$reihe = $resultat->fetch_assoc();
+					$schluessel = array_keys($reihe);
+					do {
+						$neuer_eintrag = array();
+
+						foreach ($schluessel as &$key) {
+							$neuer_eintrag[$key] = $reihe[$key];
+						}
+
+						$daten[] = $neuer_eintrag;
+					} while ($reihe = $resultat->fetch_assoc());
+
+					return $daten;
+				}
+
+				//reichert ein array von assoziativen arrays um zusätzliche daten an
+				//daten ist das array
+				//position ist die position im array wo die zusätzlichen daten reinsollen
+				//zusatz ist ein array mit den zusätzlichen daten
+				//neuer schluessel ist der schluessel unter dem die neuen daten gespeichert werden sollen
+				function reichere_daten_an($daten, $position, $zusatz, $neuer_schluessel) {
+					$neue_daten = array();
+					$schluessel = array_keys($daten[0]);
+
+					foreach ($daten as &$eintrag) {
+						$zaehler = 0;
+						$neuer_eintrag = array();
+						$zusatzdaten = array_shift($zusatz);
+
+						foreach ($schluessel as &$key) {
+							if ($zaehler == $position) {
+								$neuer_eintrag[$neuer_schluessel] = $zusatzdaten;
+							}
+
+							$neuer_eintrag[$key] = $eintrag[$key];
+
+							$zaehler = $zaehler + 1;
+						}
+
+						$neue_daten[] = $neuer_eintrag;
+					}
+
+					return $neue_daten;
+				}
+
+				//gibt einen text mit den tagen an denen die person anwesend ist zurück
+				//daten ist das array mit den teilnehmerdaten
+				//tage ist ein array mit den wochentagen für die anwesenheit geprüft werden soll
+				function anwesenheits_text($conn, $daten, $tage) {
+					$anwesenheits_texte = array();
+
+					foreach ($daten as &$eintrag) {
+						$teilnehmer_id = $eintrag["id"];
+						$text = "";
+
+						foreach ($tage as &$tag) {
+							$stmt = mysqli_prepare($conn, "SELECT COUNT(*) FROM " . $tag . " WHERE teilnehmer_id = ?");
+							mysqli_stmt_bind_param($stmt, "i", $teilnehmer_id);
+							$stmt->execute();
+							$anwesend = $stmt->get_result()->fetch_assoc()["COUNT(*)"];
+
+							if ($anwesend > 0) {
+								$text = $text . "x";
+							} else {
+								$text = $text . "o";
+							}
+						}
+
+						$anwesenheits_texte[] = $text;
+					}
+
+					return $anwesenheits_texte;
+				}
+
+				//gibt ein array mit allen einzelnen eigenschaften einer tabelle
+				function einzelne_eigenschaft($conn, $name, $tabelle) {
+					$stmt = mysqli_prepare($conn, "SELECT " . $name . " FROM " . $tabelle);
+					$stmt->execute();
+					$resultat = $stmt->get_result();
+					$eigenschaft = array();
+
+					while ($reihe = $resultat->fetch_assoc()) {
+						$eigenschaft[] = $reihe[$name];
+					}
+
+					return $eigenschaft;
+				}
+
+				$tag_format = "<h5 class='tagesAnsicht' onclick='toggleTag(this)'>▼ %s: %s Tn</h5><div style='display: none;' class='essensListe'><ul><li>%s x Vegetarisch</li><li>%s x Vegan</li></ul><br />außerdem:<ul>%s</ul></div>";
+				$sonstige_format = "<li>%s</li>";
+
+				//gibt tagesdaten zurück
+				//tag ist der name des tages
+				//nicht_woerter enthält wörter in kleinschreibung die ignoriert werden sollen
+				function extrahiere_tagesdaten($conn, $tag, $nicht_woerter) {
+					$daten = $conn->query("SELECT teilnehmer.essenswuensche AS essenswuensche FROM teilnehmer JOIN " . $tag . " ON teilnehmer.id = " . $tag . ".teilnehmer_id");
+
+					$anzahl = 0;
+					$anzahl_vegetarisch = 0;
+					$anzahl_vegan = 0;
+					$sonstige = array();
+
+					while ($reihe = $daten->fetch_assoc()) {
+						$anzahl = $anzahl + 1;
+						$essenswunsch = strtolower($reihe["essenswuensche"]);
+						if ($essenswunsch == "") {
+						} else if ($essenswunsch == "vegetarisch") {
+							$anzahl_vegetarisch = $anzahl_vegetarisch + 1;
+						} else if ($essenswunsch == "vegan") {
+							$anzahl_vegan = $anzahl_vegan + 1;
+						} else if (!in_array($essenswunsch, $nicht_woerter)) {
+							$sonstige[] = $essenswunsch;
+						}
+					}
+
+					return array("tag" => $tag, "anzahl" => strval($anzahl), "anzahl_vegetarisch" => strval($anzahl_vegetarisch), "anzahl_vegan" => strval($anzahl_vegan), "sonstige" => $sonstige);
+				}
+
+				function erstelle_sonstige_liste($sonstig_format, $sonstige) {
+					$liste = "";
+					foreach ($sonstige as &$eintrag) {
+						$liste = $liste . sprintf($sonstig_format, $eintrag);
+					}
+					return $liste;
+				}
+
+				function erstelle_tagesdaten($conn, $tag_format, $sonstige_format, $tag, $nicht_woerter) {
+					$tagesdaten = extrahiere_tagesdaten($conn, $tag, $nicht_woerter);
+					return sprintf($tag_format, $tagesdaten["tag"], $tagesdaten["anzahl"], $tagesdaten["anzahl_vegetarisch"], $tagesdaten["anzahl_vegan"], erstelle_sonstige_liste($sonstige_format, $tagesdaten["sonstige"]));
+				}
+			?>
+			<h2>Teilnehmerdaten</h2>
+			<p>Alle generellen Teilnehmerdaten. Kein Eintrag bei Ort bedeutet in der Regel Bremen.</p>
+			<?php
+				$wochentage = array("freitag", "samstag", "sonntag", "montag", "dienstag");
+				$resultat = $conn->query("SELECT id, name, geld, essenswuensche, mailadresse, herkunftsort FROM teilnehmer");
+				$daten = resultat_zu_array($resultat);
+
+				$daten = reichere_daten_an($daten, 2, anwesenheits_text($conn, $daten, $wochentage), "tage");
+
+				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "geld" => "Geld", "essenswuensche" => "Essen", "mailadresse" => "Mail", "herkunftsort" => "Ort");
+				erstelle_tabelle($spalten, $daten);
+
+			?>
+
+			<h2>Mailadressen</h2>
+			<p>Hier alle Mailadressen aller Teilnehmer</p>
 
 			<?php
-			echo $mails;
+			 	$mailadressen = einzelne_eigenschaft($conn, "mailadresse", "teilnehmer");
+				foreach ($mailadressen as &$mailadresse) {
+					echo $mailadresse . ", ";
+				}
 			?>
-			<br />
-			<br />
-			<h2>Anwesenheiten und Essenswünsche</h2>
+
+			<h2>Teilnehmeranzahl und Essenswünsche</h2>
 
 			<?php
-			$tag = array("Freitag", "Samstag", "Sonntag", "Montag", "Dienstag");
-			for ($i=0; $i<5; $i++) {
-				echo "<h5 class='tagesAnsicht' onclick='toggleTag(this)'>▼ $tag[$i]: $anw[$i] Tn</h5>";
-				echo "<div style='display: none;' class='essensListe'>";
-					echo "<ul>";
-						echo "<li>$vegetarisch[$i] x Vegetarisch</li>";
-						echo "<li>$vegan[$i] x Vegan</li>";
-					echo "</ul>";
-					echo "<br />außerdem:";
-					echo "<ul>";
-						echo $essenProTag[$i];
-					echo "</ul>";
-				echo "</div>";
-			}
+				$nicht_woerter = array("nein", "keine", "nö", "egal", "-");
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "freitag", $nicht_woerter);
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "samstag", $nicht_woerter);
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "sonntag", $nicht_woerter);
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "montag", $nicht_woerter);
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "dienstag", $nicht_woerter);
 			?>
 
-			<br />
-			<br />
 			<h2>Autos</h2>
 
-			<table>
-				<tr>
-					<th>id</th>
-					<th>Name</th>
-					<th>Tage*</th>
-					<th>Stadt</th>
-					<th>Platz</th>
-					<th>Mögliche Fahrer</th>
-					<th>Mailadresse</th>
-					<th>Telefonnummer</th>
-				</tr>
-
-				<?php
-				echo $autos;
-				?>
-
-			</table>
-
-			<br />
-			<br />
-			<h2>Fahrer</h2>
-
-			<table>
-				<tr>
-					<th>id</th>
-					<th>Name</th>
-					<th>Tage*</th>
-					<th>Stadt</th>
-					<th>Über 25?</th>
-					<th>Mailadresse</th>
-				<?php
-					echo $fahrer;
-				?>
-			</table>
-			<br />
-			<br />
-			<h2>Geld</h2>
-
 			<?php
-			echo "Geld insgesamt: ".$money."€";
-			if (!empty($otherMoney)) {
-				echo " plus <br>".$otherMoney;
-			}
+				$resultat = $conn->query("SELECT teilnehmer.id AS id, teilnehmer.name AS name, teilnehmer.herkunftsort AS herkunftsort, autos.art AS art, autos.nutzung AS nutzung, teilnehmer.mailadresse AS mailadresse, autos.telefonnummer AS telefonnummer FROM teilnehmer JOIN autos WHERE teilnehmer.id = autos.teilnehmer_id");
+				$daten = resultat_zu_array($resultat);
+				$daten = reichere_daten_an($daten, 2, anwesenheits_text($conn, $daten, $wochentage), "tage");
+
+				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "herkunftsort" => "Ort", "art" => "Platz", "nutzung" => "Mögliche Fahrer", "mailadresse" => "E-Mail", "telefonnummer" => "Telefon");
+				erstelle_tabelle($spalten, $daten);
 			?>
 
-			<br />
-			<br />
-			<h2>Sonstige Infos der Tn</h2>
+			<h2>Fahrer über 25</h2>
 
-			<table>
-				<tr>
-					<th>id</th>
-					<th>Name</th>
-					<th>Mailadresse</th>
-					<th>Kommentar</th>
-				</tr>
-				<?php
-					echo $sonstigeInfos;
-				?>
-			</table>
+			<?php
+				$resultat = $conn->query("SELECT id, name, herkunftsort, mailadresse FROM teilnehmer WHERE ueber_25 AND fahrerlaubnis");
+				$daten = resultat_zu_array($resultat);
+				$daten = reichere_daten_an($daten, 2, anwesenheits_text($conn, $daten, $wochentage), "tage");
 
-			<br />
-			<br />
-			<h2>Marketinginfos</h2>
+				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "herkunftsort" => "Ort", "mailadresse" => "E-Mail");
+				erstelle_tabelle($spalten, $daten);
+			?>
 
-			<table>
-				<tr>
-					<th>id</th>
-					<th>Name</th>
-					<th>geworben durch</th>
-				</tr>
-				<?php
-					echo $marketing;
-				?>
-			</table>
+			<h2>Fahrer unter 25</h2>
 
-			<br />
-			<br />
+			<?php
+				$resultat = $conn->query("SELECT id, name, herkunftsort, mailadresse FROM teilnehmer WHERE NOT ueber_25 AND fahrerlaubnis");
+				$daten = resultat_zu_array($resultat);
+				$daten = reichere_daten_an($daten, 2, anwesenheits_text($conn, $daten, $wochentage), "tage");
 
-			<hr>
+				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "herkunftsort" => "Ort", "mailadresse" => "E-Mail");
+				erstelle_tabelle($spalten, $daten);
+			?>
 
-			*) Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
-			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.
+			<h2>Geld gesamt</h2>
+
+			<?php
+				$resultat = $conn->query("SELECT SUM(geld) FROM teilnehmer");
+				$daten = $resultat->fetch_assoc()["SUM(geld)"];
+				echo "<p>" . $daten . "</p>";
+			?>
+
+			<h2>Sonstige Infos der Teilnehmer</h2>
+
+			<?php
+				$resultat = $conn->query("SELECT id, name, mailadresse, sonstiges FROM teilnehmer WHERE sonstiges IS NOT NULL");
+				$daten = resultat_zu_array($resultat);
+
+				$spalten = array("id" => "ID", "name" => "Name", "mailadresse" => "E-Mail", "sonstiges" => "Sonstiges");
+				erstelle_tabelle($spalten, $daten);
+			?>
+
+			<h2>Marketing</h2>
+
+			<?php
+				$resultat = $conn->query("SELECT id, name, mailadresse, marketing FROM teilnehmer WHERE marketing IS NOT NULL");
+				$daten = resultat_zu_array($resultat);
+
+				$spalten = array("id" => "ID", "name" => "Name", "mailadresse" => "E-Mail", "marketing" => "Marketing");
+				erstelle_tabelle($spalten, $daten);
+
+				include("../mysql/close.php");
+			?>
 		</article>
 	</main>
 </body>

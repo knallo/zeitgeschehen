@@ -6,7 +6,7 @@
 	$text_parameter_namen = array("name", "essenswuensche", "mailadresse", "herkunftsort", "marketing", "sonstiges");
 	$parameter = array();
 
-	function lese_text_param($name, $parameter) {
+	function lese_text_param($name, &$parameter) {
 		if (!empty($_POST[$name])) {
 			$parameter[$name] = $_POST[$name];
 		} else {
@@ -38,9 +38,11 @@
 	$stmt = mysqli_prepare($conn, "INSERT INTO teilnehmer (name, geld, essenswuensche, ueber_25, fahrerlaubnis, mailadresse, herkunftsort, marketing, sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	mysqli_stmt_bind_param($stmt, "ssiiissss", $parameter["name"], $parameter["geld"], $parameter["essenswuensche"], $parameter["ueber_25"], $parameter["fahrerlaubnis"], $parameter["mailadresse"], $parameter["herkunftsort"], $parameter["marketing"], $parameter["sonstiges"]);
 	$stmt->execute();
+	echo $stmt->error;
 
 	//ermittle id für spätere inserts
 	$teilnehmer_id = intval($conn->insert_id);
+	echo $teilnehmer_id;
 
 	//insert für verschiedene tage
 	$tage = array("freitag", "samstag", "sonntag", "montag", "dienstag");
