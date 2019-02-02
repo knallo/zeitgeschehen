@@ -14,6 +14,7 @@
 			<h1>Anmeldungen</h1>
 			<p>Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
 			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.</p>
+			<iframe style="display:none;" name="target"></iframe>
 			<?php
 				include("../mysql/connect.php");
 
@@ -192,7 +193,22 @@
 				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "geld" => "Geld", "essenswuensche" => "Essen", "mailadresse" => "Mail", "herkunftsort" => "Ort");
 				erstelle_tabelle($spalten, $daten);
 
+				$intern_format = "<p>Davon sind mindestens %s interne Leute,</p>";
+				$resultat = $conn->query("SELECT COUNT(*) FROM teilnehmer JOIN intern ON teilnehmer.id = intern.teilnehmer_id")->fetch_assoc()["COUNT(*)"];
+				echo sprintf($intern_format, $resultat);
 			?>
+
+			<h3>Löschformular</h3>
+			<form action="../mysql/loesche_teili.php" method="post" target="target">
+			  <label>IDs zu löschen (mehrere getrennt mit Beistrich): </label><input type="text" name="loesch_id" placeholder="1, 5, 9" />
+			  <input type="submit" value="Loesche Teili">
+			</form>
+
+			<h3>Internformular</h3>
+			<form action="../mysql/mache_intern.php" method="post" target="target">
+				<label>IDs von Leuten die wir kennen (mehrere getrennt mit Beistrich): </label><input type="text" name="intern_id" placeholder="1, 5, 9" />
+				<input type="submit" value="Mach intern">
+			</form>
 
 			<h2>Mailadressen</h2>
 			<p>Hier alle Mailadressen aller Teilnehmer</p>
