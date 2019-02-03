@@ -10,7 +10,7 @@
 <body>
 	<main>
 		<article class="anmeldungen">
-			<a href="http://zeitgeschehen.net" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
+			<a href="../datenbank/index.php" style="font-size: 0.8em"><- Zurück zur Übersichtsseite</a>
 			<h1>Anmeldungen</h1>
 			<p>Bei den Anwesenheits-Tagen steht ein "x" für "ist da" und ein "0" für "ist nicht da"; die erste Ziffer steht für den ersten Tag, die zweite für den zweiten usw.
 			00xxx würde also bspw. heißen: Nur an den letzten drei Tagen da.</p>

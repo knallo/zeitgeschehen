@@ -6,17 +6,13 @@ USE db_zeitgeschehen;
 CREATE TABLE allgemein (
 	anfangsdatum DATE NOT NULL,
 	enddatum DATE NOT NULL,
-	haus_oeffnungsdatum DATETIME NOT NULL,
-	haus_schliessdatum DATETIME NOT NULL,
-	workshops_anzahl INT UNSIGNED NOT NULL,
-	erste_schiene_workshops_anzahl INT UNSIGNED NOT NULL,
-	zweite_schiene_workshops_anzahl INT UNSIGNED NOT NULL,
+	haus_oeffnungszeit DATETIME NOT NULL,
+	haus_schliesszeit DATETIME NOT NULL,
 	kosten_untere_schranke INT UNSIGNED NOT NULL,
 	kosten_obere_schranke INT UNSIGNED NOT NULL,
 
 	CONSTRAINT anfang_vor_ende CHECK (anfangsdatum < enddatum),
-	CONSTRAINT oeffnen_vor_schliessen CHECK (haus_oeffnungsdatum < haus_schliessdatum),
-	CONSTRAINT workshops_anzahl_korrekt CHECK (workshops_anzahl = erste_schiene_workshops_anzahl + zweite_schiene_workshops_anzahl),
+	CONSTRAINT oeffnen_vor_schliessen CHECK (haus_oeffnungszeit < haus_schliesszeit),
 	CONSTRAINT kosten_schranken_korrekt CHECK (kosten_untere_schranke <= kosten_obere_schranke)
 );
 
