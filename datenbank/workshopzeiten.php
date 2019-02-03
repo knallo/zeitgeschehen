@@ -31,7 +31,7 @@
 					print_datetimepicker($key, $daten[$key]);
 				}
 			?>
-      <input type="submit" value="Schreibe neue Workshopzeiten" target="_BLANK">
+      <input type="submit" value="Schreibe neue Workshopzeiten" />
     </form>
 		</article>
 	</main>

@@ -11,6 +11,7 @@
 	<main>
 		<article class="anmeldungen">
 			<a href="index.php" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
+			<iframe style="display:none;" name="target"></iframe>
 			<h1>Datenbank</h1>
 			<p>Hier können allgemeine Daten zum Camp sowie Daten zum Teilnehmern und Workshops eingesehen und verändert werden.</p>
 			<p>Achtung: Die Daten zum Camp sowie den Workshops beeinflussen die öffentlich einsehbare Seite!</p>
@@ -21,15 +22,22 @@
 			<table>
 				<tr>
 					<th>Link</th>
+					<th>Löschen</th>
 				</tr>
 				<?php
 					include("../mysql/connect.php");
 
 					$resultat = $conn->query("SELECT titel, kuerzel FROM workshops");
-					$link_format = "<tr><td><a href='workshop.php?k=%s'>%s</a></td></tr>";
+					$link_format = "<td><a href='workshop.php?kuerzel=%s'>%s</a></td>";
+					$loesch_format = "<td><a href='loesche_workshop.php?kuerzel=%s' target='_BLANK'>x</a></td>";
 
 					while ($reihe = $resultat->fetch_assoc()) {
+						echo "<tr>";
+
 						echo sprintf($link_format, $reihe["kuerzel"], $reihe["titel"]);
+						echo sprintf($loesch_format, $reihe["kuerzel"]);
+
+						echo "</tr>";
 					}
 				?>
 			</table>
