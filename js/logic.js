@@ -188,7 +188,6 @@ function mindestens_ein_tag() {
 	var is_one_checked = false;
 
 	for (let checkbox of checkboxes) {
-		console.log(checkbox.checked);
 		if (checkbox.checked) {
 			is_one_checked = true;
 		}

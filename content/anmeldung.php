@@ -10,11 +10,14 @@
 <br />
 <p><strong>An welchen Tagen kommst du?*</strong></p>
 <p>(1. Workshopschiene: Samstag bis Sonntag Vormittag, 2. Workshopschiene: Sonntag Nachmittag bis Pfingstmontag)</p>
-<input type="checkbox" name="freitag" onchange="mindestens_ein_tag()" required/><label>Freitag</label><br />
-<input type="checkbox" name="samstag" onchange="mindestens_ein_tag()" required/><label>Samstag</label><br />
-<input type="checkbox" name="sonntag" onchange="mindestens_ein_tag()" required/><label>Sonntag</label><br />
-<input type="checkbox" name="montag" onchange="mindestens_ein_tag()" required/><label>Pfingstmontag</label><br />
-<input type="checkbox" name="dienstag" onchange="mindestens_ein_tag()" required/><label>Dienstag</label><br />
+<input type="checkbox" name="freitag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Freitag</label><br />
+<input type="checkbox" name="samstag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Samstag</label><br />
+<input type="checkbox" name="sonntag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Sonntag</label><br />
+<input type="checkbox" name="montag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Pfingstmontag</label><br />
+<input type="checkbox" name="dienstag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Dienstag</label><br />
+<script>
+	mindestens_ein_tag();
+</script>
 <br />
 <p><strong>Wie viel wirst du für Verpflegung und Unterkunft voraussichtlich selbst bezahlen können (weiteres dazu unter <a title="Kosten" onclick="loadPage('kosten')" class="jsLink">Kosten</a><noscript><a title="Kosten" href="?p=kosten">Kosten</a></noscript>)?*</strong></p>
 <input type="number" min="0" name="geld" placeholder="65" style="width: 60px; text-align: right;" required /> €<br />

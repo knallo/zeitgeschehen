@@ -1,19 +1,6 @@
 USE db_291951_2;
 
---drop old data
-DROP TABLE allgemein;
-DROP TABLE workshops_zeit;
-DROP TABLE workshops;
-DROP TABLE autos;
-DROP TABLE freitag;
-DROP TABLE samstag;
-DROP TABLE sonntag;
-DROP TABLE montag;
-DROP TABLE dienstag;
-DROP TABLE intern;
-DROP TABLE teilnehmer;
-
---create new tables
+-- table creation
 CREATE TABLE allgemein (
 	anfangsdatum DATE NOT NULL,
 	enddatum DATE NOT NULL,
@@ -145,66 +132,4 @@ CREATE TABLE intern (
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT
-);
-
---insert test data
-USE db_zeitgeschehen;
-
-INSERT INTO allgemein VALUES (
-	'2019-06-07',
-	'2019-06-11',
-	'2019-06-07 16:00',
-	'2019-06-11 12:00',
-	60,
-	70
-);
-
-INSERT INTO workshops_zeit VALUES (
-	'2019-06-08 11:00',
-	'2019-06-08 14:00',
-	'2019-06-08 17:00',
-	'2019-06-08 20:00',
-	'2019-06-09 11:00',
-	'2019-06-09 14:00',
-	'2019-06-09 17:00',
-	'2019-06-09 20:00',
-	'2019-06-10 11:00',
-	'2019-06-10 14:00',
-	'2019-06-10 17:00',
-	'2019-06-10 20:00'
-);
-
-INSERT INTO workshops VALUES (
-	"TBA",
-	"TBA",
-	"Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"TBA1",
-	True,
-	False
-);
-
-INSERT INTO workshops (titel, einfuehrungstext, kuerzel, ist_erste_schiene, ist_zweite_schiene) VALUES (
-	"TBA",
-  "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"TBA2",
-	True,
-	False
-);
-
-INSERT INTO workshops VALUES (
-	"TBA",
-  "TBA",
-  "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"TBA3",
-	False,
-	True
-);
-
-INSERT INTO workshops VALUES (
-	"TBA",
-  "TBA",
-  "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"TBA4",
-	False,
-	True
 );

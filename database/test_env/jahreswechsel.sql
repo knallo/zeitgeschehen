@@ -1,4 +1,4 @@
-USE db_291951_2;
+USE db_zeitgeschehen;
 
 --drop old data
 DROP TABLE allgemein;

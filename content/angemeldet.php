@@ -38,11 +38,9 @@
 	$stmt = mysqli_prepare($conn, "INSERT INTO teilnehmer (name, geld, essenswuensche, ueber_25, fahrerlaubnis, mailadresse, herkunftsort, marketing, sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	mysqli_stmt_bind_param($stmt, "ssiiissss", $parameter["name"], $parameter["geld"], $parameter["essenswuensche"], $parameter["ueber_25"], $parameter["fahrerlaubnis"], $parameter["mailadresse"], $parameter["herkunftsort"], $parameter["marketing"], $parameter["sonstiges"]);
 	$stmt->execute();
-	echo $stmt->error;
 
 	//ermittle id für spätere inserts
 	$teilnehmer_id = intval($conn->insert_id);
-	echo $teilnehmer_id;
 
 	//insert für verschiedene tage
 	$tage = array("freitag", "samstag", "sonntag", "montag", "dienstag");
@@ -53,8 +51,18 @@
 		$stmt->execute();
 	}
 
+	function check_checkbox($teilnehmer_id, $tag) {
+		if (isset($_POST[$tag]) && $_POST[$tag] == "Ja") {
+			return True;
+		} else {
+			return False;
+		}
+	}
+
 	foreach ($tage as &$tag) {
-		insert_into_tag($teilnehmer_id, $tag, $conn);
+		if (check_checkbox($teilnehmer_id, $tag)) {
+			insert_into_tag($teilnehmer_id, $tag, $conn);
+		}
 	}
 
 	//insert into auto
