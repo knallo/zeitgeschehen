@@ -175,36 +175,36 @@ INSERT INTO workshops_zeit VALUES (
 );
 
 INSERT INTO workshops VALUES (
-	"Erster Beispielworkshop",
-	"Beispieluntertitel",
+	"TBA",
+	"TBA",
 	"Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"EBW",
+	"TBA1",
 	True,
 	False
 );
 
 INSERT INTO workshops (titel, einfuehrungstext, kuerzel, ist_erste_schiene, ist_zweite_schiene) VALUES (
-	"Zweiter Beispielworkshop",
+	"TBA",
   "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"ZBW",
+	"TBA2",
 	True,
 	False
 );
 
 INSERT INTO workshops VALUES (
-	"Dritter Beispielworkshop",
-  "Beispieluntertitel",
+	"TBA",
+  "TBA",
   "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"ANGST",
+	"TBA3",
 	False,
 	True
 );
 
 INSERT INTO workshops VALUES (
-	"Vierter Beispielworkshop",
-  "Beispieluntertitel",
+	"TBA",
+  "TBA",
   "Das komische Zeichen am Ende dieses Satzes macht einen Zeilenumbruch.<br/> Will man etwas fett machen geht das so <b>fett</b>. Damit etwas kursiv ist greift man zu <em>kursiv</em>.",
-	"DITTO",
+	"TBA4",
 	False,
 	True
 );
