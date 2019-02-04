@@ -10,7 +10,7 @@
 <body>
 	<main>
 		<article class="anmeldungen">
-			<a href="index.php" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
+			<a href="../index.php" style="font-size: 0.8em"><- Zurück zur öffentlichen Seite</a>
 			<iframe style="display:none;" name="target"></iframe>
 			<h1>Datenbank</h1>
 			<p>Hier können allgemeine Daten zum Camp sowie Daten zum Teilnehmern und Workshops eingesehen und verändert werden.</p>
@@ -29,7 +29,7 @@
 
 					$resultat = $conn->query("SELECT titel, kuerzel FROM workshops");
 					$link_format = "<td><a href='workshop.php?kuerzel=%s'>%s</a></td>";
-					$loesch_format = "<td><a href='loesche_workshop.php?kuerzel=%s' target='_BLANK'>x</a></td>";
+					$loesch_format = "<td><a href='loesche_workshop.php?kuerzel=%s' target='target'>x</a></td>";
 
 					while ($reihe = $resultat->fetch_assoc()) {
 						echo "<tr>";

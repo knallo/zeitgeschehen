@@ -38,7 +38,7 @@
         print_integer("Kosten Untere Schranke", "kosten_untere_schranke", $daten["kosten_untere_schranke"]);
         print_integer("Kosen Obere Schranke", "kosten_obere_schranke", $daten["kosten_obere_schranke"]);
 			?>
-      <input type="submit" value="Schreibe neue Campdaten" target="_BLANK">
+      <input type="submit" value="Schreibe neue Campdaten" target="target">
     </form>
 		</article>
 	</main>

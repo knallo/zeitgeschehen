@@ -1,4 +1,4 @@
 AuthName "Datenbank"
-AuthUserFile ../.htpasswd
+AuthUserFile .htpasswd
 AuthType Basic
 Require valid-user
