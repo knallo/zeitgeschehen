@@ -36,7 +36,7 @@
 
 	//der tatsächliche insert
 	$stmt = mysqli_prepare($conn, "INSERT INTO teilnehmer (name, geld, essenswuensche, ueber_25, fahrerlaubnis, mailadresse, herkunftsort, marketing, sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	mysqli_stmt_bind_param($stmt, "ssiiissss", $parameter["name"], $parameter["geld"], $parameter["essenswuensche"], $parameter["ueber_25"], $parameter["fahrerlaubnis"], $parameter["mailadresse"], $parameter["herkunftsort"], $parameter["marketing"], $parameter["sonstiges"]);
+	mysqli_stmt_bind_param($stmt, "sssiissss", $parameter["name"], $parameter["geld"], $parameter["essenswuensche"], $parameter["ueber_25"], $parameter["fahrerlaubnis"], $parameter["mailadresse"], $parameter["herkunftsort"], $parameter["marketing"], $parameter["sonstiges"]);
 	$stmt->execute();
 
 	//ermittle id für spätere inserts
