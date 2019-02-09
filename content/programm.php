@@ -47,7 +47,7 @@
 				foreach ($workshops_zweite_schiene as &$workshop) {
 					echo "<td>";
 					echo "<h3 class='obertitel'>" . $workshop[0] . "</h3>";
-					if (!$workshop[1]) {
+					if ($workshop[1] != "") {
 						echo "<h4 class='untertitel'>" . $workshop[1] . "</h4>";
 					}
 					echo "<p>" . $zeittext_zweite_schiene . "</p>";
