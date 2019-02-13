@@ -2,7 +2,7 @@
   include('../mysql/connect.php');
 
   $wochentage = array("Pfingstmontag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
-  $hauszeiten = $conn->query("SELECT haus_oeffnungsdatum, haus_schliessdatum FROM allgemein")->fetch_assoc();
+  $hauszeiten = $conn->query("SELECT haus_oeffnungszeit, haus_schliesszeit FROM allgemein")->fetch_assoc();
   $workshopzeiten = $conn->query("SELECT * FROM workshops_zeit")->fetch_assoc();
 
   //workshops
@@ -31,18 +31,18 @@
 
   $ics = "";
 
-  $ics = $ics . sprintf($intro_string, date('y', strtotime($hauszeiten["haus_oeffnungsdatum"])));
+  $ics = $ics . sprintf($intro_string, date('y', strtotime($hauszeiten["haus_oeffnungszeit"])));
 
   $ics = $ics . $timezone_string;
 
   $ics = $ics . sprintf($whole_event_string,
     date("Ymd\THis", $now),
-    date("Ymd", strtotime($hauszeiten["haus_oeffnungsdatum"])),
-    date("Ymd", strtotime($hauszeiten["haus_schliessdatum"])),
-    date("y", strtotime($hauszeiten["haus_oeffnungsdatum"])),
-    date("y", strtotime($hauszeiten["haus_oeffnungsdatum"])),
-    $wochentage[date('N', strtotime($hauszeiten["haus_oeffnungsdatum"])) - 1],
-    date("H", strtotime($hauszeiten["haus_oeffnungsdatum"]))
+    date("Ymd", strtotime($hauszeiten["haus_oeffnungszeit"])),
+    date("Ymd", strtotime($hauszeiten["haus_schliesszeit"])),
+    date("y", strtotime($hauszeiten["haus_oeffnungszeit"])),
+    date("y", strtotime($hauszeiten["haus_oeffnungszeit"])),
+    $wochentage[date('N', strtotime($hauszeiten["haus_oeffnungszeit"])) - 1],
+    date("H", strtotime($hauszeiten["haus_oeffnungszeit"]))
   );
 
   //erste schiene
