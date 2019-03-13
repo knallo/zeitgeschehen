@@ -12,8 +12,7 @@
 		<article class="anmeldungen">
 			<a href="../datenbank/index.php" style="font-size: 0.8em"><- Zurück zur Übersichtsseite</a>
 			<h1>Neuer Workshp</h1>
-			<iframe style="display:none;" name="target"></iframe>
-    	<form action="./schreibe_neuen_workshop.php" method="post" target="target">
+    	<form action="./schreibe_neuen_workshop.php" method="post">
 				<label>Kürzel (max 10 Buchstaben)</label><input type='text' maxlength='10' name='kuerzel' required />
 				<label>Titel</label><input type='text' name='titel' required />
 				<label>Untertitel</label><input type='text' name='untertitel' />

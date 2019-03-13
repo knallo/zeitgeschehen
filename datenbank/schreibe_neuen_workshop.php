@@ -1,6 +1,8 @@
 <?php
 	include("../mysql/connect.php");
 
+	header("Location: ../datenbank/index.php");
+
 	$kuerzel = $_POST["kuerzel"];
 	$titel = $_POST["titel"];
 	$untertitel = (!empty($_POST["untertitel"]) ? $_POST["untertitel"] : NULL);

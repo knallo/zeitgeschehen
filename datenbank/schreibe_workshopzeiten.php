@@ -1,6 +1,8 @@
 <?php
 	include("../mysql/connect.php");
 
+	header("Location: ../datenbank/index.php");
+
 	$schluessel = array("erste_schiene_anfang", "erste_schiene_erstes_zwischenende", "erste_schiene_erster_zwischenanfang", "erste_schiene_zweites_zwischenende", "erste_schiene_zweiter_zwischenanfang", "erste_schiene_ende", "zweite_schiene_anfang", "zweite_schiene_erstes_zwischenende", "zweite_schiene_erster_zwischenanfang", "zweite_schiene_zweites_zwischenende", "zweite_schiene_zweiter_zwischenanfang", "zweite_schiene_ende");
 	$zeiten = array();
 

@@ -13,8 +13,7 @@
 			<a href="../datenbank/index.php" style="font-size: 0.8em"><- Zurück zur Übersichtsseite</a>
 			<h1>Workshopzeiten</h1>
 			<p>Anfangs und Enddaten der Slots</p>
-			<iframe style="display:none;" name="target"></iframe>
-    <form action="./schreibe_workshopzeiten.php" method="post" target="target">
+    <form action="./schreibe_workshopzeiten.php" method="post">
 			<?php
 				include("../mysql/connect.php");
 

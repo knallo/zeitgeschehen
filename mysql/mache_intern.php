@@ -1,6 +1,8 @@
 <?php
   include("./connect.php");
 
+  header("Location: ../datenbank/teilnehmer.php");
+
   $ids = array_map('intval', explode(',', $_POST["intern_id"]));
   $id = 0;
   $stmt = mysqli_prepare($conn, "INSERT INTO intern VALUES (?)");

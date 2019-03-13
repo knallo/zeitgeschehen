@@ -23,8 +23,7 @@
 		<article class="anmeldungen">
 			<a href="../datenbank/index.php" style="font-size: 0.8em"><- Zurück zur Übersichtsseite</a>
 			<h1><?php echo $workshop["titel"]; ?></h1>
-			<iframe style="display:none;" name="target"></iframe>
-    	<form action="./schreibe_workshop.php?kuerzel=<?php echo $kuerzel;?>" method="post" target="target">
+    	<form action="./schreibe_workshop.php?kuerzel=<?php echo $kuerzel;?>" method="post">
 			<?php
 				echo "<label>Kürzel (max 10 Buchstaben)</label><input type='text' maxlength='10' name='kuerzel' value='" . $workshop["kuerzel"] . "' required />";
 				echo "<label>Titel</label><input type='text' name='titel' value='" . $workshop["titel"] . "' required />";

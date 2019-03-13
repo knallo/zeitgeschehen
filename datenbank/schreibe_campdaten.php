@@ -1,6 +1,8 @@
 <?php
 	include("../mysql/connect.php");
 
+	header("Location: ../datenbank/index.php");
+
   $anfangsdatum = date("Y-m-d", strtotime($_POST["anfangsdatum"]));
   $enddatum = date("Y-m-d", strtotime($_POST["enddatum"]));
   $haus_oeffnungszeit = date("Y-m-d H:i:s", strtotime($_POST["haus_oeffnungszeit"]));

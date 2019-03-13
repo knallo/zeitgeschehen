@@ -13,8 +13,7 @@
 			<a href="../datenbank/index.php" style="font-size: 0.8em"><- Zurück zur Übersichtsseite</a>
 			<h1>Campdaten</h1>
 			<p>Allgemeine Campdaten - Zeiten, Kosten etc.</p>
-			<iframe style="display:none;" name="target"></iframe>
-    <form action="./schreibe_campdaten.php" method="post" target="target">
+    <form action="./schreibe_campdaten.php" method="post">
 			<?php
 				include("../mysql/connect.php");
 

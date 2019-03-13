@@ -1,6 +1,8 @@
 <?php
 	include("../mysql/connect.php");
 
+	header("Location: ../datenbank/index.php");
+
 	$altes_kuerzel = $_GET["kuerzel"];
 
 	//der tatsächliche insert
