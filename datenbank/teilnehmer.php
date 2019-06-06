@@ -192,9 +192,10 @@
 				$spalten = array("id" => "ID", "name" => "Name", "tage" => "Tage", "geld" => "Geld", "essenswuensche" => "Essen", "mailadresse" => "Mail", "herkunftsort" => "Ort");
 				erstelle_tabelle($spalten, $daten);
 
-				$intern_format = "<p>Davon sind mindestens %s interne Leute,</p>";
-				$resultat = $conn->query("SELECT COUNT(*) FROM teilnehmer JOIN intern ON teilnehmer.id = intern.teilnehmer_id")->fetch_assoc()["COUNT(*)"];
-				echo sprintf($intern_format, $resultat);
+				$anzahl_format = "<p>Insgesamt gibt es %s Teilnehmer. Davon sind mindestens %s interne Leute.</p>";
+				$teilnehmer = $conn->query("SELECT COUNT(*) FROM teilnehmer")->fetch_assoc()["COUNT(*)"];
+				$intern = $conn->query("SELECT COUNT(*) FROM teilnehmer JOIN intern ON teilnehmer.id = intern.teilnehmer_id")->fetch_assoc()["COUNT(*)"];
+				echo sprintf($anzahl_format, $teilnehmer, $intern);
 			?>
 
 			<h3>Löschformular</h3>
