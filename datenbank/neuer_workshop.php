@@ -17,8 +17,8 @@
 				<label>Titel</label><input type='text' name='titel' required />
 				<label>Untertitel</label><input type='text' name='untertitel' />
 				<label>Einführungstext</label><textarea name='einfuehrungstext' rows=5 required ></textarea>
-				<input type='radio' name='schiene' value='1' id='ist_erste_schiene' checked required /><label>Ist in der ersten Schiene.</label><br />
-				<input type='radio' name='schiene' value='2' id='ist_zweite_schiene' required /><label>Ist in der zweiten Schiene.</label>
+				<input type='checkbox' name="erste_schiene" id='ist_erste_schiene' required /><label>Ist in der ersten Schiene.</label><br />
+				<input type='checkbox' name="zweite_schiene" id='ist_zweite_schiene' required /><label>Ist in der zweiten Schiene.</label>
       <input type="submit" value="Schreibe neuen Workshop">
     </form>
 		</article>

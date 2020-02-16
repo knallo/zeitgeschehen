@@ -7,11 +7,12 @@
 	$titel = $_POST["titel"];
 	$untertitel = (!empty($_POST["untertitel"]) ? $_POST["untertitel"] : NULL);
 	$einfuehrungstext = $_POST["einfuehrungstext"];
-	if ($_POST["schiene"] == "1") {
+	$ist_erste_schiene = False;
+	$ist_zweite_schiene = False;
+	if ($_POST["erste_schiene"] == "on") {
 		$ist_erste_schiene = True;
-		$ist_zweite_schiene = False;
-	} else {
-		$ist_erste_schiene = False;
+	}
+       	if ($_POST["zweite_schiene"] == "on" {
 		$ist_zweite_schiene = True;
 	}
 

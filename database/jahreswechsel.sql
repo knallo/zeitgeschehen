@@ -5,11 +5,10 @@ DROP TABLE allgemein;
 DROP TABLE workshops_zeit;
 DROP TABLE workshops;
 DROP TABLE autos;
+DROP TABLE donnerstag;
 DROP TABLE freitag;
 DROP TABLE samstag;
 DROP TABLE sonntag;
-DROP TABLE montag;
-DROP TABLE dienstag;
 DROP TABLE intern;
 DROP TABLE teilnehmer;
 
@@ -93,6 +92,15 @@ CREATE TABLE autos (
 	ON UPDATE RESTRICT
 );
 
+CREATE TABLE donnerstag (
+        teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
+
+        CONSTRAINT fk_teilnehmer_id_freitag
+        FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
+);
+
 CREATE TABLE freitag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
@@ -115,24 +123,6 @@ CREATE TABLE sonntag (
 	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
 
 	CONSTRAINT fk_teilnehmer_id_sonntag
-	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
-	ON DELETE CASCADE
-	ON UPDATE RESTRICT
-);
-
-CREATE TABLE montag (
-	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
-
-	CONSTRAINT fk_teilnehmer_id_montag
-	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
-	ON DELETE CASCADE
-	ON UPDATE RESTRICT
-);
-
-CREATE TABLE dienstag (
-	teilnehmer_id INT UNSIGNED NOT NULL UNIQUE,
-
-	CONSTRAINT fk_teilnehmer_id_dienstag
 	FOREIGN KEY (teilnehmer_id) REFERENCES teilnehmer (id)
 	ON DELETE CASCADE
 	ON UPDATE RESTRICT

@@ -9,12 +9,11 @@
 <input type="text" name="herkunftsort" placeholder="Bremen" />
 <br />
 <p><strong>An welchen Tagen kommst du?*</strong></p>
-<p>(1. Workshopschiene: Samstag bis Sonntag Vormittag, 2. Workshopschiene: Sonntag Nachmittag bis Pfingstmontag)</p>
+<p>(1. Workshopschiene: Freitag bis Samstag Vormittag, 2. Workshopschiene: Samstag Nachmittag bis Sonntag)</p>
+<input type="checkbox" name="donnerstag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Donnerstag</label><br />
 <input type="checkbox" name="freitag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Freitag</label><br />
 <input type="checkbox" name="samstag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Samstag</label><br />
 <input type="checkbox" name="sonntag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Sonntag</label><br />
-<input type="checkbox" name="montag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Pfingstmontag</label><br />
-<input type="checkbox" name="dienstag" onchange="mindestens_ein_tag()" value="Ja" required/><label>Dienstag</label><br />
 <script>
 	mindestens_ein_tag();
 </script>

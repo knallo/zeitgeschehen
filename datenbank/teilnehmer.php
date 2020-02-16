@@ -183,7 +183,7 @@
 			<h2>Teilnehmerdaten</h2>
 			<p>Alle generellen Teilnehmerdaten. Kein Eintrag bei Ort bedeutet in der Regel Bremen.</p>
 			<?php
-				$wochentage = array("freitag", "samstag", "sonntag", "montag", "dienstag");
+				$wochentage = array("donnerstag", "freitag", "samstag", "sonntag");
 				$resultat = $conn->query("SELECT id, name, geld, essenswuensche, mailadresse, herkunftsort FROM teilnehmer");
 				$daten = resultat_zu_array($resultat);
 
