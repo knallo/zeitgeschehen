@@ -43,7 +43,7 @@
 	$teilnehmer_id = intval($conn->insert_id);
 
 	//insert für verschiedene tage
-	$tage = array("freitag", "samstag", "sonntag", "montag", "dienstag");
+	$tage = array("donnerstag", "freitag", "samstag", "sonntag");
 
 	function insert_into_tag($teilnehmer_id, $tag, $conn) {
 		$stmt = mysqli_prepare($conn, "INSERT INTO " . $tag . " VALUES (?)");
