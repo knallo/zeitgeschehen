@@ -1,6 +1,7 @@
 USE db_291951_2;
 
---drop old data
+-- drop old data
+
 DROP TABLE allgemein;
 DROP TABLE workshops_zeit;
 DROP TABLE workshops;
@@ -12,7 +13,8 @@ DROP TABLE sonntag;
 DROP TABLE intern;
 DROP TABLE teilnehmer;
 
---create new tables
+-- create new tables
+
 CREATE TABLE allgemein (
 	anfangsdatum DATE NOT NULL,
 	enddatum DATE NOT NULL,
@@ -137,7 +139,8 @@ CREATE TABLE intern (
 	ON UPDATE RESTRICT
 );
 
---insert test data
+-- insert test data
+
 USE db_zeitgeschehen;
 
 INSERT INTO allgemein VALUES (
