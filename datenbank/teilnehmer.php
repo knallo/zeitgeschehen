@@ -224,11 +224,10 @@
 
 			<?php
 				$nicht_woerter = array("nein", "keine", "nö", "egal", "-");
+				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "donnerstag", $nicht_woerter);
 				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "freitag", $nicht_woerter);
 				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "samstag", $nicht_woerter);
 				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "sonntag", $nicht_woerter);
-				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "montag", $nicht_woerter);
-				echo erstelle_tagesdaten($conn, $tag_format, $sonstige_format, "dienstag", $nicht_woerter);
 			?>
 
 			<h2>Autos</h2>
